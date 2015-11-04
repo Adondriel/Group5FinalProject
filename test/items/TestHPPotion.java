@@ -4,11 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TestHPPotion {
+public class TestHPPotion 
+{
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void test() 
+	{
+		//
 	}
-
 }
