@@ -1,6 +1,6 @@
 package statusEffects;
 
-public class StatusEffect 
+public abstract class StatusEffect 
 {
 
 }
