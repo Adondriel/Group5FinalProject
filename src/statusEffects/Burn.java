@@ -1,5 +1,11 @@
 package statusEffects;
 
-public class Burn {
+import pokemon.Pokemon;
 
+public class Burn extends StatusEffect
+{
+	public Burn(Pokemon p)
+	{
+		super(p);
+	}
 }

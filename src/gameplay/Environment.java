@@ -1,10 +1,17 @@
 package gameplay;
+/**
+ * Provides a battleField for a Player and Computer's Pokemon to do battle in.
+ * Author: Jason LoBianco
+ */
+import pokemon.Pokemon;
 
 public class Environment 
 {
 	private Player player;
 	private Computer computer;
-	private Environment battleField;
+	private static Environment battleField;
+	private Pokemon playerCurrentPokemon;
+	private Pokemon computerCurrentPokemon;
 	
 	/**
 	 * Creates a battleField for the Player's and Computer's Pokemon to do battle.
@@ -21,7 +28,7 @@ public class Environment
 	 * Will create OR return the Environment for the Pokemon. 
 	 * @return the battleField for the Pokemon to battle in.
 	 */
-	public Environment getEnvironment(Player p, Computer c)
+	public static Environment getEnvironment(Player p, Computer c)
 	{
 		if (battleField == null)
 		{
@@ -34,5 +41,57 @@ public class Environment
 			}
 		}
 		return battleField;	
+	}
+	
+	/**
+	 * Adds the Player's Pokemon into the battlefield.
+	 * @param p The Player's Pokemon to be added.
+	 * @param i The position of the Pokemon in the Player's Pokedex.
+	 */
+	public void addPlayerPokemon(Pokemon p, int i)
+	{
+		playerCurrentPokemon = player.getPokemon(i);
+	}
+	
+	/**
+	 * Removes the Player's Pokemon from the battlefield.
+	 */
+	public void removePlayerPokemon()
+	{
+		playerCurrentPokemon = null;
+	}
+	
+	/**
+	 * Adds the Computer's Pokemon into the battlefield.
+	 * @param p The Computer's Pokemon to be added.
+	 * @param i The position of the Pokemon in the Computer's Pokedex.
+	 */
+	public void addComputerPokemon(Pokemon p, int i)
+	{
+		computerCurrentPokemon = computer.getPokemon(i);
+	}
+	
+	/**
+	 * Removes the COmputer's Pokemon from the battlefield.
+	 */
+	public void removeComputerPokemon()
+	{
+		computerCurrentPokemon = null;
+	}
+	
+	/**
+	 * @return The Player's current Pokemon.
+	 */
+	public Pokemon getCurrentPlayerPokemon()
+	{
+		return playerCurrentPokemon;
+	}
+	
+	/**
+	 * @return The Computer's current Pokemon.
+	 */
+	public Pokemon getCurrentComputerPokemon()
+	{
+		return computerCurrentPokemon;
 	}
 }

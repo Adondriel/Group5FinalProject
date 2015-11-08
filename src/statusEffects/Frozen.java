@@ -1,5 +1,12 @@
 package statusEffects;
 
-public class Frozen {
+import pokemon.Pokemon;
 
+public class Frozen extends StatusEffect
+{
+
+	public Frozen(Pokemon p) 
+	{
+		super(p);
+	}
 }
