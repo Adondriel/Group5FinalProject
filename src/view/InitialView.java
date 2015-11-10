@@ -250,7 +250,7 @@ public class InitialView extends View implements Observer {
 				pokemonList.add(new Charmander());
 			}
 			if (selectedButtonList.get(i) == jToggleButton6) {
-				pokemonList.add(new Charmelion());
+				pokemonList.add(new Charmeleon());
 			}
 			if (selectedButtonList.get(i) == jToggleButton7) {
 				pokemonList.add(new Charizard());
