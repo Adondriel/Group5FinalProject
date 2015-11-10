@@ -9,15 +9,19 @@ import model.Observer;
 public class Display implements Observer {
 	JFrame frame = new JFrame();
 	JPanel iv;
+	Model myModel;
+	
 	public static Display globalDisplay;
 	
 	public static void main(String args[]){
 		Model m = new Model();
 		globalDisplay = new Display(m);
+		globalDisplay.changeView(new BattleView(m));
 	}
 	
 	public Display(Model m){
 		 iv = new InitialView(m);
+		 myModel=m;
 		 
 		 frame.add(iv);
 		 frame.pack();
@@ -31,11 +35,10 @@ public class Display implements Observer {
 	}
 	
 	public void changeView(View v){
-		frame.dispose();
+		frame.getContentPane().removeAll();
 		frame.add(v);
 		
 		frame.pack();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
 }
