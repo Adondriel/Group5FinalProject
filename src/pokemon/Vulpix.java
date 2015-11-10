@@ -1,6 +1,6 @@
 package pokemon;
 
-public class Vulpix
+public class Vulpix extends Pokemon
 {
 
 }

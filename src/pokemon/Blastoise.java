@@ -1,6 +1,6 @@
 package pokemon;
 
-public class Blastoise
+public class Blastoise extends Pokemon
 {
 
 }

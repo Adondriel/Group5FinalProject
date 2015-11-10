@@ -1,6 +1,6 @@
 package pokemon;
 
-public class Charmelion
+public class Charmelion extends Pokemon
 {
 
 }

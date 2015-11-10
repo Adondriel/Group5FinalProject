@@ -1,6 +1,6 @@
 package pokemon;
 
-public class Wartortle
+public class Wartortle extends Pokemon
 {
 
 }

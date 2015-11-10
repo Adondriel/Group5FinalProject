@@ -1,6 +1,6 @@
 package pokemon;
 
-public class Poliwag
+public class Poliwag extends Pokemon
 {
 
 }

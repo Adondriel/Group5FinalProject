@@ -4,7 +4,7 @@ package pokemon;
  * @author Benjamin Uleau
  *
  */
-public class Venusaur
+public class Venusaur extends Pokemon
 {
 
 }

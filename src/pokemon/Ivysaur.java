@@ -4,7 +4,7 @@ package pokemon;
  * @author Benjamin Uleau
  *
  */
-public class Ivysaur
+public class Ivysaur extends Pokemon
 {
 
 }

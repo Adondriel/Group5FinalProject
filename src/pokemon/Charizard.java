@@ -1,6 +1,6 @@
 package pokemon;
 
-public class Charizard
+public class Charizard extends Pokemon
 {
 
 }

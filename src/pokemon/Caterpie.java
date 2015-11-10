@@ -4,7 +4,7 @@ package pokemon;
  * @author Benjamin Uleau
  *
  */
-public class Caterpie
+public class Caterpie extends Pokemon
 {
 
 }

@@ -1,16 +1,23 @@
 package controller;
 
+import java.util.ArrayList;
+
 import model.Model;
+import pokemon.Pokemon;
 
 public class SelectThreePokemonController implements Controller {
 	Model myModel;
-	public SelectThreePokemonController(Model m){
+	ArrayList<Pokemon> pokemonList;
+	public SelectThreePokemonController(Model m, ArrayList<Pokemon> pokemonList){
 		myModel = m;
+		this.pokemonList = pokemonList;
 	}
+	
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		
+		for (Pokemon p : pokemonList){
+			System.out.println(p.getClass());
+		}		
+		System.out.println("");
 	}
-
 }
