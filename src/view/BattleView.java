@@ -48,7 +48,7 @@ public class BattleView extends View implements Observer{
 
 	        jButton4.setText("Swap");
 
-	        playerPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("bulbasaur200px.png")));
+	        playerPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/bulbasaur200.png")));
 	        playerPokemonIcon.setText("Pokemon");
 	        playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
 
@@ -58,7 +58,7 @@ public class BattleView extends View implements Observer{
 
 	        enemyNameLabel.setText("Name");
 
-	        enemyPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("bulbasaur200px.png")));
+	        enemyPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/bulbasaur200.png")));
 	        enemyPokemonIcon.setText("Pokemon");
 	        enemyPokemonIcon.setMaximumSize(new java.awt.Dimension(200, 200));
 	        enemyPokemonIcon.setMinimumSize(new java.awt.Dimension(200, 200));
