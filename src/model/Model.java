@@ -7,6 +7,7 @@ import gameplay.Player;
 
 public class Model implements Subject{
 	Player player;
+
 	Environment e;
 	ArrayList<Observer> observers = new ArrayList<Observer>();
 
@@ -23,4 +24,13 @@ public class Model implements Subject{
 		for (Observer o : observers){
 			o.update();
 		}
-	}}
+	}
+	
+	private Player getPlayer() {
+		return player;
+	}
+}
+	
+	
+	
+	

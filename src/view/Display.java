@@ -31,7 +31,7 @@ public class Display implements Observer {
 	
 	@Override
 	public void update() {
-		//do nothing?
+		//do nothing at this time.
 	}
 	
 	public void changeView(View v){

@@ -1,10 +1,12 @@
 package view;
 
+import controller.Controller;
 import model.Model;
 import model.Observer;
 
 public class BattleView extends View implements Observer{
-
+	private Model myModel;
+	private Controller myController;
 	public BattleView(Model m){
 		myModel=m;
 		myController = null;
@@ -47,7 +49,7 @@ public class BattleView extends View implements Observer{
 	        });
 
 	        jButton4.setText("Swap");
-
+	        //if (myModel.getPlayer().blahblah)
 	        playerPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/bulbasaur200.png")));
 	        playerPokemonIcon.setText("Pokemon");
 	        playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));

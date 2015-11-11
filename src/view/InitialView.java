@@ -3,15 +3,12 @@ package view;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 
 import controller.Controller;
 import controller.SelectThreePokemonController;
 import model.Model;
 import model.Observer;
-import net.java.dev.designgridlayout.DesignGridLayout;
 import pokemon.Bulbasaur;
 import pokemon.*;
 import pokemon.Pokemon;
