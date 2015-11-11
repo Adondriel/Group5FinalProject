@@ -49,7 +49,7 @@ public class BattleView extends View implements Observer{
 	        });
 
 	        jButton4.setText("Swap");
-	        //if (myModel.getPlayer().blahblah)
+	        //if (myModel.getPlayer().getSelectedPokemon() instanceof Bulbasaur){get the correct icon.}
 	        playerPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/bulbasaur200.png")));
 	        playerPokemonIcon.setText("Pokemon");
 	        playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
