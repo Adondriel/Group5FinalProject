@@ -25,5 +25,9 @@ public class Player
 	public void setSelectedPokemon(Pokemon pokemon) {
 		selectedPokemon = pokemon;
 	}
+	
+	public void setPokedex(Pokemon[] pokeList){
+		
+	}
 
 }
