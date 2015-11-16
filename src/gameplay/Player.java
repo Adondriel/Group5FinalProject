@@ -12,6 +12,10 @@ public class Player
 	 * @param i the position in the pokedex.
 	 * @return The selected Pokemon from the pokedex.
 	 */
+	public Player(Pokemon[] pokeList, Pokemon selectedPokemon){
+		pokedex = pokeList;
+		this.selectedPokemon = selectedPokemon;
+	}
 	public Pokemon getPokemon(int i) 
 	{
 		return pokedex[i];
