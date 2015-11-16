@@ -14,7 +14,7 @@ class MockPokemon
 public class TestEnvironment 
 {
 	
-	private Player p = new Player();
+	private Player p;
 	private Computer c = new Computer();
 	private Environment battlefield = Environment.getEnvironment(p, c);
 
