@@ -19,5 +19,7 @@ public class SelectThreePokemonController implements Controller {
 			System.out.println(p.getClass());
 		}		
 		System.out.println("");
+		myModel.getPlayer().setSelectedPokemon(pokemonList.get(0));
+		//myModel.getPlayer().setPokedex());
 	}
 }

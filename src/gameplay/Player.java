@@ -16,9 +16,14 @@ public class Player
 		pokedex = pokeList;
 		this.selectedPokemon = selectedPokemon;
 	}
+	
 	public Pokemon getPokemon(int i) 
 	{
 		return pokedex[i];
+	}
+
+	public void setSelectedPokemon(Pokemon pokemon) {
+		selectedPokemon = pokemon;
 	}
 
 }
