@@ -5,15 +5,18 @@ import pokemon.Pokemon;
 public class Poison extends StatusEffect
 {
 	private double damage;
+	private int currentHealth;
 
 	public Poison(Pokemon p) 
 	{
 		super(p);
+		p.poison = true;
 	}
 	
-	public double statusTick()
+	public int statusTick()
 	{
-		damage = p.getMaxHealth()*.1;
-		return damage;
+		damage = Math.ceil(pokemon.getMaxHealth()*.1);
+		currentHealth = (int) (pokemon.getCurrentHealth()-damage);
+		return currentHealth;
 	}
 }

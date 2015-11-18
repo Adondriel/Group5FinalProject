@@ -14,5 +14,22 @@ public class Blastoise extends Pokemon
 	String name="Blastoise";
 	boolean burn=false;
 	boolean freeze=false;
-	boolean poisonfalse;
+	boolean poison=false;
+	
+	public int getCurrentHealth(){
+		return currentHealth;
+	}
+	
+	public int getMaxHealth(){
+		return maxHealth;
+	}
+
+	public boolean getPoison() {
+		return poison;
+	}
+
+	@Override
+	public int statusTick() {
+		return currentHealth;
+	}
 }

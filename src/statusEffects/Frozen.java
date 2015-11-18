@@ -11,9 +11,9 @@ public class Frozen extends StatusEffect
 		super(p);
 	}
 	
-	public double statusTick()
+	public int statusTick()
 	{
 		damage = 0;
-		return damage;
+		return pokemon.getCurrentHealth();
 	}
 }

@@ -10,14 +10,14 @@ import attacks.*;
 public abstract class Pokemon 
 {
 	int damage;
-	int maxHealth;
-	int currentHealth;
+	public int maxHealth;
+	public int currentHealth;
 	int experience;
 	TypeBehavior type;
 	String name;
 	boolean burn;
 	boolean freeze;
-	boolean poison;
+	public boolean poison;
 	
 	/**
 	 * @param target
@@ -35,8 +35,8 @@ public abstract class Pokemon
 	/**
 	 * Tick status effects
 	 */
-	public void statusTick(){
-		
+	public int statusTick(){
+		return currentHealth;
 	}
 	
 	/**
