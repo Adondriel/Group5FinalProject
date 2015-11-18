@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import model.Model;
 import pokemon.Pokemon;
+import view.BattleView;
+import view.Display;
 
 public class SelectThreePokemonController implements Controller {
 	Model myModel;
@@ -19,5 +21,8 @@ public class SelectThreePokemonController implements Controller {
 			System.out.println(p.getClass());
 		}		
 		System.out.println("");
+		myModel.getPlayer().setSelectedPokemon(pokemonList.get(0));
+		//myModel.getPlayer().setPokedex());
+		Display.globalDisplay.changeView(new BattleView(myModel));
 	}
 }

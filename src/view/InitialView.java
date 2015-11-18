@@ -3,15 +3,14 @@ package view;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 
 import controller.Controller;
 import controller.SelectThreePokemonController;
 import model.Model;
 import model.Observer;
-import net.java.dev.designgridlayout.DesignGridLayout;
 import pokemon.Bulbasaur;
 import pokemon.*;
 import pokemon.Pokemon;
@@ -33,22 +32,22 @@ public class InitialView extends View implements Observer {
 
 	private void initComponents() {
 
-		jToggleButton1 = new javax.swing.JToggleButton();
-		jToggleButton2 = new javax.swing.JToggleButton();
-		jToggleButton3 = new javax.swing.JToggleButton();
-		jToggleButton4 = new javax.swing.JToggleButton();
-		jToggleButton5 = new javax.swing.JToggleButton();
-		jToggleButton6 = new javax.swing.JToggleButton();
-		jToggleButton7 = new javax.swing.JToggleButton();
-		jToggleButton8 = new javax.swing.JToggleButton();
-		jToggleButton10 = new javax.swing.JToggleButton();
-		jToggleButton11 = new javax.swing.JToggleButton();
-		jToggleButton12 = new javax.swing.JToggleButton();
-		CompleteButton = new javax.swing.JButton();
-		jLabel1 = new javax.swing.JLabel();
-		jLabel2 = new javax.swing.JLabel();
-		jLabel3 = new javax.swing.JLabel();
-		jToggleButton13 = new javax.swing.JToggleButton();
+		jToggleButton1 = new JToggleButton();
+		jToggleButton2 = new JToggleButton();
+		jToggleButton3 = new JToggleButton();
+		jToggleButton4 = new JToggleButton();
+		jToggleButton5 = new JToggleButton();
+		jToggleButton6 = new JToggleButton();
+		jToggleButton7 = new JToggleButton();
+		jToggleButton8 = new JToggleButton();
+		jToggleButton10 = new JToggleButton();
+		jToggleButton11 = new JToggleButton();
+		jToggleButton12 = new JToggleButton();
+		CompleteButton = new JButton();
+		jLabel1 = new JLabel();
+		jLabel2 = new JLabel();
+		jLabel3 = new JLabel();
+		jToggleButton13 = new JToggleButton();
 
 		jToggleButton1.setText("Bulbasaur");
 		jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -292,24 +291,23 @@ public class InitialView extends View implements Observer {
 			CompleteButton.setEnabled(false);
 		}
 	}
-
-	// Variables declaration - do not modify
-	private javax.swing.JButton CompleteButton;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JToggleButton jToggleButton1;
-	private javax.swing.JToggleButton jToggleButton10;
-	private javax.swing.JToggleButton jToggleButton11;
-	private javax.swing.JToggleButton jToggleButton12;
-	private javax.swing.JToggleButton jToggleButton13;
-	private javax.swing.JToggleButton jToggleButton2;
-	private javax.swing.JToggleButton jToggleButton3;
-	private javax.swing.JToggleButton jToggleButton4;
-	private javax.swing.JToggleButton jToggleButton5;
-	private javax.swing.JToggleButton jToggleButton6;
-	private javax.swing.JToggleButton jToggleButton7;
-	private javax.swing.JToggleButton jToggleButton8;
+	
+	private JButton CompleteButton;
+	private JLabel jLabel1;
+	private JLabel jLabel2;
+	private JLabel jLabel3;
+	private JToggleButton jToggleButton1;
+	private JToggleButton jToggleButton10;
+	private JToggleButton jToggleButton11;
+	private JToggleButton jToggleButton12;
+	private JToggleButton jToggleButton13;
+	private JToggleButton jToggleButton2;
+	private JToggleButton jToggleButton3;
+	private JToggleButton jToggleButton4;
+	private JToggleButton jToggleButton5;
+	private JToggleButton jToggleButton6;
+	private JToggleButton jToggleButton7;
+	private JToggleButton jToggleButton8;
 	// End of variables declaration
 
 }
