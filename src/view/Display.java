@@ -16,7 +16,7 @@ public class Display implements Observer {
 	public static void main(String args[]){
 		Model m = new Model();
 		globalDisplay = new Display(m);
-		globalDisplay.changeView(new BattleView(m));
+		//globalDisplay.changeView(new BattleView(m));
 	}
 	
 	public Display(Model m){

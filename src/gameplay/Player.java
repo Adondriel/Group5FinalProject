@@ -1,5 +1,6 @@
 package gameplay;
 
+import pokemon.Bulbasaur;
 import pokemon.Pokemon;
 
 public class Player 
@@ -28,6 +29,11 @@ public class Player
 	
 	public void setPokedex(Pokemon[] pokeList){
 		
+	}
+
+	public Pokemon getSelectedPokemon() {
+		// TODO Auto-generated method stub
+		return selectedPokemon;
 	}
 
 }
