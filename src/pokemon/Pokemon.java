@@ -35,10 +35,8 @@ public abstract class Pokemon
 	/**
 	 * Tick status effects
 	 */
-	public void statusTick(){
-		burnTick();
-		poisonTick();
-		freezeTick();
+	public void statusTick() {
+		
 	}
 	
 	/**
