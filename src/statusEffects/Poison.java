@@ -10,13 +10,13 @@ public class Poison extends StatusEffect
 	public Poison(Pokemon p) 
 	{
 		super(p);
-		p.poison = true;
+		//p.poison = true;
 	}
 	
 	public int statusTick()
 	{
-		damage = Math.ceil(pokemon.getMaxHealth()*.1);
-		currentHealth = (int) (pokemon.getCurrentHealth()-damage);
-		return currentHealth;
+		//damage = Math.ceil(pokemon.getMaxHealth()*.1);
+		//currentHealth = (int) (pokemon.getCurrentHealth()-damage);
+		return (int) (currentHealth - Math.ceil(pokemon.getMaxHealth()*.1));
 	}
 }

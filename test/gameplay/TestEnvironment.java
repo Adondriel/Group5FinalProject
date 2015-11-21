@@ -43,7 +43,7 @@ public class TestEnvironment
 	}
 
 	/**
-	 * Checks to see that a battlefield is initialized correctly.
+	 * Checks to see that all the Pokemon got set into the correct spots.
 	 */
 	@Test
 	public void testInitialization() 
@@ -54,5 +54,42 @@ public class TestEnvironment
 		assertEquals(bulbasaur, c.getPokemon(0));
 		assertEquals(charmander, c.getPokemon(1));
 		assertEquals(ivysaur, c.getPokemon(2));
+	}
+	
+	/**
+	 * Checks to see that a players Pokemon is set correctly.
+	 */
+	@Test
+	public void testSetPlayerPokemon()
+	{
+		battlefield.setPlayerPokemon(caterpie, 1);
+		assertEquals(caterpie, battlefield.getCurrentPlayerPokemon());
+	}
+	
+	/**
+	 * Checks to see that a player cannot have two Pokemon on the battlefield.
+	 */
+	@Test
+	public void testOnlyOnePlayerPokemon()
+	{
+		
+	}
+	
+	/**
+	 * Checks to see that a computers Pokemon is set correctly.
+	 */
+	@Test
+	public void testSetComputerPokemon()
+	{
+		
+	}
+	
+	/**
+	 * Checks to see that a computer cannot have two Pokemon on the battlefield.
+	 */
+	@Test
+	public void testOnlyOneComputerPokemon()
+	{
+		
 	}
 }

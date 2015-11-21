@@ -3,18 +3,21 @@ package statusEffects;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
-import pokemon.Blastoise;
+import pokemon.*;
 
 public class TestPoison {
 
 	@Test
 	public void test() 
 	{
-		Blastoise blastoise = new Blastoise();
-		Poison poison = new Poison(blastoise);
-		poison.statusTick();
-		assertTrue(blastoise.getPoison());
+		Pokemon blastoise = new Blastoise();
+		blastoise = new Poison(blastoise);
+		blastoise.statusTick();
+		//int result = blastoise.statusTick();
+		//System.out.println(result);
+		//result = blastoise.getCurrentHealth() + result;
+		//assertTrue(blastoise.getPoison());
+		//assertEquals(71, result);
 		assertEquals(71, blastoise.getCurrentHealth());
 	}
 }
