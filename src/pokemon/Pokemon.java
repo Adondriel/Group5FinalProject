@@ -27,7 +27,7 @@ public abstract class Pokemon
 		if(target.getCurrentHealth()<=0){
 			return false;
 		}
-
+		
 		target.takeHit(this.damage);
 		return false;
 	}
@@ -88,4 +88,36 @@ public abstract class Pokemon
 	public void takeHit(int damageTaken){
 		this.currentHealth-=damageTaken;
 	}
+	
+	/**
+	 * @return true if the target got burned, false otherwise
+	 */
+	public boolean burnTarget(){
+		return false;
+	}
+	
+	/**
+	 * @return true if the target got poisoned, false otherwise
+	 */
+	public boolean poisonTarget(){
+		return false;
+	}
+	
+	/**
+	 * @return true if the target gets froze, false otherwise
+	 */
+	public boolean freezeTarget(){
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

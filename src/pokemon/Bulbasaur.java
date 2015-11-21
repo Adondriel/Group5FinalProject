@@ -8,13 +8,18 @@ import attacks.*;
  */
 public class Bulbasaur extends Pokemon
 {
-	int damage=49;
-	int maxHealth=45;
-	int currentHealth=maxHealth;
-	int experience=0;
-	TypeBehavior type=new GrassType();
-	String name="Bulbasaur";
-	boolean burn=false;
-	boolean freeze=false;
-	boolean poison=false;
+	/**
+	 * constructor
+	 */
+	public Bulbasaur(){
+		super.damage=49;
+		super.maxHealth=45;
+		super.currentHealth=maxHealth;
+		super.experience=0;
+		super.type=new GrassType();
+		super.name="Bulbasaur";
+		super.burn=false;
+		super.freeze=false;
+		super.poison=false;
+	}
 }

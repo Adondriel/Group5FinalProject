@@ -6,13 +6,18 @@ import attacks.*;
  */
 public class Charizard extends Pokemon
 {
-	int damage=84;
-	int maxHealth=78;
-	int currentHealth=maxHealth;
-	int experience=0;
-	TypeBehavior type=new FireType();
-	String name="Charizard";
-	boolean burn=false;
-	boolean freeze=false;
-	boolean poisonfalse;
+	/**
+	 * constructor
+	 */
+	public Charizard(){
+		super.damage=84;
+		super.maxHealth=78;
+		super.currentHealth=maxHealth;
+		super.experience=0;
+		super.type=new FireType();
+		super.name="Charizard";
+		super.burn=false;
+		super.freeze=false;
+		super.poison=false;
+	}
 }

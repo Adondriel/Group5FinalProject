@@ -6,13 +6,18 @@ import attacks.*;
  */
 public class Vulpix extends Pokemon
 {
-	int damage=41;
-	int maxHealth=38;
-	int currentHealth=maxHealth;
-	int experience=0;
-	TypeBehavior type=new FireType();
-	String name="Vulpix";
-	boolean burn=false;
-	boolean freeze=false;
-	boolean poisonfalse;
+	/**
+	 * constructor
+	 */
+	public Vulpix(){
+		super.damage=41;
+		super.maxHealth=38;
+		super.currentHealth=maxHealth;
+		super.experience=0;
+		super.type=new FireType();
+		super.name="Vulpix";
+		super.burn=false;
+		super.freeze=false;
+		super.poison=false;
+	}
 }

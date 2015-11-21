@@ -6,13 +6,18 @@ import attacks.*;
  */
 public class Poliwag extends Pokemon
 {
-	int damage=50;
-	int maxHealth=40;
-	int currentHealth=maxHealth;
-	int experience=0;
-	TypeBehavior type=new WaterType();
-	String name="Poliwag";
-	boolean burn=false;
-	boolean freeze=false;
-	boolean poisonfalse;
+	/**
+	 * constructor
+	 */
+	public Poliwag(){
+		super.damage=50;
+		super.maxHealth=40;
+		super.currentHealth=maxHealth;
+		super.experience=0;
+		super.type=new WaterType();
+		super.name="Poliwag";
+		super.burn=false;
+		super.freeze=false;
+		super.poison=false;
+	}
 }

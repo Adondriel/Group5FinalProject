@@ -6,13 +6,18 @@ import attacks.*;
  */
 public class Wartortle extends Pokemon
 {
-	int damage=63;
-	int maxHealth=59;
-	int currentHealth=maxHealth;
-	int experience=0;
-	TypeBehavior type=new WaterType();
-	String name="Wartortle";
-	boolean burn=false;
-	boolean freeze=false;
-	boolean poisonfalse;
+	/**
+	 * constructor
+	 */
+	public Wartortle(){
+		super.damage=63;
+		super.maxHealth=59;
+		super.currentHealth=maxHealth;
+		super.experience=0;
+		super.type=new WaterType();
+		super.name="Wartortle";
+		super.burn=false;
+		super.freeze=false;
+		super.poison=false;
+	}
 }

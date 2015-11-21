@@ -6,13 +6,15 @@ import attacks.*;
  */
 public class Squirtle extends Pokemon
 {
-	int damage=48;
-	int maxHealth=44;
-	int currentHealth=maxHealth;
-	int experience=0;
-	TypeBehavior type=new WaterType();
-	String name="Squirtle";
-	boolean burn=false;
-	boolean freeze=false;
-	boolean poisonfalse;
+	public Squirtle(){
+		super.damage=48;
+		super.maxHealth=44;
+		super.currentHealth=maxHealth;
+		super.experience=0;
+		super.type=new WaterType();
+		super.name="Squirtle";
+		super.burn=false;
+		super.freeze=false;
+		super.poison=false;
+	}
 }
