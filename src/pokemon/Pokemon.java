@@ -32,6 +32,12 @@ public abstract class Pokemon
 		return false;
 	}
 	
+	public void statusTick(){
+		burnTick();
+		poisonTick();
+		freezeTick();
+	}
+	
 	/**
 	 * @return Pokemon's damage
 	 */
