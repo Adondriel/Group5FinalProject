@@ -35,7 +35,9 @@ public abstract class Pokemon
 	/**
 	 * Tick status effects
 	 */
-	public abstract int statusTick();
+	public int statusTick() {
+		return currentHealth;
+	}
 	
 	/**
 	 * @return Pokemon's damage

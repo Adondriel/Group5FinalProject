@@ -27,9 +27,4 @@ public class Blastoise extends Pokemon
 	public boolean getPoison() {
 		return poison;
 	}
-
-	@Override
-	public int statusTick() {
-		return currentHealth;
-	}
 }
