@@ -48,7 +48,7 @@ public class Environment
 	 * @param p The Player's Pokemon to be added.
 	 * @param i The position of the Pokemon in the Player's Pokedex.
 	 */
-	public void addPlayerPokemon(Pokemon p, int i)
+	public void setPlayerPokemon(Pokemon p, int i)
 	{
 		playerCurrentPokemon = player.getPokemon(i);
 	}
@@ -66,7 +66,7 @@ public class Environment
 	 * @param p The Computer's Pokemon to be added.
 	 * @param i The position of the Pokemon in the Computer's Pokedex.
 	 */
-	public void addComputerPokemon(Pokemon p, int i)
+	public void setComputerPokemon(Pokemon p, int i)
 	{
 		computerCurrentPokemon = computer.getPokemon(i);
 	}

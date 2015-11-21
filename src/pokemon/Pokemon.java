@@ -36,7 +36,9 @@ public abstract class Pokemon
 	 * Tick status effects
 	 */
 	public void statusTick(){
-		
+		burnTick();
+		poisonTick();
+		freezeTick();
 	}
 	
 	/**
@@ -110,7 +112,17 @@ public abstract class Pokemon
 		return false;
 	}
 	
+	public void burnTick(){
+		
+	}
 	
+	public void poisonTick(){
+		
+	}
+	
+	public void freezeTick(){
+		
+	}
 	
 	
 	

@@ -20,5 +20,4 @@ public class Ivysaur extends Pokemon
 		super.freeze=false;
 		super.poison=false;
 	}
-
 }

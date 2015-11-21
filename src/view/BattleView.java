@@ -3,6 +3,7 @@ package view;
 import controller.Controller;
 import model.Model;
 import model.Observer;
+import pokemon.Bulbasaur;
 
 public class BattleView extends View implements Observer{
 	private Model myModel;
@@ -49,7 +50,9 @@ public class BattleView extends View implements Observer{
 	        });
 
 	        jButton4.setText("Swap");
-	        //if (myModel.getPlayer().getSelectedPokemon() instanceof Bulbasaur){get the correct icon.}
+	        if (myModel.getPlayer().getSelectedPokemon() instanceof Bulbasaur){
+	        	//get the correct icon.
+	        }
 	        playerPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/bulbasaur200.png")));
 	        playerPokemonIcon.setText("Pokemon");
 	        playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));

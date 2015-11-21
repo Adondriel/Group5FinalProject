@@ -2,18 +2,30 @@ package statusEffects;
 
 import pokemon.Pokemon;
 
-public abstract class StatusEffect  
+public abstract class StatusEffect extends Pokemon 
 {
-	protected Pokemon p;
+	protected Pokemon pokemon;
 	private double damage;
 	
-	public StatusEffect(Pokemon p) 
+	public StatusEffect(Pokemon pokemon) 
 	{
-		this.p = p;
+		this.pokemon = pokemon;
 	}
 	
-	public double statusTick()
-	{
-		return damage;
+	public abstract int statusTick();
+	
+	/**
+	 * @return Pokemon's current health
+	 */
+	public int getCurrentHealth(){
+		return pokemon.currentHealth;
+	}
+	
+	public int getMaxHealth(){
+		return pokemon.maxHealth;
+	}
+	
+	public boolean getPoison(){
+		return pokemon.poison;
 	}
 }

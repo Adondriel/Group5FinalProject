@@ -26,7 +26,7 @@ public class Model implements Subject{
 		}
 	}
 	
-	private Player getPlayer() {
+	public Player getPlayer() {
 		return player;
 	}
 }
