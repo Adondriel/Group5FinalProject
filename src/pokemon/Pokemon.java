@@ -33,13 +33,6 @@ public abstract class Pokemon
 	}
 	
 	/**
-	 * Tick status effects
-	 */
-	public void statusTick() {
-		
-	}
-	
-	/**
 	 * @return Pokemon's damage
 	 */
 	public int getDamage(){

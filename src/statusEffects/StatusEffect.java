@@ -12,7 +12,9 @@ public abstract class StatusEffect extends Pokemon
 		this.pokemon = pokemon;
 	}
 	
-	public abstract int statusTick();
+	public void statusTick() {
+		
+	}
 	
 	/**
 	 * @return Pokemon's current health
