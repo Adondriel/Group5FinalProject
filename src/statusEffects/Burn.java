@@ -11,9 +11,9 @@ public class Burn extends StatusEffect
 		super(p);
 	}
 	
-	public int statusTick()
+	public void statusTick()
 	{
 		damage = pokemon.getMaxHealth()*.1;
-		return pokemon.getCurrentHealth();
+		//return pokemon.getCurrentHealth();
 	}
 }
