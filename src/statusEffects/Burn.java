@@ -1,10 +1,13 @@
 package statusEffects;
-
+/**
+ * 
+ * Author: Jason LoBianco
+ */
 import pokemon.Pokemon;
 
 public class Burn extends StatusEffect
 {
-	private double damage;
+	private int count=0;
 	
 	public Burn(Pokemon p)
 	{
@@ -13,7 +16,16 @@ public class Burn extends StatusEffect
 	
 	public void statusTick()
 	{
-		damage = pokemon.getMaxHealth()*.1;
-		//return pokemon.getCurrentHealth();
+		for(Pokemon q: burnedPokemon){
+			if (count != 3){
+				q.takeHit(10);
+				count++;
+			}
+			else {
+				//removeBurnList(q);
+				count=0;
+				//burnedPokemon.remove(pokemon);   //removeBurnList(q);
+			}
+		}
 	}
 }

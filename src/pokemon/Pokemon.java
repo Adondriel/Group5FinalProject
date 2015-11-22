@@ -13,6 +13,7 @@ public abstract class Pokemon
 	int maxHealth;
 	int currentHealth;
 	int experience;
+	public int chanceToAttack;
 	TypeBehavior type;
 	String name;
 	boolean burn;
@@ -24,11 +25,13 @@ public abstract class Pokemon
 	 * @return whether or not the pokemon attacked
 	 */
 	public boolean attack(Pokemon target){
-		if(target.getCurrentHealth()<=0){
-			return false;
-		}
-		
-		target.takeHit(this.damage);
+		if(freezeTarget()==false){
+			if(target.getCurrentHealth()<=0){
+				return false;
+			}		
+			target.takeHit(this.damage);
+			return true;
+			}
 		return false;
 	}
 	
@@ -85,7 +88,12 @@ public abstract class Pokemon
 	 * Damage a Pokemon
 	 */
 	public void takeHit(int damageTaken){
-		this.currentHealth-=damageTaken;
+		if (this.currentHealth<=damageTaken){
+			this.currentHealth=0;
+		}
+		else {
+			this.currentHealth-=damageTaken;
+		}
 	}
 	
 	/**
@@ -106,6 +114,10 @@ public abstract class Pokemon
 	 * @return true if the target gets froze, false otherwise
 	 */
 	public boolean freezeTarget(){
+		if(chanceToAttack==1){
+			System.out.println("You're frozen...");
+			return true;
+		}
 		return false;
 	}
 	
