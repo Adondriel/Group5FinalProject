@@ -7,71 +7,72 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import exceptions.StatusEffectException;
 import pokemon.*;
 
 public class TestBurn 
 {
-	
 	/**
-	 * Checks to see that a burn does the correct damage when at MaxHealth.
+	 * Checks to see that burn is initialized correctly.
+	 * @throws StatusEffectException 
 	 */
 	@Test
-	public void testBurnAtFull() 
+	public void testInitialization() throws StatusEffectException
 	{
 		Pokemon blastoise = new Blastoise();
 		StatusEffect burn = new Burn(blastoise);
-		burn.addBurnList(blastoise);
-		burn.statusTick();
-		assertEquals(69, blastoise.getCurrentHealth());
+		
+		//checks that the number of the status effects was updated. 
+		assertEquals(1, burn.getNumStatusEffects());
 	}
 	
 	/**
-	 * Checks to see that a burn doesn't put a Pokemon below 0 life points.
+	 * Checks to see that only 1 burn or status effect can be applied at a time.
+	 * @throws StatusEffectException 
 	 */
-	@Test
-	public void testBelowZero()
+	@Test(expected = StatusEffectException.class)
+	public void testOnlyOneStatusEffect() throws StatusEffectException
 	{
 		Pokemon blastoise = new Blastoise();
-		StatusEffect burn = new Burn(blastoise);
-		burn.addBurnList(blastoise);
-		blastoise.takeHit(75);
-		assertEquals(4, blastoise.getCurrentHealth());
-		burn.statusTick();
-		assertEquals(0, blastoise.getCurrentHealth());
-	}
-
-	/**
-	 * Checks to see that a burn does the correct damage when not at MaxHealth.
-	 */
-	@Test
-	public void testNotAtMaxHealth()
-	{
-		Pokemon blastoise = new Blastoise();
-		StatusEffect burn = new Burn(blastoise);
-		burn.addBurnList(blastoise);
-		blastoise.takeHit(20);
-		assertEquals(59, blastoise.getCurrentHealth());
-		burn.statusTick();
-		assertEquals(49, blastoise.getCurrentHealth());
+		StatusEffect burn1 = new Burn(blastoise);
+		assertEquals(1, burn1.getNumStatusEffects());
+		StatusEffect burn2 = new Burn(burn1);
+		assertEquals("Only 1 status effect can be applied at a time." , burn2.getNumStatusEffects());
+		
 	}
 	
 	/**
-	 * Checks to see that a burn lasts for only three rounds.
+	 * Checks to see that burn does the correct damage.
+	 * @throws StatusEffectException 
 	 */
 	@Test
-	public void testLastsThreeRounds()
+	public void testCorrectDamage() throws StatusEffectException 
 	{
 		Pokemon blastoise = new Blastoise();
 		StatusEffect burn = new Burn(blastoise);
-		burn.addBurnList(blastoise);
-		burn.statusTick(); //first tick
-		assertEquals(69, blastoise.getCurrentHealth());
-		burn.statusTick(); //second tick
-		assertEquals(59, blastoise.getCurrentHealth());
-		burn.statusTick(); //third tick
-		assertEquals(49, blastoise.getCurrentHealth());
-		burn.removeBurnList(blastoise); //gets removed after three turns
-		burn.statusTick(); //fourth tick
-		assertEquals(49, blastoise.getCurrentHealth());
+		assertEquals(10, burn.statusTick());
+	}
+		
+	/**
+	 * Checks to see that burn will only last for 3 turns.
+	 * @throws StatusEffectException 
+	 */
+	@Test
+	public void testThreeTurns() throws StatusEffectException
+	{
+		Pokemon blastoise = new Blastoise();
+		StatusEffect burn = new Burn(blastoise);
+		
+		//tick on the first turn
+		assertEquals(10, burn.statusTick());
+		
+		//tick on the second turn
+		assertEquals(10, burn.statusTick());
+		
+		//tick on the third turn
+		assertEquals(10, burn.statusTick());
+		
+		//tick on the fourth turn
+		assertEquals(0, burn.statusTick());
 	}
 }

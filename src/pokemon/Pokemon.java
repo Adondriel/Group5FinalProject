@@ -35,10 +35,11 @@ public abstract class Pokemon
 		return false;
 	}
 	
-	public void statusTick(){
-		burnTick();
-		poisonTick();
-		freezeTick();
+	/**
+	 * @return the damage that will be inflicted by a status effect.
+	 */
+	public int statusTick(){
+		return 0;
 	}
 	
 	/**
@@ -111,10 +112,10 @@ public abstract class Pokemon
 	}
 	
 	/**
-	 * @return true if the target gets froze, false otherwise
+	 * @return true if the target gets frozen, false otherwise
 	 */
 	public boolean freezeTarget(){
-		if(chanceToAttack==1){
+		if(chanceToAttack==0){
 			System.out.println("You're frozen...");
 			return true;
 		}
@@ -132,13 +133,11 @@ public abstract class Pokemon
 	public void freezeTick(){
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	/**
+	 * @return the number of status effects on a Pokemon.
+	 */
+	public int getNumStatusEffects() {
+		return 0;
+	}	
 }

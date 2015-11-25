@@ -7,71 +7,72 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import exceptions.StatusEffectException;
 import pokemon.*;
 
 public class TestPoison 
 {
 	
 	/**
-	 * Checks to see that a poison does the correct damage when at MaxHealth.
+	 * Checks to see that poison is initialized correctly.
+	 * @throws StatusEffectException 
 	 */
 	@Test
-	public void testPoisonAtFull() 
+	public void testInitialization() throws StatusEffectException
 	{
 		Pokemon blastoise = new Blastoise();
 		StatusEffect poison = new Poison(blastoise);
-		poison.addPoisonList(blastoise);
-		poison.statusTick();
-		assertEquals(69, blastoise.getCurrentHealth());
+		
+		//checks that the number of the status effects was updated. 
+		assertEquals(1, poison.getNumStatusEffects());
 	}
 	
 	/**
-	 * Checks to see that a poison doesn't put a Pokemon below 0 life points.
+	 * Checks to see that only 1 poison or status effect can be applied at a time.
+	 * @throws StatusEffectException 
 	 */
-	@Test
-	public void testBelowZero()
+	@Test(expected = StatusEffectException.class)
+	public void testOnlyOneStatusEffect() throws StatusEffectException
 	{
 		Pokemon blastoise = new Blastoise();
-		StatusEffect poison = new Poison(blastoise);
-		poison.addPoisonList(blastoise);
-		blastoise.takeHit(75);
-		assertEquals(4, blastoise.getCurrentHealth());
-		poison.statusTick();
-		assertEquals(0, blastoise.getCurrentHealth());
-	}
-
-	/**
-	 * Checks to see that a poison does the correct damage when not at MaxHealth.
-	 */
-	@Test
-	public void testNotAtMaxHealth()
-	{
-		Pokemon blastoise = new Blastoise();
-		StatusEffect poison = new Poison(blastoise);
-		poison.addPoisonList(blastoise);
-		blastoise.takeHit(20);
-		assertEquals(59, blastoise.getCurrentHealth());
-		poison.statusTick();
-		assertEquals(49, blastoise.getCurrentHealth());
+		StatusEffect poison1 = new Poison(blastoise);
+		assertEquals(1, poison1.getNumStatusEffects());
+		StatusEffect poison2 = new Poison(poison1);
+		assertEquals("Only 1 status effect can be applied at a time." , poison2.getNumStatusEffects());	
 	}
 	
 	/**
-	 * Checks to see that a poison lasts for only three rounds.
+	 * Checks to see that poison does the correct damage.
+	 * @throws StatusEffectException 
 	 */
 	@Test
-	public void testLastsThreeRounds()
+	public void testCorrectDamage() throws StatusEffectException 
 	{
 		Pokemon blastoise = new Blastoise();
 		StatusEffect poison = new Poison(blastoise);
-		poison.addPoisonList(blastoise);
-		poison.statusTick(); //first tick
-		assertEquals(69, blastoise.getCurrentHealth());
-		poison.statusTick(); //second tick
-		assertEquals(59, blastoise.getCurrentHealth());
-		poison.statusTick(); //third tick
-		assertEquals(49, blastoise.getCurrentHealth());
-		poison.removePoisonList(blastoise); //gets removed after three turns
-		poison.statusTick(); //fourth tick
-		assertEquals(49, blastoise.getCurrentHealth());
+		assertEquals(10, poison.statusTick());
+	}
+		
+	/**
+	 * Checks to see that poison will only last for 3 turns.
+	 * @throws StatusEffectException 
+	 */
+	@Test
+	public void testThreeTurns() throws StatusEffectException
+	{
+		Pokemon blastoise = new Blastoise();
+		StatusEffect poison = new Poison(blastoise);
+		
+		//tick on the first turn
+		assertEquals(10, poison.statusTick());
+		
+		//tick on the second turn
+		assertEquals(10, poison.statusTick());
+		
+		//tick on the third turn
+		assertEquals(10, poison.statusTick());
+		
+		//tick on the fourth turn
+		assertEquals(0, poison.statusTick());
 	}
 }

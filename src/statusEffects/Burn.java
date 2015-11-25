@@ -1,4 +1,5 @@
 package statusEffects;
+import exceptions.StatusEffectException;
 /**
  * 
  * Author: Jason LoBianco
@@ -7,25 +8,36 @@ import pokemon.Pokemon;
 
 public class Burn extends StatusEffect
 {
-	private int count=0;
 	
-	public Burn(Pokemon p)
+	private int count = 0;
+	
+	/**
+	 * Burn is a negative status effect that will cause static damage every round
+	 * to a Pokemon until the effect wears off.
+	 * @param p The Pokemon that will be burned.
+	 * @throws StatusEffectException
+	 */
+	public Burn(Pokemon p) throws StatusEffectException 
 	{
 		super(p);
+		
+		if (pokemon.getNumStatusEffects() == 1) 
+		{
+			throw new StatusEffectException("Only 1 status effect can be applied at a time.");
+		}
+		
 	}
 	
-	public void statusTick()
+	/**
+	 * @see pokemon.Pokemon#statusTick()
+	 */
+	public int statusTick()
 	{
-		for(Pokemon q: burnedPokemon){
-			if (count != 3){
-				q.takeHit(10);
-				count++;
-			}
-			else {
-				//removeBurnList(q);
-				count=0;
-				//burnedPokemon.remove(pokemon);   //removeBurnList(q);
-			}
+		if (count != 3){
+			int damage = 10;
+			count++;
+			return damage; 
 		}
+		return 0;
 	}
 }

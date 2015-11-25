@@ -1,4 +1,5 @@
 package statusEffects;
+import exceptions.StatusEffectException;
 /**
  * 
  * Author: Jason LoBianco
@@ -10,25 +11,41 @@ public class Frozen extends StatusEffect
 
 	private int count;
 	
-	public Frozen(Pokemon p) 
+	/**
+	 * Frozen is a negative status effect that will cause Pokemon to miss attacks
+	 * 80% of the time and hit 20% of the time.
+	 * @param p The Pokemon that will be frozen.
+	 * @throws StatusEffectException
+	 */
+	public Frozen(Pokemon p) throws StatusEffectException 
 	{
 		super(p);
+		
+		if (pokemon.getNumStatusEffects() == 1) 
+		{
+			throw new StatusEffectException("Only 1 status effect can be applied at a time.");
+		}
 	}
 	
-	public void statusTick()
+	/**
+	 * @see pokemon.Pokemon#statusTick()
+	 */
+	public int statusTick()
 	{
-		if (count != 3){
-			double temp = Math.random();
-			if (temp<=0.2) {
-				pokemon.chanceToAttack = 0;
+		double temp = Math.random();
+		if (count != 3) {
+			if (temp<0.20) {
+				pokemon.chanceToAttack = 1;
+				count++;
 			}
 			else {
-				pokemon.chanceToAttack = 1;
+				pokemon.chanceToAttack = 0;
+				count++;
 			}
-			count++;
 		}
-		else{
-			pokemon.chanceToAttack = 0;
+		else {
+			pokemon.chanceToAttack = 1;
 		}
+		return 0;
 	}
 }
