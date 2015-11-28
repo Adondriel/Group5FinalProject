@@ -9,68 +9,56 @@ import attacks.TypeBehavior;
  */
 public class HeldItem implements Pkmn
 {
-
-	@Override
-	public boolean attack(Pokemon target)
-	{
-		// TODO Auto-generated method stub
+	Pokemon p;
+	
+	/**
+	 * @param p
+	 */
+	public HeldItem(Pokemon p){
+		this.p=p;
+	}
+	
+	public boolean attack(Pokemon target){
 		return false;
 	}
-
-	@Override
-	public void statusTick()
-	{
-		// TODO Auto-generated method stub
+	
+	public void statusTick(){
 		
 	}
-
-	@Override
-	public int getDamage()
-	{
-		// TODO Auto-generated method stub
+	
+	public int getDamage(){
+		return 0;
+	}
+	
+	public int getMaxHealth(){
+		return 0;
+	}
+	
+	public int getCurrentHealth(){
+		return 0;
+	}
+	
+	public int getExperience(){
 		return 0;
 	}
 
-	@Override
-	public int getMaxHealth()
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getCurrentHealth()
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getExperience()
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public TypeBehavior getType()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void takeHit(int damageTaken)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public HeldItem getHeldItem()
-	{
-		// TODO Auto-generated method stub
+	public TypeBehavior getType(){
 		return null;
 	}
 	
+	public void takeHit(int damageTaken)
+	{
+		
+	}
+	
+	public HeldItem getHeldItem(){
+		return null;
+	}
+	
+	/**
+	 * @return the pokemon holding the item
+	 */
+	public Pokemon getPokemon(){
+		return p;
+	}
 }
