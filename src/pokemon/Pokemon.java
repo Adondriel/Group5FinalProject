@@ -14,6 +14,9 @@ public abstract class Pokemon
 	int maxHealth;
 	int currentHealth;
 	int experience;
+	/**
+	 * The pokemon's chance to attack
+	 */
 	public int chanceToAttack;
 	TypeBehavior type;
 	String name;
@@ -160,7 +163,7 @@ public abstract class Pokemon
 	 * @param pkmn
 	 * @return true if an item was picked up, false otherwise
 	 */
-	public boolean pickUpItem(Pkmn pkmn){
+	public boolean equipItem(Pkmn pkmn){
 		if(this.pkmn==null){
 			this.pkmn=pkmn;
 			return true;
@@ -171,7 +174,7 @@ public abstract class Pokemon
 	/**
 	 * @return true if an item was dropped, false otherwise
 	 */
-	public boolean dropItem(){
+	public boolean unequipItem(){
 		if(this.pkmn==null){
 			return false;
 		}
