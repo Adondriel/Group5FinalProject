@@ -1,5 +1,6 @@
 package pokemon;
 
+import heldItems.*;
 import attacks.*;
 
 
@@ -20,6 +21,8 @@ public abstract class Pokemon
 	boolean freeze;
 	boolean poison;
 	
+	Pkmn pkmn=null;
+	
 	/**
 	 * @param target
 	 * @return whether or not the pokemon attacked
@@ -29,7 +32,10 @@ public abstract class Pokemon
 			if(target.getCurrentHealth()<=0){
 				return false;
 			}		
-			target.takeHit(this.damage);
+			if(pkmn!=null){
+				target.takeHit(pkmn.calculateAmplifiedDamage());
+			}
+			target.takeHit(damage);
 			return true;
 			}
 		return false;
@@ -122,14 +128,23 @@ public abstract class Pokemon
 		return false;
 	}
 	
+	/**
+	 * Tick burn status effect
+	 */
 	public void burnTick(){
 		
 	}
 	
+	/**
+	 * Tick poison status effect
+	 */
 	public void poisonTick(){
 		
 	}
 	
+	/**
+	 * Tick freeaze status effect
+	 */
 	public void freezeTick(){
 		
 	}
@@ -140,4 +155,27 @@ public abstract class Pokemon
 	public int getNumStatusEffects() {
 		return 0;
 	}	
+	
+	/**
+	 * @param pkmn
+	 * @return true if an item was picked up, false otherwise
+	 */
+	public boolean pickUpItem(Pkmn pkmn){
+		if(this.pkmn==null){
+			this.pkmn=pkmn;
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * @return true if an item was dropped, false otherwise
+	 */
+	public boolean dropItem(){
+		if(this.pkmn==null){
+			return false;
+		}
+		pkmn=null;
+		return true;
+	}
 }
