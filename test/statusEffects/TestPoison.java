@@ -50,7 +50,7 @@ public class TestPoison
 	{
 		Pokemon blastoise = new Blastoise();
 		StatusEffect poison = new Poison(blastoise);
-		assertEquals(10, poison.statusTick());
+		assertEquals(25, poison.statusTick());
 	}
 		
 	/**
@@ -64,13 +64,13 @@ public class TestPoison
 		StatusEffect poison = new Poison(blastoise);
 		
 		//tick on the first turn
-		assertEquals(10, poison.statusTick());
+		assertEquals(25, poison.statusTick());
 		
 		//tick on the second turn
-		assertEquals(10, poison.statusTick());
+		assertEquals(25, poison.statusTick());
 		
 		//tick on the third turn
-		assertEquals(10, poison.statusTick());
+		assertEquals(25, poison.statusTick());
 		
 		//tick on the fourth turn
 		assertEquals(0, poison.statusTick());

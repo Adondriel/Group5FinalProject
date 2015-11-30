@@ -34,7 +34,7 @@ public class Burn extends StatusEffect
 	public int statusTick()
 	{
 		if (count != 3){
-			int damage = 10;
+			int damage = 25;
 			count++;
 			return damage; 
 		}
