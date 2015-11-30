@@ -6,5 +6,5 @@ package command;
  */
 public interface RunCommand
 {
-
+	public void executeRun();
 }
