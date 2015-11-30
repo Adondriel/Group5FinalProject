@@ -22,7 +22,8 @@ public class TestEnvironment
 	private Computer c;
 	private Pokemon blastoise, caterpie, vulpix, bulbasaur, charmander, ivysaur;
 	private Environment battlefield;
-	private ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();
+	private ArrayList<Pokemon> playerPokedex = new ArrayList<Pokemon>();
+	private ArrayList<Pokemon> computerPokedex = new ArrayList<Pokemon>();
 	
 	/**
 	 * Sets up the battlefield before each test.
@@ -36,10 +37,10 @@ public class TestEnvironment
 		bulbasaur = new Bulbasaur();
 		charmander = new Charmander();
 		ivysaur = new Ivysaur();
-		pokedex.add(blastoise);
-		pokedex.add(caterpie);
-		pokedex.add(vulpix);
-		p = new Player(pokedex, blastoise);
+		playerPokedex.add(blastoise);
+		playerPokedex.add(caterpie);
+		playerPokedex.add(vulpix);
+		p = new Player(playerPokedex, blastoise);
 		c.addPokemon(bulbasaur);
 		c.addPokemon(charmander);
 		c.addPokemon(ivysaur);
