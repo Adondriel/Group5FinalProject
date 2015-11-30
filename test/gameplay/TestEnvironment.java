@@ -16,8 +16,8 @@ public class TestEnvironment
 	/**
 	 * All variables needed for the tests.
 	 */
-	private Player p = new Player();
-	private Computer c = new Computer();
+	private Player p;
+	private Computer c;
 	private Pokemon blastoise, caterpie, vulpix, bulbasaur, charmander, ivysaur;
 	private Environment battlefield;
 	
@@ -33,37 +33,23 @@ public class TestEnvironment
 		bulbasaur = new Bulbasaur();
 		charmander = new Charmander();
 		ivysaur = new Ivysaur();
-		p.addPokemon(blastoise, 0);
-		p.addPokemon(caterpie, 1);
-		p.addPokemon(vulpix, 2);
-		c.addPokemon(bulbasaur, 0);
-		c.addPokemon(charmander, 1);
-		c.addPokemon(ivysaur, 2);
-		battlefield = Environment.getEnvironment(p, c);
+		p = new Player(null, blastoise);
+		p.addPokemon(blastoise);
+		p.addPokemon(caterpie);
+		p.addPokemon(vulpix);
+		c.addPokemon(bulbasaur);
+		c.addPokemon(charmander);
+		c.addPokemon(ivysaur);
+		battlefield = Environment.getEnvironment(p.getSelectedPokemon(), c.getSelectedPokemon);
 	}
 
 	/**
-	 * Checks to see that all the Pokemon got set into the correct spots.
+	 * Checks to see that the player and computer Pokemon got set into the correct spots.
 	 */
 	@Test
 	public void testInitialization() 
 	{
-		assertEquals(blastoise, p.getPokemon(0));
-		assertEquals(caterpie, p.getPokemon(1));
-		assertEquals(vulpix, p.getPokemon(2));
-		assertEquals(bulbasaur, c.getPokemon(0));
-		assertEquals(charmander, c.getPokemon(1));
-		assertEquals(ivysaur, c.getPokemon(2));
-	}
-	
-	/**
-	 * Checks to see that a players Pokemon is set correctly.
-	 */
-	@Test
-	public void testSetPlayerPokemon()
-	{
-		battlefield.setPlayerPokemon(caterpie, 1);
-		assertEquals(caterpie, battlefield.getCurrentPlayerPokemon());
+		
 	}
 	
 	/**
@@ -71,15 +57,6 @@ public class TestEnvironment
 	 */
 	@Test
 	public void testOnlyOnePlayerPokemon()
-	{
-		
-	}
-	
-	/**
-	 * Checks to see that a computers Pokemon is set correctly.
-	 */
-	@Test
-	public void testSetComputerPokemon()
 	{
 		
 	}
