@@ -11,7 +11,7 @@ public class Charizard extends Pokemon
 	 */
 	public Charizard(){
 		super.damage=84;
-		super.maxHealth=78;
+		super.maxHealth=780;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new FireType();

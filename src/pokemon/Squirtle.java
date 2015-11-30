@@ -8,7 +8,7 @@ public class Squirtle extends Pokemon
 {
 	public Squirtle(){
 		super.damage=48;
-		super.maxHealth=44;
+		super.maxHealth=440;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new WaterType();

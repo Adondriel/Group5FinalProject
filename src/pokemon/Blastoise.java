@@ -8,7 +8,7 @@ public class Blastoise extends Pokemon
 {
 	public Blastoise(){
 		super.damage=83;
-		super.maxHealth=79;
+		super.maxHealth=790;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new WaterType();

@@ -11,7 +11,7 @@ public class Venusaur extends Pokemon
 	 */
 	public Venusaur(){
 		super.damage=82;
-		super.maxHealth=80;
+		super.maxHealth=800;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new GrassType();

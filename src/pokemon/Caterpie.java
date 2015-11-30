@@ -11,7 +11,7 @@ public class Caterpie extends Pokemon
 	 */
 	public Caterpie(){
 		super.damage=30;
-		super.maxHealth=45;
+		super.maxHealth=450;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new GrassType();

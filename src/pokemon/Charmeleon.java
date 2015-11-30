@@ -11,7 +11,7 @@ public class Charmeleon extends Pokemon
 	 */
 	public Charmeleon(){
 		super.damage=64;
-		super.maxHealth=58;
+		super.maxHealth=580;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new FireType();

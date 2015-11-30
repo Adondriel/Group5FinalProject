@@ -11,7 +11,7 @@ public class Ivysaur extends Pokemon
 	 */
 	public Ivysaur(){
 		super.damage=62;
-		super.maxHealth=60;
+		super.maxHealth=600;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new GrassType();

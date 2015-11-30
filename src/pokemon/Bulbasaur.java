@@ -13,7 +13,7 @@ public class Bulbasaur extends Pokemon
 	 */
 	public Bulbasaur(){
 		super.damage=49;
-		super.maxHealth=45;
+		super.maxHealth=450;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new GrassType();

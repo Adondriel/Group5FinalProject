@@ -11,7 +11,7 @@ public class Poliwag extends Pokemon
 	 */
 	public Poliwag(){
 		super.damage=50;
-		super.maxHealth=40;
+		super.maxHealth=400;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new WaterType();

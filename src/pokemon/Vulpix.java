@@ -11,7 +11,7 @@ public class Vulpix extends Pokemon
 	 */
 	public Vulpix(){
 		super.damage=41;
-		super.maxHealth=38;
+		super.maxHealth=380;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new FireType();

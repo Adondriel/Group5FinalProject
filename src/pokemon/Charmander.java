@@ -11,7 +11,7 @@ public class Charmander extends Pokemon
 	 */
 	public Charmander(){
 		super.damage=52;
-		super.maxHealth=39;
+		super.maxHealth=390;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new FireType();

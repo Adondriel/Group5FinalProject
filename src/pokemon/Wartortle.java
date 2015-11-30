@@ -11,7 +11,7 @@ public class Wartortle extends Pokemon
 	 */
 	public Wartortle(){
 		super.damage=63;
-		super.maxHealth=59;
+		super.maxHealth=590;
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.type=new WaterType();
