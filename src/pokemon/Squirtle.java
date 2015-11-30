@@ -9,7 +9,7 @@ public class Squirtle extends Pokemon
 	Attack waterGun=new WaterGun(damage);
 	Attack withdraw=new Withdraw(damage);
 	Attack bubble=new Bubble(damage);
-	Attack waterPulse=new waterPulse(damage);
+	Attack waterPulse=new WaterPulse(damage);
 	
 	/**
 	 * constructor

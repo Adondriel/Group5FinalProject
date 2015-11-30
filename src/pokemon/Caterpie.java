@@ -9,7 +9,7 @@ public class Caterpie extends Pokemon
 	Attack stringShot=new StringShot(damage);
 	Attack tackle=new Tackle(damage);
 	Attack bugBite=new BugBite(damage);
-	Attack leechSeed=new leechSeed(damage);
+	Attack leechSeed=new LeechSeed(damage);
 	/**
 	 * constructor
 	 */
