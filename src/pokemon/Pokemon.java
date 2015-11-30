@@ -39,14 +39,14 @@ public abstract class Pokemon
 			if(target.getCurrentHealth()<=0){
 				return false;
 			}		
+			int attackDamage=0;
+			int typeDamage=type.calcDamage(damage, target.getType());
 			if(pkmn!=null){
-				int typeDamage=type.calcDamage(damage, target.getType());
 				int heldDamage=pkmn.calculateAmplifiedDamage();
-				int attackDamage=0;
 				target.takeHit(typeDamage+heldDamage+attackDamage);
 				//target.takeHit(pkmn.calculateAmplifiedDamage());
 			}
-			target.takeHit(damage);
+			target.takeHit(typeDamage+attackDamage);
 			return true;
 			}
 		return false;
