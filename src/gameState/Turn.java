@@ -12,6 +12,14 @@ public abstract class Turn
 	Trainer trainer;
 	
 	/**
+	 * @param turnSwitch
+	 */
+	public Turn(TurnChange turnSwitch){
+		this.turnSwitch=turnSwitch;
+		trainer=turnSwitch.getTrainer();
+	}
+	
+	/**
 	 * @return the current trainer
 	 */
 	public Trainer getTrainer(){

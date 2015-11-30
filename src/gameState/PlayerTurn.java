@@ -6,19 +6,14 @@ package gameState;
  */
 public class PlayerTurn extends Turn
 {
-	TurnChange tc;
-	
-	/**
-	 * @param tc
-	 */
-	public PlayerTurn(TurnChange tc){
-		this.tc=tc;
+	public PlayerTurn(TurnChange turnSwitch){
+		super(turnSwitch);
 	}
+
+	TurnChange tc;
 
 	@Override
 	public void takeTurn(){
 		
 	}
-	
-	
 }
