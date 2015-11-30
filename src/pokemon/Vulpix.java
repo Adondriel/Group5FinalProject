@@ -6,6 +6,10 @@ import attacks.*;
  */
 public class Vulpix extends Pokemon
 {
+	Attack ember = new Ember(damage);
+	Attack fireSpin = new FireSpin(damage);
+	Attack willOWisp = new Will_O_Wisp(damage);
+	Attack inferno = new Inferno(damage);
 	/**
 	 * constructor
 	 */
@@ -19,5 +23,9 @@ public class Vulpix extends Pokemon
 		super.burn=false;
 		super.freeze=false;
 		super.poison=false;
+		moves.add(ember);
+		moves.add(fireSpin);
+		moves.add(willOWisp);
+		moves.add(inferno);
 	}
 }

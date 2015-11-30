@@ -6,6 +6,11 @@ import attacks.*;
  */
 public class Charmander extends Pokemon
 {
+	Attack ember = new Ember(damage);
+	Attack fireFang = new FireFang(damage);
+	Attack inferno = new Inferno(damage);
+	Attack heatWave = new HeatWave(damage);
+	
 	/**
 	 * constructor
 	 */
@@ -19,5 +24,9 @@ public class Charmander extends Pokemon
 		super.burn=false;
 		super.freeze=false;
 		super.poison=false;
+		moves.add(ember);
+		moves.add(fireFang);
+		moves.add(inferno);
+		moves.add(heatWave);
 	}
 }

@@ -6,6 +6,11 @@ import attacks.*;
  */
 public class Charizard extends Pokemon
 {
+	Attack ember = new Ember(damage);
+	Attack heatWave = new HeatWave(damage);
+	Attack fireFang = new FireFang(damage);
+	Attack inferno = new Inferno(damage);
+	
 	/**
 	 * constructor
 	 */
@@ -19,5 +24,9 @@ public class Charizard extends Pokemon
 		super.burn=false;
 		super.freeze=false;
 		super.poison=false;
+		moves.add(ember);
+		moves.add(heatWave);
+		moves.add(fireFang);
+		moves.add(inferno);
 	}
 }
