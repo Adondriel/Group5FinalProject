@@ -53,7 +53,6 @@ public class Player extends Trainer
 	 * @return the currently selected pokemon
 	 */
 	public Pokemon getSelectedPokemon() {
-		// TODO Auto-generated method stub
 		return selectedPokemon;
 	}
 	
