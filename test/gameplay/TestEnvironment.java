@@ -5,6 +5,8 @@ package gameplay;
  */
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,6 +22,7 @@ public class TestEnvironment
 	private Computer c;
 	private Pokemon blastoise, caterpie, vulpix, bulbasaur, charmander, ivysaur;
 	private Environment battlefield;
+	private ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();
 	
 	/**
 	 * Sets up the battlefield before each test.
@@ -33,14 +36,14 @@ public class TestEnvironment
 		bulbasaur = new Bulbasaur();
 		charmander = new Charmander();
 		ivysaur = new Ivysaur();
-		p = new Player(null, blastoise);
-		p.addPokemon(blastoise);
-		p.addPokemon(caterpie);
-		p.addPokemon(vulpix);
+		pokedex.add(blastoise);
+		pokedex.add(caterpie);
+		pokedex.add(vulpix);
+		p = new Player(pokedex, blastoise);
 		c.addPokemon(bulbasaur);
 		c.addPokemon(charmander);
 		c.addPokemon(ivysaur);
-		battlefield = Environment.getEnvironment(p.getSelectedPokemon(), c.getSelectedPokemon);
+		battlefield = Environment.getEnvironment(p , c);
 	}
 
 	/**
@@ -66,6 +69,24 @@ public class TestEnvironment
 	 */
 	@Test
 	public void testOnlyOneComputerPokemon()
+	{
+		
+	}
+	
+	/**
+	 * Checks to see that a player can switch their current Pokemon on the battlefield.
+	 */
+	@Test
+	public void testPlayerSwitchPokemon()
+	{
+		
+	}
+	
+	/**
+	 * Checks to see that a computer can switch their current Pokemon on the battlefield.
+	 */
+	@Test
+	public void testComputerSwitchPokemon()
 	{
 		
 	}
