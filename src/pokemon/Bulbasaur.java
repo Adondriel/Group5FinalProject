@@ -8,9 +8,10 @@ import attacks.*;
  */
 public class Bulbasaur extends Pokemon
 {
-	Attack leechSeed=new LeechSeed();
-	Attack vineWhip=new VineWhip();
-	Attack razorLeaf=new RazorLeaf();
+	Attack leechSeed=new LeechSeed(damage);
+	Attack vineWhip=new VineWhip(damage);
+	Attack razorLeaf=new RazorLeaf(damage);
+	Attack tackle=new Tackle(damage);
 	
 	/**
 	 * constructor
@@ -28,5 +29,6 @@ public class Bulbasaur extends Pokemon
 		moves.add(leechSeed);
 		moves.add(vineWhip);
 		moves.add(razorLeaf);
+		moves.add(tackle);
 	}
 }

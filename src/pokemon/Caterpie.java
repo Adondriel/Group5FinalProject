@@ -6,10 +6,10 @@ import attacks.*;
  */
 public class Caterpie extends Pokemon
 {
-	Attack stringShot=new StringShot();
-	Attack tackle=new Tackle();
-	Attack bugBite=new BugBite();
-	
+	Attack stringShot=new StringShot(damage);
+	Attack tackle=new Tackle(damage);
+	Attack bugBite=new BugBite(damage);
+	Attack leechSeed=new leechSeed(damage);
 	/**
 	 * constructor
 	 */
@@ -23,5 +23,9 @@ public class Caterpie extends Pokemon
 		super.burn=false;
 		super.freeze=false;
 		super.poison=false;
+		moves.add(stringShot);
+		moves.add(tackle);
+		moves.add(bugBite);
+		moves.add(leechSeed);
 	}
 }

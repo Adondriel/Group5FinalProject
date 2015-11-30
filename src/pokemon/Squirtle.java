@@ -6,9 +6,10 @@ import attacks.*;
  */
 public class Squirtle extends Pokemon
 {
-	Attack waterGun=new WaterGun();
-	Attack withdraw=new Withdraw();
-	Attack bubble=new Bubble();
+	Attack waterGun=new WaterGun(damage);
+	Attack withdraw=new Withdraw(damage);
+	Attack bubble=new Bubble(damage);
+	Attack waterPulse=new waterPulse(damage);
 	
 	/**
 	 * constructor
@@ -26,5 +27,6 @@ public class Squirtle extends Pokemon
 		moves.add(waterGun);
 		moves.add(withdraw);
 		moves.add(bubble);
+		moves.add(waterPulse);
 	}
 }

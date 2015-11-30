@@ -6,9 +6,10 @@ import attacks.*;
  */
 public class Blastoise extends Pokemon
 {
-	Attack bubble=new Bubble();
-	Attack waterPulse=new WaterPulse();
-	Attack hydroPump=new HydroPump();
+	Attack bubble=new Bubble(damage);
+	Attack waterPulse=new WaterPulse(damage);
+	Attack hydroPump=new HydroPump(damage);
+	Attack withdraw=new Withdraw(damage);
 	
 	/**
 	 * constructor
@@ -26,5 +27,6 @@ public class Blastoise extends Pokemon
 		moves.add(bubble);
 		moves.add(waterPulse);
 		moves.add(hydroPump);
+		moves.add(withdraw);
 	}
 }

@@ -6,9 +6,10 @@ import attacks.*;
  */
 public class Poliwag extends Pokemon
 {
-	Attack waterPulse=new WaterPulse();
-	Attack hydroPump=new HydroPump();
-	Attack bubbleBeam=new BubbleBeam();
+	Attack waterPulse=new WaterPulse(damage);
+	Attack hydroPump=new HydroPump(damage);
+	Attack bubbleBeam=new BubbleBeam(damage);
+	Attack withdraw=new Withdraw(damage);
 	
 	/**
 	 * constructor
@@ -26,5 +27,6 @@ public class Poliwag extends Pokemon
 		moves.add(waterPulse);
 		moves.add(hydroPump);
 		moves.add(bubbleBeam);
+		moves.add(withdraw);
 	}
 }
