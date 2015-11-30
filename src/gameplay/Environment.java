@@ -22,6 +22,8 @@ public class Environment
 	{
 		player = p;
 		computer = c;
+		playerCurrentPokemon = player.getSelectedPokemon();
+		computerCurrentPokemon = computer.getSelectedPokemon();
 	}
 	
 	/**
