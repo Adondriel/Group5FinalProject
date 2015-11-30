@@ -14,9 +14,16 @@ public class Ember extends Attack
 	 * @param fire
 	 * @param damage
 	 */
-	public Ember(TypeBehavior fire, int damage)
+	public Ember(int damage)
 	{
-		super(fire, damage);
+		super(damage);
+	}
+	
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 0.4);
 	}
 
 }

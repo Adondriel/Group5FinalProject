@@ -15,9 +15,15 @@ public class BubbleBeam extends Attack
 	 * @param water
 	 * @param damage
 	 */
-	public BubbleBeam(TypeBehavior water, int damage)
+	public BubbleBeam(int damage)
 	{
-		super(water, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage*0.65);
 	}
 
 

@@ -15,9 +15,15 @@ public class HydroPump extends Attack
 	 * @param water
 	 * @param damage
 	 */
-	public HydroPump(TypeBehavior water, int damage)
+	public HydroPump(int damage)
 	{
-		super(water, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 1.10);
 	}
 
 

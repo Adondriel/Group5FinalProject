@@ -6,5 +6,5 @@ package command;
  */
 public interface FightCommand
 {
-
+	public void execute();
 }

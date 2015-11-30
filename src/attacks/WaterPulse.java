@@ -15,10 +15,15 @@ public class WaterPulse extends Attack
 	 * @param water
 	 * @param damage
 	 */
-	public WaterPulse(TypeBehavior water, int damage)
+	public WaterPulse(int damage)
 	{
-		super(water, damage);
+		super(damage);
 	}
-
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage *.6);
+	}
 
 }

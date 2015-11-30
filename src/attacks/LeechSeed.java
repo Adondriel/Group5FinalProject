@@ -14,9 +14,15 @@ public class LeechSeed extends Attack
 	 * @param grass type
 	 * @param damage amount
 	 */
-	public LeechSeed(TypeBehavior grass, int damage)
+	public LeechSeed(int damage)
 	{
-		super(grass, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 0.16);
 	}
 
 }

@@ -14,9 +14,15 @@ public class HeatWave extends Attack
 	 * @param fire
 	 * @param damage
 	 */
-	public HeatWave(TypeBehavior fire, int damage)
+	public HeatWave(int damage)
 	{
-		super(fire, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 0.95);
 	}
 
 }

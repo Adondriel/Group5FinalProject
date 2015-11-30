@@ -7,4 +7,11 @@ package command;
 public class Attack3 implements FightCommand
 {
 
+	@Override
+	public void execute()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }

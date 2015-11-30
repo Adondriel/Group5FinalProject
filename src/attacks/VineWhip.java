@@ -14,9 +14,15 @@ public class VineWhip extends Attack
 	 * @param grass type
 	 * @param damage amount
 	 */
-	public VineWhip(TypeBehavior grass, int damage)
+	public VineWhip(int damage)
 	{
-		super(grass, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 0.45);
 	}
 
 }

@@ -14,9 +14,15 @@ public class FireSpin extends Attack
 	 * @param fire
 	 * @param damage
 	 */
-	public FireSpin(TypeBehavior fire, int damage)
+	public FireSpin(int damage)
 	{
-		super(fire, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 0.35);
 	}
 
 }

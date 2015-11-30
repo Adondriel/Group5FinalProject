@@ -7,4 +7,11 @@ package command;
 public class PokemonSlot3 implements PokemonCommand
 {
 
+	@Override
+	public void executePokemon()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }

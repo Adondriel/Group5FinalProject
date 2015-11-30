@@ -6,5 +6,5 @@ package command;
  */
 public interface ItemCommand
 {
-
+	public void executeItem();
 }

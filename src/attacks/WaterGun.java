@@ -15,9 +15,15 @@ public class WaterGun extends Attack
 	 * @param water
 	 * @param damage
 	 */
-	public WaterGun(TypeBehavior water, int damage)
+	public WaterGun(int damage)
 	{
-		super(water, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage *0.4);
 	}
 
 

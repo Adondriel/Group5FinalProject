@@ -14,9 +14,15 @@ public class SolarBeam extends Attack
 	 * @param grass type
 	 * @param damage amount
 	 */
-	public SolarBeam(TypeBehavior grass, int damage)
+	public SolarBeam(int damage)
 	{
-		super(grass, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 1.2);
 	}
 
 }

@@ -6,5 +6,5 @@ package command;
  */
 public interface PokemonCommand
 {
-
+	public void executePokemon();
 }

@@ -15,9 +15,15 @@ public class Withdraw extends Attack
 	 * @param water
 	 * @param damage
 	 */
-	public Withdraw(TypeBehavior water, int damage)
+	public Withdraw(int damage)
 	{
-		super(water, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 0.05);
 	}
 
 

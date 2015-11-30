@@ -14,9 +14,15 @@ public class Will_O_Wisp extends Attack
 	 * @param fire
 	 * @param damage
 	 */
-	public Will_O_Wisp(TypeBehavior fire, int damage)
+	public Will_O_Wisp(int damage)
 	{
-		super(fire, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 0.1);
 	}
 
 }

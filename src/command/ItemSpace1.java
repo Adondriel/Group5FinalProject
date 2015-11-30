@@ -7,4 +7,11 @@ package command;
 public class ItemSpace1 implements ItemCommand
 {
 
+	@Override
+	public void executeItem()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }

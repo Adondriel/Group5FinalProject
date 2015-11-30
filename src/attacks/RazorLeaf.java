@@ -14,9 +14,15 @@ public class RazorLeaf extends Attack
 	 * @param grass type
 	 * @param damage amount
 	 */
-	public RazorLeaf(TypeBehavior grass, int damage)
+	public RazorLeaf(int damage)
 	{
-		super(grass, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 0.55);
 	}
 
 }

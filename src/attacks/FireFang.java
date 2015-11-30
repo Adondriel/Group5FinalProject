@@ -14,9 +14,15 @@ public class FireFang extends Attack
 	 * @param fire
 	 * @param damage
 	 */
-	public FireFang(TypeBehavior fire, int damage)
+	public FireFang(int damage)
 	{
-		super(fire, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 0.65);
 	}
 
 }

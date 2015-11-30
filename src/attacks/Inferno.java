@@ -14,9 +14,15 @@ public class Inferno extends Attack
 	 * @param fire
 	 * @param damage
 	 */
-	public Inferno(TypeBehavior fire, int damage)
+	public Inferno(int damage)
 	{
-		super(fire, damage);
+		super(damage);
+	}
+	
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage * 1);
 	}
 
 }
