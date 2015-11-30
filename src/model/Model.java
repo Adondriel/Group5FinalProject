@@ -29,6 +29,10 @@ public class Model implements Subject{
 	public Player getPlayer() {
 		return player;
 	}
+	
+	public void setPlayer(Player p){
+		player = p;
+	}
 }
 	
 	

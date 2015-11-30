@@ -1,6 +1,7 @@
 package pokemon;
 
 import attacks.*;
+import attacks.GrassAttackAbilities.*;
 
 /**
  * @author Benjamin Uleau

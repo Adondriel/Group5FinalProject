@@ -1,5 +1,6 @@
 package pokemon;
 import attacks.*;
+import attacks.WaterAttackAbilities.*;
 /**
  * @author Benjamin Uleau
  *

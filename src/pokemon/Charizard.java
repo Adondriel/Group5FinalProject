@@ -1,5 +1,6 @@
 package pokemon;
 import attacks.*;
+import attacks.FireAttackAbilities.*;
 /**
  * @author Benjamin Uleau
  *

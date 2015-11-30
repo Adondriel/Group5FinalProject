@@ -3,8 +3,10 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import gameplay.Player;
 import model.Model;
 import model.Observer;
+import pokemon.Bulbasaur;
 
 public class Display implements Observer {
 	JFrame frame = new JFrame();

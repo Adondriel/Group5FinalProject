@@ -9,6 +9,7 @@ import javax.swing.JToggleButton;
 
 import controller.Controller;
 import controller.SelectThreePokemonController;
+import gameplay.Player;
 import model.Model;
 import model.Observer;
 import pokemon.Bulbasaur;
@@ -18,16 +19,17 @@ import pokemon.Pokemon;
 public class InitialView extends View implements Observer {
 	private ArrayList<JToggleButton> selectedButtonList = new ArrayList<JToggleButton>(0);
 	private ArrayList<Pokemon> pokemonList = new ArrayList<Pokemon>();
+	private Model myModel;
+	private Controller myController;
 
 	public InitialView(Model m) {
-		Model myModel = m;
-		Controller myController;
+		myModel = m;
 		initComponents();
 	}
 
 	@Override
 	public void update() {
-		// Update the info in the view, init view, really shouldn't need this...
+		// Update the info in the view. init view, really shouldn't need this...
 	}
 
 	private void initComponents() {
@@ -270,7 +272,8 @@ public class InitialView extends View implements Observer {
 				pokemonList.add(new Poliwag());
 			}
 		}
-		
+		Player p = new Player(pokemonList, pokemonList.get(0));
+		myModel.setPlayer(p);
 		myController = new SelectThreePokemonController(myModel, pokemonList);
 		myController.execute();
 	}

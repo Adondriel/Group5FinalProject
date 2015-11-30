@@ -1,5 +1,7 @@
 package view;
 
+import javax.swing.ImageIcon;
+
 import controller.Controller;
 import model.Model;
 import model.Observer;
@@ -50,10 +52,14 @@ public class BattleView extends View implements Observer{
 	        });
 
 	        jButton4.setText("Swap");
-	        if (myModel.getPlayer().getSelectedPokemon() instanceof Bulbasaur){
-	        	//get the correct icon.
-	        }
-	        playerPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/bulbasaur200.png")));
+	        
+	        String str = "resources/"+myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8)+"200.png";
+	        System.out.println(str);
+	        ImageIcon img = new ImageIcon(getClass().getResource(str));
+	        //if (myModel.getPlayer().getSelectedPokemon() instanceof Bulbasaur){
+	        
+	       // }
+	        playerPokemonIcon.setIcon(img);
 	        playerPokemonIcon.setText("Pokemon");
 	        playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
 
