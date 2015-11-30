@@ -1,5 +1,7 @@
 package pokemon;
 
+import java.util.ArrayList;
+
 import heldItems.*;
 import attacks.*;
 
@@ -26,6 +28,8 @@ public abstract class Pokemon
 	
 	Pkmn pkmn=null;
 	
+	ArrayList<Attack> moves=new ArrayList<Attack>();
+	
 	/**
 	 * @param target
 	 * @return whether or not the pokemon attacked
@@ -36,7 +40,11 @@ public abstract class Pokemon
 				return false;
 			}		
 			if(pkmn!=null){
-				target.takeHit(pkmn.calculateAmplifiedDamage());
+				int typeDamage=type.calcDamage(damage, target.getType());
+				int heldDamage=pkmn.calculateAmplifiedDamage();
+				int attackDamage=0;
+				target.takeHit(typeDamage+heldDamage+attackDamage);
+				//target.takeHit(pkmn.calculateAmplifiedDamage());
 			}
 			target.takeHit(damage);
 			return true;

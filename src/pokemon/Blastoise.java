@@ -6,6 +6,13 @@ import attacks.*;
  */
 public class Blastoise extends Pokemon
 {
+	Attack bubble=new Bubble();
+	Attack waterPulse=new WaterPulse();
+	Attack hydroPump=new HydroPump();
+	
+	/**
+	 * constructor
+	 */
 	public Blastoise(){
 		super.damage=83;
 		super.maxHealth=790;
@@ -16,5 +23,8 @@ public class Blastoise extends Pokemon
 		super.burn=false;
 		super.freeze=false;
 		super.poison=false;
+		moves.add(bubble);
+		moves.add(waterPulse);
+		moves.add(hydroPump);
 	}
 }

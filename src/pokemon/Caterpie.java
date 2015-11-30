@@ -6,6 +6,10 @@ import attacks.*;
  */
 public class Caterpie extends Pokemon
 {
+	Attack stringShot=new StringShot();
+	Attack tackle=new Tackle();
+	Attack bugBite=new BugBite();
+	
 	/**
 	 * constructor
 	 */

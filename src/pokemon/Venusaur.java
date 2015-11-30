@@ -6,6 +6,10 @@ import attacks.*;
  */
 public class Venusaur extends Pokemon
 {
+	Attack vineWhip=new VineWhip();
+	Attack solarBeam=new SolarBeam();
+	Attack petalBlizzard=new PetalBlizzard();
+	
 	/**
 	 * constructor
 	 */
@@ -19,5 +23,8 @@ public class Venusaur extends Pokemon
 		super.burn=false;
 		super.freeze=false;
 		super.poison=false;
+		moves.add(vineWhip);
+		moves.add(solarBeam);
+		moves.add(petalBlizzard);
 	}
 }
