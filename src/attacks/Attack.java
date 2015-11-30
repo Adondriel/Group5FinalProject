@@ -21,10 +21,9 @@ public abstract class Attack
 	 * @param type
 	 * @param damage
 	 */
-	public Attack(TypeBehavior type, int damage)
+	public Attack(int damage)
 	{
 		this.damage = damage;
-		this.type = type;
 	}
 
 	/**
@@ -39,8 +38,5 @@ public abstract class Attack
 	/**
 	 * @return damage of the attack
 	 */
-	public int getDamage()
-	{
-		return damage;
-	}
+	public abstract int getDamage();
 }

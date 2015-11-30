@@ -6,6 +6,9 @@ import attacks.*;
  */
 public class Ivysaur extends Pokemon
 {
+	Attack vineWhip=new VineWhip();
+	Attack razorLeaf=new RazorLeaf();
+	Attack solarBeam=new SolarBeam();
 	/**
 	 * constructor
 	 */
@@ -19,5 +22,8 @@ public class Ivysaur extends Pokemon
 		super.burn=false;
 		super.freeze=false;
 		super.poison=false;
+		moves.add(vineWhip);
+		moves.add(razorLeaf);
+		moves.add(solarBeam);
 	}
 }

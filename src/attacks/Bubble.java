@@ -15,10 +15,17 @@ public class Bubble extends Attack
 	 * @param water
 	 * @param damage
 	 */
-	public Bubble(TypeBehavior water, int damage)
+	public Bubble(int damage)
 	{
-		super(water, damage);
+		super(damage);
 	}
 
+	@Override
+	public int getDamage()
+	{
+		return (int)(damage*0.4);
+	}
+	
+	
 
 }
