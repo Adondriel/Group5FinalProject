@@ -1,4 +1,6 @@
-package attacks;
+package attacks.FireAttackAbilities;
+
+import attacks.Attack;
 
 /**
  * @author Bradley Solorzano
@@ -7,14 +9,14 @@ package attacks;
  * attack that is fire based
  *
  */
-public class FireSpin extends Attack
+public class HeatWave extends Attack
 {
 
 	/**
 	 * @param fire
 	 * @param damage
 	 */
-	public FireSpin(int damage)
+	public HeatWave(int damage)
 	{
 		super(damage);
 	}
@@ -22,7 +24,7 @@ public class FireSpin extends Attack
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage * 0.35);
+		return (int)(damage * 0.95);
 	}
 
 }

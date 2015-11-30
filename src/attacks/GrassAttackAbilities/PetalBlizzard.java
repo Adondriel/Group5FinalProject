@@ -1,4 +1,6 @@
-package attacks;
+package attacks.GrassAttackAbilities;
+
+import attacks.Attack;
 
 /**
  * @author Bradley Solorzano
@@ -7,14 +9,14 @@ package attacks;
  * attack that is grass based
  *
  */
-public class LeechSeed extends Attack
+public class PetalBlizzard extends Attack
 {
 
 	/**
 	 * @param grass type
 	 * @param damage amount
 	 */
-	public LeechSeed(int damage)
+	public PetalBlizzard(int damage)
 	{
 		super(damage);
 	}
@@ -22,7 +24,7 @@ public class LeechSeed extends Attack
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage * 0.16);
+		return (int)(damage * 0.90);
 	}
 
 }

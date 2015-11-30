@@ -1,4 +1,6 @@
-package attacks;
+package attacks.GrassAttackAbilities;
+
+import attacks.Attack;
 
 /**
  * @author Bradley Solorzano
@@ -7,14 +9,14 @@ package attacks;
  * attack that is grass based
  *
  */
-public class Tackle extends Attack
+public class StringShot extends Attack
 {
 
 	/**
 	 * @param grass type
 	 * @param damage amount
 	 */
-	public Tackle(int damage)
+	public StringShot(int damage)
 	{
 		super(damage);
 	}
@@ -22,7 +24,7 @@ public class Tackle extends Attack
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage * 0.1);
+		return (int)(damage * 0.95);
 	}
 
 }

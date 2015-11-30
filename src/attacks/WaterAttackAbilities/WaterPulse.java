@@ -1,5 +1,6 @@
-package attacks;
+package attacks.WaterAttackAbilities;
 
+import attacks.Attack;
 import pokemon.Pokemon;
 
 /**
@@ -9,13 +10,13 @@ import pokemon.Pokemon;
  * attack that is water based
  *
  */
-public class WaterGun extends Attack
+public class WaterPulse extends Attack
 {
 	/**
 	 * @param water
 	 * @param damage
 	 */
-	public WaterGun(int damage)
+	public WaterPulse(int damage)
 	{
 		super(damage);
 	}
@@ -23,8 +24,7 @@ public class WaterGun extends Attack
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage *0.4);
+		return (int)(damage *.6);
 	}
-
 
 }

@@ -1,5 +1,6 @@
-package attacks;
+package attacks.WaterAttackAbilities;
 
+import attacks.Attack;
 import pokemon.Pokemon;
 
 /**
@@ -9,23 +10,22 @@ import pokemon.Pokemon;
  * attack that is water based
  *
  */
-public class Bubble extends Attack
+public class BubbleBeam extends Attack
 {
 	/**
 	 * @param water
 	 * @param damage
 	 */
-	public Bubble(int damage)
+	public BubbleBeam(int damage)
 	{
 		super(damage);
 	}
-
+	
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage*0.4);
+		return (int)(damage*0.65);
 	}
-	
-	
+
 
 }

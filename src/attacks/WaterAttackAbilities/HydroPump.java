@@ -1,5 +1,6 @@
-package attacks;
+package attacks.WaterAttackAbilities;
 
+import attacks.Attack;
 import pokemon.Pokemon;
 
 /**
@@ -9,13 +10,13 @@ import pokemon.Pokemon;
  * attack that is water based
  *
  */
-public class Withdraw extends Attack
+public class HydroPump extends Attack
 {
 	/**
 	 * @param water
 	 * @param damage
 	 */
-	public Withdraw(int damage)
+	public HydroPump(int damage)
 	{
 		super(damage);
 	}
@@ -23,7 +24,7 @@ public class Withdraw extends Attack
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage * 0.05);
+		return (int)(damage * 1.10);
 	}
 
 

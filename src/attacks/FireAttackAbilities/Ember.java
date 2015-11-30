@@ -1,4 +1,6 @@
-package attacks;
+package attacks.FireAttackAbilities;
+
+import attacks.Attack;
 
 /**
  * @author Bradley Solorzano
@@ -7,22 +9,23 @@ package attacks;
  * attack that is fire based
  *
  */
-public class Inferno extends Attack
+public class Ember extends Attack
 {
 
 	/**
 	 * @param fire
 	 * @param damage
 	 */
-	public Inferno(int damage)
+	public Ember(int damage)
 	{
 		super(damage);
 	}
 	
+	
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage * 1);
+		return (int)(damage * 0.4);
 	}
 
 }
