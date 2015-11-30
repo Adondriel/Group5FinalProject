@@ -50,7 +50,7 @@ public class TestBurn
 	{
 		Pokemon blastoise = new Blastoise();
 		StatusEffect burn = new Burn(blastoise);
-		assertEquals(10, burn.statusTick());
+		assertEquals(25, burn.statusTick());
 	}
 		
 	/**
@@ -64,13 +64,13 @@ public class TestBurn
 		StatusEffect burn = new Burn(blastoise);
 		
 		//tick on the first turn
-		assertEquals(10, burn.statusTick());
+		assertEquals(25, burn.statusTick());
 		
 		//tick on the second turn
-		assertEquals(10, burn.statusTick());
+		assertEquals(25, burn.statusTick());
 		
 		//tick on the third turn
-		assertEquals(10, burn.statusTick());
+		assertEquals(25, burn.statusTick());
 		
 		//tick on the fourth turn
 		assertEquals(0, burn.statusTick());
