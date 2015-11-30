@@ -27,8 +27,8 @@ public abstract class Pokemon
 	boolean poison;
 	
 	Pkmn pkmn=null;
-	
 	ArrayList<Attack> moves=new ArrayList<Attack>();
+	Attack currentAttack=null;
 	
 	/**
 	 * @param target
@@ -39,12 +39,12 @@ public abstract class Pokemon
 			if(target.getCurrentHealth()<=0){
 				return false;
 			}		
-			int attackDamage=0;
+			int attackDamage=currentAttack.getDamage();
 			int typeDamage=type.calcDamage(damage, target.getType());
 			if(pkmn!=null){
 				int heldDamage=pkmn.calculateAmplifiedDamage();
 				target.takeHit(typeDamage+heldDamage+attackDamage);
-				//target.takeHit(pkmn.calculateAmplifiedDamage());
+				return true;
 			}
 			target.takeHit(typeDamage+attackDamage);
 			return true;
@@ -188,5 +188,14 @@ public abstract class Pokemon
 		}
 		pkmn=null;
 		return true;
+	}
+	
+	/**
+	 * @param a
+	 * @return the current attack
+	 */
+	public Attack selectAttack(Attack a){
+		this.currentAttack=a;
+		return currentAttack;
 	}
 }
