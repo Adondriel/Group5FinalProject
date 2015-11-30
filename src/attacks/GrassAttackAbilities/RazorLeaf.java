@@ -1,4 +1,6 @@
-package attacks;
+package attacks.GrassAttackAbilities;
+
+import attacks.Attack;
 
 /**
  * @author Bradley Solorzano
@@ -7,14 +9,14 @@ package attacks;
  * attack that is grass based
  *
  */
-public class BugBite extends Attack
+public class RazorLeaf extends Attack
 {
 
 	/**
 	 * @param grass type
 	 * @param damage amount
 	 */
-	public BugBite(int damage)
+	public RazorLeaf(int damage)
 	{
 		super(damage);
 	}
@@ -22,7 +24,7 @@ public class BugBite extends Attack
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage * 0.6);
+		return (int)(damage * 0.55);
 	}
 
 }

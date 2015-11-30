@@ -1,4 +1,6 @@
-package attacks;
+package attacks.FireAttackAbilities;
+
+import attacks.Attack;
 
 /**
  * @author Bradley Solorzano
@@ -7,14 +9,14 @@ package attacks;
  * attack that is fire based
  *
  */
-public class Will_O_Wisp extends Attack
+public class FireFang extends Attack
 {
 
 	/**
 	 * @param fire
 	 * @param damage
 	 */
-	public Will_O_Wisp(int damage)
+	public FireFang(int damage)
 	{
 		super(damage);
 	}
@@ -22,7 +24,7 @@ public class Will_O_Wisp extends Attack
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage * 0.1);
+		return (int)(damage * 0.65);
 	}
 
 }

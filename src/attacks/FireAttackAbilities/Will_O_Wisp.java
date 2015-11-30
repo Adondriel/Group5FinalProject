@@ -1,4 +1,6 @@
-package attacks;
+package attacks.FireAttackAbilities;
+
+import attacks.Attack;
 
 /**
  * @author Bradley Solorzano
@@ -7,23 +9,22 @@ package attacks;
  * attack that is fire based
  *
  */
-public class Ember extends Attack
+public class Will_O_Wisp extends Attack
 {
 
 	/**
 	 * @param fire
 	 * @param damage
 	 */
-	public Ember(int damage)
+	public Will_O_Wisp(int damage)
 	{
 		super(damage);
 	}
 	
-	
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage * 0.4);
+		return (int)(damage * 0.1);
 	}
 
 }

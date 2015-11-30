@@ -1,4 +1,6 @@
-package attacks;
+package attacks.FireAttackAbilities;
+
+import attacks.Attack;
 
 /**
  * @author Bradley Solorzano
@@ -7,14 +9,14 @@ package attacks;
  * attack that is fire based
  *
  */
-public class FireFang extends Attack
+public class Inferno extends Attack
 {
 
 	/**
 	 * @param fire
 	 * @param damage
 	 */
-	public FireFang(int damage)
+	public Inferno(int damage)
 	{
 		super(damage);
 	}
@@ -22,7 +24,7 @@ public class FireFang extends Attack
 	@Override
 	public int getDamage()
 	{
-		return (int)(damage * 0.65);
+		return (int)(damage * 1);
 	}
 
 }
