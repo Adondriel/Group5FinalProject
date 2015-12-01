@@ -22,8 +22,8 @@ public class Environment
 	{
 		player = new Player(null, null);
 		computer = new Computer(null, null);
-		playerCurrentPokemon = player.getSelectedPokemon();
-		computerCurrentPokemon = computer.getSelectedPokemon();
+		//playerCurrentPokemon = player.getSelectedPokemon();
+		//computerCurrentPokemon = computer.getSelectedPokemon();
 	}
 	
 	/**

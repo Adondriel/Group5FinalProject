@@ -45,7 +45,7 @@ public class TestEnvironment
 		computerPokedex.add(ivysaur);
 		p = new Player(playerPokedex, blastoise);
 		c = new Computer(computerPokedex, bulbasaur);
-		battlefield = Environment.getEnvironment(p, c);
+		battlefield = Environment.getEnvironment();
 	}
 
 	/**
@@ -66,6 +66,7 @@ public class TestEnvironment
 	@Test
 	public void testPlayerSwitchPokemon()
 	{
+		battlefield.setPlayerPokemon(p.getPokemon(0));
 		assertTrue(battlefield.getCurrentPlayerPokemon() instanceof Blastoise);
 		battlefield.setPlayerPokemon(p.getPokemon(1));
 		assertTrue(battlefield.getCurrentPlayerPokemon() instanceof Caterpie);
@@ -77,6 +78,7 @@ public class TestEnvironment
 	@Test
 	public void testComputerSwitchPokemon()
 	{
+		battlefield.setComputerPokemon(c.getPokemon(0));
 		assertTrue(battlefield.getCurrentComputerPokemon() instanceof Bulbasaur);
 		battlefield.setComputerPokemon(c.getPokemon(1));
 		assertTrue(battlefield.getCurrentComputerPokemon() instanceof Charmander);
