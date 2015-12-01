@@ -17,7 +17,7 @@ public class AttackCommand implements FightCommand
 	private Computer c;
 	private Player p;
 	
-	Environment e = Environment.getEnvironment(p, c);
+	Environment e = Environment.getEnvironment();
 
 	/**
 	 * @param t ai player

@@ -1,6 +1,7 @@
 package command;
 
 import gameplay.Trainer;
+import pokemon.Pokemon;
 
 /**
  * @author Bradley Solorzano
@@ -11,8 +12,11 @@ public class Swap implements SwapCommand
 {
 
 	private Trainer p;
-	public Swap(Trainer p, )
+	private Pokemon Pokemon;
+	
+	public Swap(Trainer p, Pokemon pokemon)
 	{
+		this.Pokemon = pokemon;
 		this.p = p;
 	}
 	
@@ -20,7 +24,7 @@ public class Swap implements SwapCommand
 	@Override
 	public void executeSwap()
 	{
-		p.setSelectedPokemon();
+		p.setSelectedPokemon(Pokemon);
 	}
 
 }
