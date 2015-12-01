@@ -226,4 +226,8 @@ public abstract class Pokemon
 	public StatusEffect getStatus(){
 		return status;
 	}
+	
+	public void setStatus(StatusEffect status){
+		this.status = status;
+	}
 }

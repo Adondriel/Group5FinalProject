@@ -3,15 +3,20 @@ package view;
 import javax.swing.ImageIcon;
 
 import controller.Controller;
+import exceptions.StatusEffectException;
+import gameplay.Environment;
 import model.Model;
 import model.Observer;
 import pokemon.Bulbasaur;
+import statusEffects.Burn;
+import statusEffects.Frozen;
+import statusEffects.Poison;
 
 public class BattleView extends View implements Observer {
 	private Model myModel;
 	private Controller myController;
 
-	public BattleView(Model m) {
+	public BattleView(Model m) throws StatusEffectException {
 		myModel = m;
 		myController = null;
 		initComponents();
@@ -22,7 +27,7 @@ public class BattleView extends View implements Observer {
 		// Update all the variable values within the View!
 	}
 
-	private void initComponents() {
+	private void initComponents() throws StatusEffectException {
 
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
@@ -84,9 +89,19 @@ public class BattleView extends View implements Observer {
 
 		EnemyHPBar.setValue(25);
 
-		PlayerStatusIcon.setText("StatusIcon");
-
-        EnemyStatusIcon.setText("StatusIcon");
+		Environment.getEnvironment().getPlayer().getSelectedPokemon().setStatus(new Frozen(Environment.getEnvironment().getPlayer().getSelectedPokemon()));
+		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
+			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));
+			PlayerStatusIcon.setVisible(true);
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Poison){
+			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/PoisonIC_Big.png")));
+			PlayerStatusIcon.setVisible(true);			
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Frozen){
+			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/IceIC_Big.png")));
+			PlayerStatusIcon.setVisible(true);
+		}else{
+			PlayerStatusIcon.setVisible(false);
+		}
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

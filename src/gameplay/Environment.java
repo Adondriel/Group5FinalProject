@@ -112,14 +112,6 @@ public class Environment
 	{
 		return computer;
 	}
-
-	public void setPlayer(Player player) {
-		this.player = player;
-	}
-
-	public void setComputer(Computer computer) {
-		this.computer = computer;
-	}
 	
 	
 }

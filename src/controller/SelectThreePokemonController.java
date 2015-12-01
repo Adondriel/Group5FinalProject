@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 
+import exceptions.StatusEffectException;
 import gameplay.Environment;
 import gameplay.Player;
 import model.Model;
@@ -29,6 +30,11 @@ public class SelectThreePokemonController implements Controller {
 		System.out.println("");
 		myModel.getPlayer().setSelectedPokemon(pokemonList.get(0));
 		//myModel.getPlayer().setPokedex());
-		Display.globalDisplay.changeView(new BattleView(myModel));
+		try {
+			Display.globalDisplay.changeView(new BattleView(myModel));
+		} catch (StatusEffectException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

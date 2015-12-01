@@ -8,8 +8,12 @@ import attacks.GrassType;
 import attacks.WaterType;
 import controller.AttackController;
 import model.Model;
+import model.Observer;
+import statusEffects.Burn;
+import statusEffects.Frozen;
+import statusEffects.Poison;
 
-public class SelectAttackView extends View {
+public class SelectAttackView extends View implements Observer{
 	public SelectAttackView(Model m){
 		myModel = m;
 		myController = null;
@@ -112,10 +116,20 @@ public class SelectAttackView extends View {
 
         EnemyHPBar.setValue(25);
 
-		PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/fire.png")));
-
-        EnemyStatusIcon.setText("StatusIcon");
-
+		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
+			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/fireIC_Big.png")));
+			PlayerStatusIcon.setVisible(true);
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Poison){
+			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/PoisonIC_Big.png")));
+			PlayerStatusIcon.setVisible(true);			
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Frozen){
+			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/IceIC_Big.png")));
+			PlayerStatusIcon.setVisible(true);
+		}else{
+			PlayerStatusIcon.setVisible(false);
+		}
+		
+		
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -219,4 +233,9 @@ public class SelectAttackView extends View {
     private javax.swing.JLabel playerNameLabel;
     private javax.swing.JLabel playerPokemonIcon;
     // End of variables declaration 
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
 }
