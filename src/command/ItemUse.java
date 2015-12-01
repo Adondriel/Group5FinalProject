@@ -26,8 +26,12 @@ public class ItemUse implements ItemCommand
 	public void executeItem(ItemBehavior i)
 	{
 		
-		p.useItem(i);
+		boolean hasItem=p.getItem(i);
 		// gets the selected item and uses it
+		if(hasItem){
+			i.UseItem(p.getSelectedPokemon().getCurrentHealth(), p.getSelectedPokemon().getMaxHealth());
+			p.removeItem(i);
+		}
 		p.removeItem(i);
 		
 		

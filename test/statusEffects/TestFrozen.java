@@ -56,7 +56,7 @@ public class TestFrozen
 		frozen.setChanceToAttack(0);  //value manually set just so test always passes, but value is random.
 		boolean result = blastoise.attack(vulpix);
 		assertFalse(result);
-		assertEquals(38,vulpix.getCurrentHealth());
+		assertEquals(380,vulpix.getCurrentHealth());
 	}
 	
 	/**
@@ -71,11 +71,12 @@ public class TestFrozen
 		Pokemon blastoise = new Blastoise();
 		Pokemon vulpix = new Vulpix();
 		StatusEffect frozen = new Frozen(blastoise);
+		blastoise.selectAttack(blastoise.getMoves().get(0));
 		frozen.statusTick();
 		frozen.setChanceToAttack(1);  //value manually set just so test always passes, but value is random.
 		boolean result = blastoise.attack(vulpix);
 		assertTrue(result);
-		assertEquals(0,vulpix.getCurrentHealth());
+		assertEquals(214,vulpix.getCurrentHealth());
 	}
 	
 	/**
@@ -90,32 +91,33 @@ public class TestFrozen
 		Pokemon blastoise = new Blastoise();
 		Pokemon vulpix = new Vulpix();
 		StatusEffect frozen = new Frozen(vulpix);
+		vulpix.selectAttack(vulpix.getMoves().get(0));
 		
 		//first tick
 		frozen.statusTick(); 
 		frozen.setChanceToAttack(0);
 		boolean result = vulpix.attack(blastoise);
 		assertFalse(result);
-		assertEquals(79, blastoise.getCurrentHealth());
+		assertEquals(790, blastoise.getCurrentHealth());
 		
 		//second tick
 		frozen.statusTick(); 	
 		frozen.setChanceToAttack(1);
 		boolean result2 = vulpix.attack(blastoise);
 		assertTrue(result2);
-		assertEquals(38, blastoise.getCurrentHealth());
+		assertEquals(770, blastoise.getCurrentHealth());
 		
 		//third tick
 		frozen.statusTick(); 
 		frozen.setChanceToAttack(0);
 		boolean result3 = vulpix.attack(blastoise);
 		assertFalse(result3);
-		assertEquals(38, blastoise.getCurrentHealth());
+		assertEquals(770, blastoise.getCurrentHealth());
 		
 		//fourth tick
 		frozen.statusTick(); 
 		boolean result4 = vulpix.attack(blastoise);
 		assertTrue(result4);
-		assertEquals(0, blastoise.getCurrentHealth());
+		assertEquals(750, blastoise.getCurrentHealth());
 	}
 }

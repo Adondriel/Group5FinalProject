@@ -38,8 +38,8 @@ public class Player extends Trainer
 	 * @param index
 	 * Use an item at index
 	 */
-	public void useItem(int index){
+	/*public void useItem(int index){
 		super.getItem(index);
-	}
+	}*/
 
 }

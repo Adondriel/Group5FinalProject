@@ -21,7 +21,7 @@ public abstract class Pokemon
 	/**
 	 * The pokemon's chance to attack
 	 */
-	public int chanceToAttack;
+	public int chanceToAttack = 1;
 	TypeBehavior type;
 	String name;
 	boolean burn;
@@ -40,7 +40,12 @@ public abstract class Pokemon
 	 * @throws StatusEffectException 
 	 */
 	public boolean attack(Pokemon target) throws StatusEffectException{
-		if(freezeTarget()==false){
+		if (status != null){
+			int statusDamage = status.statusTick();
+			currentHealth -= statusDamage;
+		}
+		if (chanceToAttack == 1){
+		//if(freezeTarget()==false){
 			if(target.getCurrentHealth()<=0){
 				return false;
 			}		
@@ -54,6 +59,7 @@ public abstract class Pokemon
 			target.takeHit(typeDamage+attackDamage);
 			return true;
 			}
+		System.out.println("You're frozen...");
 		return false;
 	}
 	
