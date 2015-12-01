@@ -3,6 +3,9 @@ package view;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import attacks.FireType;
+import attacks.GrassType;
+import attacks.WaterType;
 import controller.AttackController;
 import model.Model;
 
@@ -26,25 +29,35 @@ public class SelectAttackView extends View {
         enemyPokemonIcon = new javax.swing.JLabel();
         EnemyHPBar = new javax.swing.JProgressBar();
         jSeparator2 = new javax.swing.JSeparator();
-        background = new javax.swing.JLabel();
-
+        PlayerStatusIcon = new javax.swing.JLabel();
+        EnemyStatusIcon = new javax.swing.JLabel();
+        
+        String atkStr1 = "Error";
+        String atkStr2 = "Error";
+        String atkStr3 = "Error";
+        String atkStr4 = "Error";
+        
         setMinimumSize(new java.awt.Dimension(1080, 680));
         setPreferredSize(new java.awt.Dimension(1080, 680));
-        String atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getName().replace("attacks.FireAttackAbilities.", "");
-        atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
-        atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
+        if (myModel.getPlayer().getSelectedPokemon().getType() instanceof FireType){
+             atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getName().replace("attacks.FireAttackAbilities.", "");
+             atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getName().replace("attacks.FireAttackAbilities.", "");
+             atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getName().replace("attacks.FireAttackAbilities.", "");
+             atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getName().replace("attacks.FireAttackAbilities.", "");
+        }else if (myModel.getPlayer().getSelectedPokemon().getType() instanceof GrassType){
+            atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
+            atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
+            atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
+            atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
+        }else if (myModel.getPlayer().getSelectedPokemon().getType() instanceof WaterType){
+            atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
+            atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
+            atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
+            atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
+        }
 
-        String atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getName().replace("attacks.FireAttackAbilities.", "");
-        atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
-        atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
         
-        String atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getName().replace("attacks.FireAttackAbilities.", "");
-        atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
-        atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
        
-        String atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getName().replace("attacks.FireAttackAbilities.", "");
-        atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
-        atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
 
         jButton1.setText(atkStr1);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +112,9 @@ public class SelectAttackView extends View {
 
         EnemyHPBar.setValue(25);
 
-        background.setText("Background");
+		PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/fire.png")));
+
+        EnemyStatusIcon.setText("StatusIcon");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -107,46 +122,49 @@ public class SelectAttackView extends View {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator2)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(playerHPBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(playerPokemonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(playerNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(background)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 748, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4))
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(enemyPokemonIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(EnemyHPBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(enemyNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addComponent(PlayerStatusIcon)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(playerHPBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(playerPokemonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(playerNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 638, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EnemyStatusIcon)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton4))
+                            .addGap(6, 6, 6)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(enemyPokemonIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(EnemyHPBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(enemyNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(EnemyHPBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(background))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enemyPokemonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enemyNameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(playerHPBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(EnemyHPBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(enemyPokemonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(enemyNameLabel)
+                            .addComponent(PlayerStatusIcon))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(playerHPBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(EnemyStatusIcon)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(playerPokemonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -162,7 +180,7 @@ public class SelectAttackView extends View {
                     .addComponent(jButton2)
                     .addComponent(jButton4))
                 .addGap(21, 21, 21))
-        );
+        		);
     }// </editor-fold>                    
 
 
@@ -171,12 +189,25 @@ public class SelectAttackView extends View {
         	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(0));
         	myController.execute();
         }
+        if (jb == jButton2){
+        	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(1));
+        	myController.execute();
+        }
+        if (jb == jButton3){
+        	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(2));
+        	myController.execute();
+        }
+        if (jb == jButton4){
+        	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(3));
+        	myController.execute();
+        }
     }                                        
 
 
     // Variables declaration - do not modify                     
     private javax.swing.JProgressBar EnemyHPBar;
-    private javax.swing.JLabel background;
+    private javax.swing.JLabel EnemyStatusIcon;
+    private javax.swing.JLabel PlayerStatusIcon;
     private javax.swing.JLabel enemyNameLabel;
     private javax.swing.JLabel enemyPokemonIcon;
     private javax.swing.JButton jButton1;

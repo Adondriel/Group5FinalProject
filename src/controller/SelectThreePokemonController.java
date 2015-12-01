@@ -2,6 +2,8 @@ package controller;
 
 import java.util.ArrayList;
 
+import gameplay.Environment;
+import gameplay.Player;
 import model.Model;
 import pokemon.Pokemon;
 import view.BattleView;
@@ -13,6 +15,10 @@ public class SelectThreePokemonController implements Controller {
 	public SelectThreePokemonController(Model m, ArrayList<Pokemon> pokemonList){
 		myModel = m;
 		this.pokemonList = pokemonList;
+		Environment e = Environment.getEnvironment();
+		Player p = new Player(pokemonList, pokemonList.get(0));
+		e.setPlayer(p);
+		myModel.setPlayer(p);
 	}
 	
 	@Override

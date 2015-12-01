@@ -1,6 +1,7 @@
 package controller;
 
 import attacks.Attack;
+import command.PokemonFacade;
 import gameplay.Environment;
 import model.Model;
 
@@ -13,7 +14,8 @@ public class AttackController implements Controller {
 	}
 	@Override
 	public void execute() {
-		
+		PokemonFacade pf = new PokemonFacade();
+		pf.attackCommand(myAttack);
 	}
 
 }

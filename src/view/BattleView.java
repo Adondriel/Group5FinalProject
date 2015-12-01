@@ -35,8 +35,9 @@ public class BattleView extends View implements Observer {
 		enemyPokemonIcon = new javax.swing.JLabel();
 		EnemyHPBar = new javax.swing.JProgressBar();
 		jSeparator2 = new javax.swing.JSeparator();
-		background = new javax.swing.JLabel();
-
+        PlayerStatusIcon = new javax.swing.JLabel();
+        EnemyStatusIcon = new javax.swing.JLabel();
+        
 		setMinimumSize(new java.awt.Dimension(1080, 680));
 		setPreferredSize(new java.awt.Dimension(1080, 680));
 
