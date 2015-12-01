@@ -11,7 +11,7 @@ public class FightState extends PlayerTurn
 	/**
 	 * @param turnSwitch
 	 */
-	public FightState(TurnChange turnSwitch) {
+	public FightState(TurnChange turnSwitch){
 		super(turnSwitch);
 	}
 	
