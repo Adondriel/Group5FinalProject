@@ -1,6 +1,7 @@
 package controller;
 
 import attacks.Attack;
+import gameplay.Environment;
 import model.Model;
 
 public class AttackController implements Controller {
@@ -8,10 +9,11 @@ public class AttackController implements Controller {
 	Attack myAttack;
 	public AttackController(Model m, Attack a){
 		myModel = m;
+		myAttack = a;
 	}
 	@Override
 	public void execute() {
-		Environment.getPlayer();
+		
 	}
 
 }

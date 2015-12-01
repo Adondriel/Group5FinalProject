@@ -10,18 +10,18 @@ import gameplay.Trainer;
 public class ItemUse implements ItemCommand
 {
 
-	private Trainer t;
-	private Trainer p;
+	/*private Trainer t;
+	private Trainer p; */
 
 	/**
 	 * @param t ai player
 	 * @param p player
 	 */
-	public ItemUse(Trainer t, Trainer p)
+	/*public ItemUse(Trainer t, Trainer p)
 	{
 		this.t = t; //A.I
 		this.p = p; //PLAYER
-	}
+	} */
 	
 	@Override
 	public void executeItem()
