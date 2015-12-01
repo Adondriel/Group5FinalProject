@@ -4,13 +4,14 @@ package command;
  * group 5 final project
  *
  */
-public class ItemSpace1 implements ItemCommand
+public class ItemUse implements ItemCommand
 {
 
 	@Override
 	public void executeItem()
 	{
-		// TODO Auto-generated method stub
+		// gets the selected item and uses it
+		// removing item from inventory
 		
 	}
 

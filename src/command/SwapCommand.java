@@ -4,7 +4,7 @@ package command;
  * group 5 final project
  *
  */
-public interface PokemonCommand
+public interface SwapCommand
 {
-	public void executePokemon();
+	public void executeSwap();
 }
