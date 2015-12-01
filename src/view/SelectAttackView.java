@@ -7,17 +7,16 @@ import attacks.FireType;
 import attacks.GrassType;
 import attacks.WaterType;
 import controller.AttackController;
-import model.Model;
 import model.Observer;
 import statusEffects.Burn;
 import statusEffects.Frozen;
 import statusEffects.Poison;
 
 public class SelectAttackView extends View implements Observer{
-	public SelectAttackView(Model m){
-		myModel = m;
+	public SelectAttackView(){
 		myController = null;
 		initComponents();
+		myModel.attach(this);
 	}
 	
 	private void initComponents() {
@@ -102,19 +101,7 @@ public class SelectAttackView extends View implements Observer{
         int hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
         int max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
         int hpPercent = (hp/max)*100;
-        System.out.println(hpPercent);
-
         playerHPBar.setValue(hpPercent);
-
-        enemyNameLabel.setText(myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8));
-
-        enemyPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/bulbasaur200.png")));
-        enemyPokemonIcon.setText("Pokemon");
-        enemyPokemonIcon.setMaximumSize(new java.awt.Dimension(200, 200));
-        enemyPokemonIcon.setMinimumSize(new java.awt.Dimension(200, 200));
-        enemyPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
-
-        EnemyHPBar.setValue(25);
 
 		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
 			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/fireIC_Big.png")));
@@ -129,7 +116,33 @@ public class SelectAttackView extends View implements Observer{
 			PlayerStatusIcon.setVisible(false);
 		}
 		
-		
+		/**
+		 * Enemy Section
+		 * Does the calculations for enemy health and icons.
+		 */
+		enemyNameLabel.setText(myModel.getComputer().getSelectedPokemon().getClass().getName().substring(8));
+		str = "resources/" + myModel.getComputer().getSelectedPokemon().getClass().getName().substring(8)
+				+ "200.png";		
+		img = new ImageIcon(getClass().getResource(str));
+		enemyPokemonIcon.setIcon(img);
+		enemyPokemonIcon.setMaximumSize(new java.awt.Dimension(200, 200));
+		enemyPokemonIcon.setMinimumSize(new java.awt.Dimension(200, 200));
+		enemyPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
+		// Enemy HP bar
+		EnemyHPBar.setValue((myModel.getComputer().getSelectedPokemon().getCurrentHealth()/myModel.getComputer().getSelectedPokemon().getMaxHealth())*100);
+		//Enemy Status bar
+		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
+			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));
+			EnemyStatusIcon.setVisible(true);
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Poison){
+			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/PoisonIC_Big.png")));
+			EnemyStatusIcon.setVisible(true);			
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Frozen){
+			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/IceIC_Big.png")));
+			EnemyStatusIcon.setVisible(true);
+		}else{
+			EnemyStatusIcon.setVisible(false);
+		}
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -214,8 +227,8 @@ public class SelectAttackView extends View implements Observer{
         if (jb == jButton4){
         	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(3));
         	myController.execute();
-        }
-    }                                        
+        }        
+    }                                 
 
 
     // Variables declaration - do not modify                     

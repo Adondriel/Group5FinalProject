@@ -10,8 +10,6 @@ public class Model implements Subject{
 	
 
 	Environment e = Environment.getEnvironment();
-	Player player = (Player) e.getPlayer();
-	Computer computer = (Computer) e.getComputer();
 	ArrayList<Observer> observers = new ArrayList<Observer>();
 	
 	@Override

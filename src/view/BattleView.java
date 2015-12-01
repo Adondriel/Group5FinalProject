@@ -13,21 +13,18 @@ import statusEffects.Frozen;
 import statusEffects.Poison;
 
 public class BattleView extends View implements Observer {
-	private Model myModel;
-	private Controller myController;
-
-	public BattleView(Model m) throws StatusEffectException {
-		myModel = m;
+	public BattleView(){
 		myController = null;
 		initComponents();
+		myModel.attach(this);
 	}
 
 	@Override
 	public void update() {
-		// Update all the variable values within the View!
+		System.out.println("BattleView Updated");
 	}
 
-	private void initComponents() throws StatusEffectException {
+	private void initComponents(){
 
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
@@ -65,31 +62,32 @@ public class BattleView extends View implements Observer {
 
 		jButton4.setText("Swap");
 
-		String str = "resources/" + myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8)
-				+ "200.png";
-		// System.out.println(str);
+		/**
+		 * Player Section. Assembles player info.
+		 */
+		//Determines the icon that needs to be used.
+		String str = "resources/" + myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8)+ "200.png";		
 		ImageIcon img = new ImageIcon(getClass().getResource(str));
 		playerPokemonIcon.setIcon(img);
-		playerPokemonIcon.setText("Pokemon");
 		playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
-
 		playerNameLabel.setText(myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8));
+		//player HP bar section
 		int hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
 		int max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
 		int hpPercent = (hp / max) * 100;
 		playerHPBar.setValue(hpPercent);
-
-		enemyNameLabel.setText(myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8));
-
-		enemyPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/bulbasaur200.png")));
-		enemyPokemonIcon.setText("Pokemon");
-		enemyPokemonIcon.setMaximumSize(new java.awt.Dimension(200, 200));
-		enemyPokemonIcon.setMinimumSize(new java.awt.Dimension(200, 200));
-		enemyPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
-
-		EnemyHPBar.setValue(25);
-
-		Environment.getEnvironment().getPlayer().getSelectedPokemon().setStatus(new Frozen(Environment.getEnvironment().getPlayer().getSelectedPokemon()));
+		
+		
+		/* Test line to make sure the status icon code works.		
+		 * try {
+			Environment.getEnvironment().getPlayer().getSelectedPokemon().setStatus(new Poison(Environment.getEnvironment().getPlayer().getSelectedPokemon()));
+		} catch (StatusEffectException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		/**
+		 * Player Status icon section.
+		 */
 		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
 			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));
 			PlayerStatusIcon.setVisible(true);
@@ -102,6 +100,36 @@ public class BattleView extends View implements Observer {
 		}else{
 			PlayerStatusIcon.setVisible(false);
 		}
+		
+		
+		/**
+		 * Enemy Section
+		 * Does the calculations for enemy health and icons.
+		 */
+		enemyNameLabel.setText(myModel.getComputer().getSelectedPokemon().getClass().getName().substring(8));
+		str = "resources/" + myModel.getComputer().getSelectedPokemon().getClass().getName().substring(8)
+				+ "200.png";		
+		img = new ImageIcon(getClass().getResource(str));
+		enemyPokemonIcon.setIcon(img);
+		enemyPokemonIcon.setMaximumSize(new java.awt.Dimension(200, 200));
+		enemyPokemonIcon.setMinimumSize(new java.awt.Dimension(200, 200));
+		enemyPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
+		// Enemy HP bar
+		EnemyHPBar.setValue((myModel.getComputer().getSelectedPokemon().getCurrentHealth()/myModel.getComputer().getSelectedPokemon().getMaxHealth())*100);
+		//Enemy Status bar
+		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
+			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));
+			EnemyStatusIcon.setVisible(true);
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Poison){
+			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/PoisonIC_Big.png")));
+			EnemyStatusIcon.setVisible(true);			
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Frozen){
+			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/IceIC_Big.png")));
+			EnemyStatusIcon.setVisible(true);
+		}else{
+			EnemyStatusIcon.setVisible(false);
+		}
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -175,7 +203,8 @@ public class BattleView extends View implements Observer {
 	}
 
 	private void SwapToAttackView(java.awt.event.ActionEvent evt) {
-		Display.globalDisplay.changeView(new SelectAttackView(myModel));
+		myModel.detach(this);
+		Display.globalDisplay.changeView(new SelectAttackView());
 	}
 
 	// Variables declaration - do not modify
