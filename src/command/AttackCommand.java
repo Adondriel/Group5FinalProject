@@ -1,5 +1,6 @@
 package command;
 
+import attacks.Attack;
 import exceptions.StatusEffectException;
 import gameplay.Computer;
 import gameplay.Environment;
@@ -31,8 +32,9 @@ public class AttackCommand implements FightCommand
 	}
 	
 	@Override
-	public void execute()
+	public void execute(Attack a)
 	{
+		p.getSelectedPokemon().selectAttack(a);
 		try
 		{
 			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());

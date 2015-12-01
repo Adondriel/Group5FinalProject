@@ -1,4 +1,7 @@
 package command;
+
+import items.ItemBehavior;
+
 /**
  * @author Bradley Solorzano
  * group 5 final project
@@ -6,5 +9,5 @@ package command;
  */
 public interface ItemCommand
 {
-	public void executeItem();
+	public void executeItem(ItemBehavior i);
 }

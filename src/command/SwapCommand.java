@@ -1,4 +1,7 @@
 package command;
+
+import pokemon.Pokemon;
+
 /**
  * @author Bradley Solorzano
  * group 5 final project
@@ -6,5 +9,5 @@ package command;
  */
 public interface SwapCommand
 {
-	public void executeSwap();
+	public void executeSwap(Pokemon selectedPokemon);
 }

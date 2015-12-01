@@ -1,5 +1,6 @@
 package command;
 
+import gameplay.Environment;
 import gameplay.Trainer;
 import pokemon.Pokemon;
 
@@ -12,19 +13,24 @@ public class Swap implements SwapCommand
 {
 
 	private Trainer p;
-	private Pokemon Pokemon;
 	
-	public Swap(Trainer p, Pokemon pokemon)
+	
+	Environment e = Environment.getEnvironment();
+	
+	/**
+	 * @param p
+	 */
+	public Swap(Trainer p)
 	{
-		this.Pokemon = pokemon;
 		this.p = p;
 	}
 	
 	//creates buttons 
 	@Override
-	public void executeSwap()
+	public void executeSwap(Pokemon selectedPokemon)
 	{
-		p.setSelectedPokemon(Pokemon);
+		e.setPlayerPokemon(selectedPokemon);
+
 	}
 
 }
