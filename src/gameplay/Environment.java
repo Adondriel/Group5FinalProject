@@ -18,10 +18,10 @@ public class Environment
 	 * @param p The player to be in the battleField.
 	 * @param c The computer to be in the battleField.
 	 */
-	private Environment(Player p, Computer c)
+	private Environment()
 	{
-		player = p;
-		computer = c;
+		player = new Player(null, null);
+		computer = new Computer(null, null);
 		playerCurrentPokemon = player.getSelectedPokemon();
 		computerCurrentPokemon = computer.getSelectedPokemon();
 	}
@@ -30,7 +30,7 @@ public class Environment
 	 * Will create OR return the Environment for the Pokemon. 
 	 * @return the battleField for the Pokemon to battle in.
 	 */
-	public static Environment getEnvironment(Player p, Computer c)
+	public static Environment getEnvironment()
 	{
 		if (battleField == null)
 		{
@@ -38,7 +38,7 @@ public class Environment
 			{
 				if (battleField == null)
 				{
-					battleField = new Environment(p,c);
+					battleField = new Environment();
 				}
 			}
 		}

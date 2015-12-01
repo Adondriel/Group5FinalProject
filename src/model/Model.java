@@ -2,13 +2,16 @@ package model;
 
 import java.util.ArrayList;
 
+import gameplay.Computer;
 import gameplay.Environment;
 import gameplay.Player;
 
 public class Model implements Subject{
-	Player player;
+	
 
 	Environment e;
+	Player player;
+	Computer computer;
 	ArrayList<Observer> observers = new ArrayList<Observer>();
 
 	@Override

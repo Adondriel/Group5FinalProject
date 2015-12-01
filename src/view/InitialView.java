@@ -274,6 +274,7 @@ public class InitialView extends View implements Observer {
 		}
 		Player p = new Player(pokemonList, pokemonList.get(0));
 		myModel.setPlayer(p);
+		
 		myController = new SelectThreePokemonController(myModel, pokemonList);
 		myController.execute();
 	}

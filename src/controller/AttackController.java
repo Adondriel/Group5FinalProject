@@ -1,16 +1,17 @@
 package controller;
 
+import attacks.Attack;
 import model.Model;
 
 public class AttackController implements Controller {
 	Model myModel;
-	public AttackController(Model m){
+	Attack myAttack;
+	public AttackController(Model m, Attack a){
 		myModel = m;
 	}
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		
+		Environment.getPlayer();
 	}
 
 }

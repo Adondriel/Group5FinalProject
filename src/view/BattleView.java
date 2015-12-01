@@ -159,7 +159,7 @@ public class BattleView extends View implements Observer {
 	}
 
 	private void SwapToAttackView(java.awt.event.ActionEvent evt) {
-		Display.globalDisplay.changeView(new AttackViewTesting(myModel));
+		Display.globalDisplay.changeView(new SelectAttackView(myModel));
 	}
 
 	// Variables declaration - do not modify
