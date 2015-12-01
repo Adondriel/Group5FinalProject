@@ -198,4 +198,10 @@ public abstract class Pokemon
 		this.currentAttack=a;
 		return currentAttack;
 	}
+
+	public ArrayList<Attack> getMoves() {
+		return moves;
+	}
+	
+	
 }
