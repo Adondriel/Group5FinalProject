@@ -1,4 +1,9 @@
 package command;
+
+import gameplay.Player;
+import gameplay.Trainer;
+import pokemon.Pokemon;
+
 /**
  * @author Bradley Solorzano
  * group 5 final project
@@ -6,13 +11,19 @@ package command;
  */
 public class Attack implements FightCommand
 {
+	private Trainer t;
+	private Trainer p;
 
+	public Attack(Trainer t, Trainer p)
+	{
+		this.t = t; //A.I
+		this.p = p; //PLAYER
+	}
+	
 	@Override
 	public void execute()
 	{
-		//get the current pokemon/selected ability and attacks the target
-		//BORDER CASE - only attack once per round.
-		//
+		p.getSelectedPokemon().attack(t.getSelectedPokemon());
 	}
 
 }
