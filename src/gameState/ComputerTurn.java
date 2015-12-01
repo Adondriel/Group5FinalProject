@@ -6,17 +6,19 @@ package gameState;
  */
 public class ComputerTurn extends Turn
 {
-
-
-	public ComputerTurn(TurnChange turnSwitch)
-	{
+	/**
+	 * @param turnSwitch
+	 */
+	public ComputerTurn(TurnChange turnSwitch){
 		super(turnSwitch);
 	}
 
 	@Override
-	public void takeTurn()
-	{
-		
+	public void takeTurn(){
+		if(turnSwitch.getTrainer().getSelectedPokemon().getCurrentHealth()==0){
+			turnSwitch.setTurn(turnSwitch.getComputerPokemon());
+		}
+		turnSwitch.setTurn(turnSwitch.getComputerFight());
 	}
 	
 }

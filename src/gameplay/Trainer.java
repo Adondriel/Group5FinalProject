@@ -100,4 +100,24 @@ public abstract class Trainer
 		return selectedPokemon;
 	}
 	
+	/**
+	 * @return the index of the current pokemon
+	 */
+	public int getSelectedPokemonIndex(){
+		return pokedex.indexOf(getSelectedPokemon());
+	}
+	
+	/**
+	 * @return the index of the next pokemon
+	 */
+	public int getNextPokemonIndex(){
+		return pokedex.indexOf(getSelectedPokemon())+1;
+	}
+	
+	/**
+	 * @param pokedex
+	 */
+	public void setPokedex(ArrayList<Pokemon> pokedex){
+		this.pokedex=pokedex;
+	}
 }

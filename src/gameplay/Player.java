@@ -16,7 +16,7 @@ public class Player extends Trainer
 
 	//Jason had to add this method to remove an error from code.
 	/**
-	 * @param pokeList 
+	 * @param pokedex  
 	 * @param selectedPokemon 
 	 * @param i the position in the pokedex.
 	 */
@@ -25,8 +25,8 @@ public class Player extends Trainer
 		this.selectedPokemon = selectedPokemon;
 	}*/
 	
-	public Player(ArrayList<Pokemon> pokeList, Pokemon selectedPokemon){
-		pokedex=pokeList;
+	public Player(ArrayList<Pokemon> pokedex, Pokemon selectedPokemon){
+		this.pokedex=pokedex;
 		this.selectedPokemon=selectedPokemon;
 	}
 	
