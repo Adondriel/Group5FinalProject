@@ -9,7 +9,7 @@ import model.Model;
 public class SelectAttackView extends View {
 	public SelectAttackView(Model m){
 		myModel = m;
-		myController = new AttackController(m);
+		myController = null;
 		initComponents();
 	}
 	
@@ -168,7 +168,8 @@ public class SelectAttackView extends View {
 
     private void jButtonActionPerformed(java.awt.event.ActionEvent evt, JButton jb) {                                         
         if (jb == jButton1){
-        	myController = new AttackController(myModel.getPlayer().getSelectedPokemon().getMoves().get(0))
+        	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(0));
+        	myController.execute();
         }
     }                                        
 
