@@ -16,6 +16,7 @@ public abstract class Trainer
 	
 	ArrayList<Pokemon> pokedex=new ArrayList<Pokemon>(); 			//The list of Pokemon
 	ArrayList<ItemBehavior> items=new ArrayList<ItemBehavior>();	//The list of items (ItemBehaviors)
+	Pokemon selectedPokemon;
 	
 	/**
 	 * @param p
@@ -74,25 +75,18 @@ public abstract class Trainer
 	}
 	
 	/**
-	 * Adds a pokemon into a position I in the pokedex.
-	 * @param pokemon The pokemon to be added.
-	 * @param i The position in the pokedex.
+	 * @param pokemon
+	 * set the current pokemon
 	 */
-	/*
-	public void addPokemon(Pokemon pokemon, int i) 
-	{
-		pokedex[i] = pokemon;	
+	public void setSelectedPokemon(Pokemon pokemon) {
+		selectedPokemon = pokemon;
 	}
-	*/
-	//Jason had to add this method to remove an error from code.
+	
 	/**
-	 * @param i the position in the pokedex.
-	 * @return The selected Pokemon from the pokedex.
+	 * @return the currently selected pokemon
 	 */
-	/*
-	public Pokemon getPokemon(int i) 
-	{
-		return pokedex[i];
+	public Pokemon getSelectedPokemon() {
+		return selectedPokemon;
 	}
-	*/
+	
 }

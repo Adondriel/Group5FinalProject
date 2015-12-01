@@ -13,4 +13,8 @@ public class RunState extends PlayerTurn{
 		super(turnSwitch);
 	}
 
+	@Override
+	public void takeTurn() {
+	}
+
 }

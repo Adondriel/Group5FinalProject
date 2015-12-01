@@ -13,4 +13,8 @@ public class BagState extends PlayerTurn {
 		super(turnSwitch);
 	}
 
+	@Override
+	public void takeTurn() {
+	}
+
 }

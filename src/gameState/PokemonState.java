@@ -13,4 +13,7 @@ public class PokemonState extends PlayerTurn{
 		super(turnSwitch);
 	}
 
+	@Override
+	public void takeTurn(){
+	}
 }

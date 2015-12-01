@@ -4,16 +4,16 @@ package gameState;
  * @author Benjamin Uleau
  *
  */
-public class PlayerTurn extends Turn
+public abstract class PlayerTurn extends Turn
 {
+	/**
+	 * @param turnSwitch
+	 */
 	public PlayerTurn(TurnChange turnSwitch){
 		super(turnSwitch);
 	}
 
 	TurnChange tc;
 
-	@Override
-	public void takeTurn(){
-		
-	}
+	public abstract void takeTurn();
 }

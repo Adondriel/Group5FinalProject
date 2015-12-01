@@ -13,7 +13,6 @@ public class Player extends Trainer
 	//ArrayList<Pokemon> pokedex=new ArrayList<Pokemon>(); 			//The list of Pokemon
 	ArrayList<ItemBehavior> items=new ArrayList<ItemBehavior>();	//The list of items (ItemBehaviors)
 	//Pokemon[] pokedex = new Pokemon[3]; //Holds the Pokemon.
-	Pokemon selectedPokemon;
 
 	//Jason had to add this method to remove an error from code.
 	/**
@@ -35,21 +34,6 @@ public class Player extends Trainer
 		return pokedex.get(i);
 	}
 
-	/**
-	 * @param pokemon
-	 * set the current pokemon
-	 */
-	public void setSelectedPokemon(Pokemon pokemon) {
-		selectedPokemon = pokemon;
-	}
-
-	/**
-	 * @return the currently selected pokemon
-	 */
-	public Pokemon getSelectedPokemon() {
-		return selectedPokemon;
-	}
-	
 	/**
 	 * @param index
 	 * Use an item at index
