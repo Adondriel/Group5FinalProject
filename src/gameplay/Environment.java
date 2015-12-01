@@ -66,6 +66,22 @@ public class Environment
 	}
 	
 	/**
+	 * @param p The player
+	 */
+	public void setPlayer(Player p)
+	{
+		player = p;
+	}
+	
+	/**
+	 * @param c The computer
+	 */
+	public void setComputer(Computer c)
+	{
+		computer = c;
+	}
+	
+	/**
 	 * @return The Player's current Pokemon.
 	 */
 	public Pokemon getCurrentPlayerPokemon()
