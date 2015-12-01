@@ -14,6 +14,10 @@ public class Attack implements FightCommand
 	private Trainer t;
 	private Trainer p;
 
+	/**
+	 * @param t ai player
+	 * @param p player
+	 */
 	public Attack(Trainer t, Trainer p)
 	{
 		this.t = t; //A.I

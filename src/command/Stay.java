@@ -11,7 +11,6 @@ public class Stay implements RunCommand
 	@Override
 	public void executeRun()
 	{
-		// TODO Auto-generated method stub
 		
 	}
 
