@@ -50,17 +50,9 @@ public class Environment
 	 * @param p The Player's Pokemon to be added.
 	 * @param i The position of the Pokemon in the Player's Pokedex.
 	 */
-	public void setPlayerPokemon(Pokemon p, int i)
+	public void setPlayerPokemon(Pokemon p)
 	{
-		playerCurrentPokemon = player.getPokemon(i);
-	}
-	
-	/**
-	 * Removes the Player's Pokemon from the battlefield.
-	 */
-	public void removePlayerPokemon()
-	{
-		playerCurrentPokemon = null;
+		playerCurrentPokemon = p;
 	}
 	
 	/**
@@ -68,17 +60,9 @@ public class Environment
 	 * @param p The Computer's Pokemon to be added.
 	 * @param i The position of the Pokemon in the Computer's Pokedex.
 	 */
-	public void setComputerPokemon(Pokemon p, int i)
+	public void setComputerPokemon(Pokemon p)
 	{
-		computerCurrentPokemon = computer.getPokemon(i);
-	}
-	
-	/**
-	 * Removes the COmputer's Pokemon from the battlefield.
-	 */
-	public void removeComputerPokemon()
-	{
-		computerCurrentPokemon = null;
+		computerCurrentPokemon = p;
 	}
 	
 	/**

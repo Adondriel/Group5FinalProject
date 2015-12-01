@@ -54,27 +54,10 @@ public class TestEnvironment
 	@Test
 	public void testInitialization() 
 	{
-		
+		battlefield.setPlayerPokemon(p.getPokemon(0));
+		battlefield.setComputerPokemon(c.getPokemon(0));
 		assertTrue(battlefield.getCurrentPlayerPokemon() instanceof Blastoise);
 		assertTrue(battlefield.getCurrentComputerPokemon() instanceof Bulbasaur);
-	}
-	
-	/**
-	 * Checks to see that a player cannot have two Pokemon on the battlefield.
-	 */
-	@Test
-	public void testOnlyOnePlayerPokemon()
-	{
-		
-	}
-	
-	/**
-	 * Checks to see that a computer cannot have two Pokemon on the battlefield.
-	 */
-	@Test
-	public void testOnlyOneComputerPokemon()
-	{
-		
 	}
 	
 	/**
@@ -83,7 +66,9 @@ public class TestEnvironment
 	@Test
 	public void testPlayerSwitchPokemon()
 	{
-		
+		assertTrue(battlefield.getCurrentPlayerPokemon() instanceof Blastoise);
+		battlefield.setPlayerPokemon(p.getPokemon(1));
+		assertTrue(battlefield.getCurrentPlayerPokemon() instanceof Caterpie);
 	}
 	
 	/**
@@ -92,6 +77,8 @@ public class TestEnvironment
 	@Test
 	public void testComputerSwitchPokemon()
 	{
-		
+		assertTrue(battlefield.getCurrentComputerPokemon() instanceof Bulbasaur);
+		battlefield.setComputerPokemon(c.getPokemon(1));
+		assertTrue(battlefield.getCurrentComputerPokemon() instanceof Charmander);
 	}
 }
