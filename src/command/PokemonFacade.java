@@ -29,16 +29,25 @@ public class PokemonFacade
 		this.rc = rc;
 		this.sc = sc;
 	}
+	/**
+	 * @param a
+	 */
 	public void attackCommand(Attack a)
 	{
 		fc.execute(a);
 	}
 	
+	/**
+	 * @param i
+	 */
 	public void itemCommand(ItemBehavior i)
 	{
 		ic.executeItem(i);
 	}
 	
+	/**
+	 * @param selectedPokemon
+	 */
 	public void swapCommand(Pokemon selectedPokemon)
 	{
 		sc.executeSwap(selectedPokemon);
