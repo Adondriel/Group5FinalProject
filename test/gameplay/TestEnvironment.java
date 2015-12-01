@@ -40,11 +40,12 @@ public class TestEnvironment
 		playerPokedex.add(blastoise);
 		playerPokedex.add(caterpie);
 		playerPokedex.add(vulpix);
+		computerPokedex.add(bulbasaur);
+		computerPokedex.add(charmander);
+		computerPokedex.add(ivysaur);
 		p = new Player(playerPokedex, blastoise);
-		c.addPokemon(bulbasaur);
-		c.addPokemon(charmander);
-		c.addPokemon(ivysaur);
-		battlefield = Environment.getEnvironment(p , c);
+		c = new Computer(computerPokedex, bulbasaur);
+		battlefield = Environment.getEnvironment(p, c);
 	}
 
 	/**
@@ -53,7 +54,8 @@ public class TestEnvironment
 	@Test
 	public void testInitialization() 
 	{
-		
+		assertEquals(blastoise, battlefield.getCurrentPlayerPokemon());
+		assertEquals(bulbasaur, battlefield.getCurrentComputerPokemon());
 	}
 	
 	/**
