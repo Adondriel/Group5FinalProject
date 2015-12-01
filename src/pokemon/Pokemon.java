@@ -223,5 +223,7 @@ public abstract class Pokemon
 		return moves;
 	}
 	
-	
+	public StatusEffect getStatus(){
+		return status;
+	}
 }
