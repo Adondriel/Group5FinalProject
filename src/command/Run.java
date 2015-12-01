@@ -7,11 +7,14 @@ package command;
 public class Run implements RunCommand
 {
 
+	/**
+	 * if you run away in the game you run away in real life
+	 */
+	
 	@Override
 	public void executeRun()
 	{
-		// TODO Auto-generated method stub
-		
+				System.exit(0);
 	}
 
 }

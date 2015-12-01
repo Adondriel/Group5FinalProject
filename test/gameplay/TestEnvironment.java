@@ -54,8 +54,9 @@ public class TestEnvironment
 	@Test
 	public void testInitialization() 
 	{
-		assertEquals(blastoise, battlefield.getCurrentPlayerPokemon());
-		assertEquals(bulbasaur, battlefield.getCurrentComputerPokemon());
+		
+		assertTrue(battlefield.getCurrentPlayerPokemon() instanceof Blastoise);
+		assertTrue(battlefield.getCurrentComputerPokemon() instanceof Bulbasaur);
 	}
 	
 	/**

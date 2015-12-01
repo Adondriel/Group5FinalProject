@@ -96,4 +96,20 @@ public class Environment
 	{
 		return computerCurrentPokemon;
 	}
+	
+	/**
+	 * @return The Player
+	 */
+	public Trainer getPlayer()
+	{
+		return player;
+	}
+	
+	/**
+	 * @return The Computer
+	 */
+	public Trainer getComputer()
+	{
+		return computer;
+	}
 }
