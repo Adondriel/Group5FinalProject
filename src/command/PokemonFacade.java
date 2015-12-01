@@ -11,16 +11,37 @@ import pokemon.Pokemon;
  */
 public class PokemonFacade
 {
-	public void attackCommand(Attack a){
-		
+	FightCommand fc;
+	ItemCommand ic;
+	RunCommand rc;
+	SwapCommand sc;
+	
+	/**
+	 * @param fc
+	 * @param ic
+	 * @param rc
+	 * @param sc
+	 */
+	public PokemonFacade(FightCommand fc, ItemCommand ic, RunCommand rc, SwapCommand sc)
+	{
+		this.fc = fc;
+		this.ic = ic;
+		this.rc = rc;
+		this.sc = sc;
+	}
+	public void attackCommand(Attack a)
+	{
+		fc.execute(a);
 	}
 	
-	public void itemCommand(ItemBehavior i){
-		
+	public void itemCommand(ItemBehavior i)
+	{
+		ic.executeItem(i);
 	}
 	
-	public void swapCommand(Pokemon selectedPokemon){
-		
+	public void swapCommand(Pokemon selectedPokemon)
+	{
+		sc.executeSwap(selectedPokemon);
 	}
 
 }
