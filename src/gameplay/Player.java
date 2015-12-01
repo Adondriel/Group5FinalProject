@@ -1,11 +1,8 @@
 package gameplay;
 
 import items.ItemBehavior;
-
 import java.util.ArrayList;
-
-import pokemon.Bulbasaur;
-import pokemon.Pokemon;
+import pokemon.*;
 
 /**
  * @author Benjamin Uleau
@@ -13,15 +10,16 @@ import pokemon.Pokemon;
  */
 public class Player extends Trainer
 {
-	ArrayList<Pokemon> pokedex=new ArrayList<Pokemon>(); 			//The list of Pokemon
+	//ArrayList<Pokemon> pokedex=new ArrayList<Pokemon>(); 			//The list of Pokemon
 	ArrayList<ItemBehavior> items=new ArrayList<ItemBehavior>();	//The list of items (ItemBehaviors)
 	//Pokemon[] pokedex = new Pokemon[3]; //Holds the Pokemon.
 	Pokemon selectedPokemon;
 
 	//Jason had to add this method to remove an error from code.
 	/**
+	 * @param pokeList 
+	 * @param selectedPokemon 
 	 * @param i the position in the pokedex.
-	 * @return The selected Pokemon from the pokedex.
 	 */
 	/*public Player(Pokemon[] pokeList, Pokemon selectedPokemon){
 		pokedex = pokeList;
@@ -43,10 +41,6 @@ public class Player extends Trainer
 	 */
 	public void setSelectedPokemon(Pokemon pokemon) {
 		selectedPokemon = pokemon;
-	}
-	
-	public void setPokedex(ArrayList<Pokemon> pokeList){
-		
 	}
 
 	/**

@@ -4,9 +4,13 @@ import java.util.ArrayList;
 
 import pokemon.Pokemon;
 
+/**
+ * @author Benjamin Uleau
+ *
+ */
 public class Computer extends Trainer 
 {
-	ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();	//Holds the Pokemon.
+	//ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();	//Holds the Pokemon.
 	Pokemon selectedPokemon;
 	
 	/**
