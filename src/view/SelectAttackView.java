@@ -42,6 +42,9 @@ public class SelectAttackView extends View implements Observer{
         
         setMinimumSize(new java.awt.Dimension(1080, 680));
         setPreferredSize(new java.awt.Dimension(1080, 680));
+        /**
+         * Set up the name of the attacks section.
+         */
         if (myModel.getPlayer().getSelectedPokemon().getType() instanceof FireType){
              atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getName().replace("attacks.FireAttackAbilities.", "");
              atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getName().replace("attacks.FireAttackAbilities.", "");
@@ -58,10 +61,9 @@ public class SelectAttackView extends View implements Observer{
             atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
             atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
         }
-
-        
-       
-
+        /**
+         * Assemble the buttons!
+         */
         jButton1.setText(atkStr1);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +93,6 @@ public class SelectAttackView extends View implements Observer{
         });
         
         String str = "resources/"+myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8)+"200.png";
-        //System.out.println(str);
         ImageIcon img = new ImageIcon(getClass().getResource(str));
         playerPokemonIcon.setIcon(img);
         playerPokemonIcon.setText("Pokemon");
@@ -143,6 +144,10 @@ public class SelectAttackView extends View implements Observer{
 		}else{
 			EnemyStatusIcon.setVisible(false);
 		}
+		
+		/**
+		 * Net beans generated layout code.
+		 */
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -211,7 +216,8 @@ public class SelectAttackView extends View implements Observer{
     }// </editor-fold>                    
 
 
-    private void jButtonActionPerformed(java.awt.event.ActionEvent evt, JButton jb) {                                         
+    private void jButtonActionPerformed(java.awt.event.ActionEvent evt, JButton jb) {    
+    	myModel.detach(this);
         if (jb == jButton1){
         	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(0));
         	myController.execute();

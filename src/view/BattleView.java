@@ -130,7 +130,9 @@ public class BattleView extends View implements Observer {
 			EnemyStatusIcon.setVisible(false);
 		}
 
-
+		/**
+		 * Netbeans generated layout code.
+		 */
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
