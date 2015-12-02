@@ -29,7 +29,7 @@ public class SelectThreePokemonController implements Controller {
 		System.out.println("");
 		myModel.getPlayer().setSelectedPokemon(pokemonList.get(0));
 		myModel.getPlayer().setPokedex(pokemonList);
-		
+		myModel.getState().start();
 		Display.globalDisplay.changeView(new BattleView());
 	}
 }

@@ -223,7 +223,7 @@ public class Environment
 		computerCurrentPokemon = computer.getSelectedPokemon();
 		battleField = this;
 		tc = new TurnChange(player);
-		tc.start();
+		
 	}
 	
 	/**

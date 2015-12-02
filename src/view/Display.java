@@ -7,7 +7,11 @@ import gameplay.Player;
 import model.Model;
 import model.Observer;
 import pokemon.Bulbasaur;
-
+/**
+ * 
+ * @author Adam Pine
+ *
+ */
 public class Display implements Observer {
 	JFrame frame = new JFrame();
 	JPanel iv;

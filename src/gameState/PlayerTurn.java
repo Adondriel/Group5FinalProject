@@ -19,6 +19,5 @@ public class PlayerTurn extends Turn
 		System.out.println("Player turn");
 		turnSwitch.setTurn(turnSwitch.getComputerTurn());
 		turnSwitch.setTrainer(turnSwitch.getComputer());
-		Display.updateViews();
 	}
 }

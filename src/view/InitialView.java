@@ -17,7 +17,11 @@ import model.Observer;
 import pokemon.Bulbasaur;
 import pokemon.*;
 import pokemon.Pokemon;
-
+/**
+ * 
+ * @author Adam Pine
+ *
+ */
 public class InitialView extends View implements Observer {
 	private ArrayList<JToggleButton> selectedButtonList = new ArrayList<JToggleButton>(0);
 	private ArrayList<Pokemon> pokemonList = new ArrayList<Pokemon>();
@@ -29,7 +33,8 @@ public class InitialView extends View implements Observer {
 
 	@Override
 	public void update() {
-		// Update the info in the view. init view, really shouldn't need this...
+		//Update the info in the view. 
+		//Init view does not need this.
 	}
 
 	private void initComponents() {

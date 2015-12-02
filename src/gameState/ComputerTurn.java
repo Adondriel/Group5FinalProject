@@ -1,5 +1,8 @@
 package gameState;
 
+import gameplay.Trainer;
+import pokemon.Pokemon;
+
 /**
  * @author Benjamin Uleau
  *
@@ -16,7 +19,11 @@ public class ComputerTurn extends Turn
 	@Override
 	public void takeTurn(){
 		System.out.println("Computer turn");
-		if(turnSwitch.getTrainer().getSelectedPokemon().getCurrentHealth()==0){
+		TurnChange ts = turnSwitch;
+		Trainer t = turnSwitch.getTrainer();
+		Pokemon p = turnSwitch.getTrainer().getSelectedPokemon();
+		int i = turnSwitch.getComputer().getSelectedPokemon().getCurrentHealth();
+		if(turnSwitch.getComputer().getSelectedPokemon().getCurrentHealth()==0){
 			turnSwitch.setTurn(turnSwitch.getComputerPokemon());
 		}
 		else{

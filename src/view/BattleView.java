@@ -14,7 +14,11 @@ import pokemon.Bulbasaur;
 import statusEffects.Burn;
 import statusEffects.Frozen;
 import statusEffects.Poison;
-
+/**
+ * 
+ * @author Adam Pine
+ *
+ */
 public class BattleView extends View implements Observer {
 	public BattleView(){
 		myController = null;
@@ -23,15 +27,18 @@ public class BattleView extends View implements Observer {
 	}
 
 	@Override
+	/**
+	 * This will cause the entire window to be redrawn anytime the update method gets called.
+	 */
 	public void update() {
 		System.out.println("BattleView Updated");
 		this.removeAll();
 		initComponents();
 	}
-
+	/**
+	 * The method that creates all the components.
+	 */
 	private void initComponents(){
-		
-
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
 		jButton3 = new javax.swing.JButton();
@@ -45,7 +52,7 @@ public class BattleView extends View implements Observer {
 		jSeparator2 = new javax.swing.JSeparator();
         PlayerStatusIcon = new javax.swing.JLabel();
         EnemyStatusIcon = new javax.swing.JLabel();
-        
+        //Check if it is the player's turn. if not, disable the buttons.
         if (!(myModel.getState().getCurrentTurn() instanceof PlayerTurn)){
         	jButton1.setEnabled(false);
         	jButton2.setEnabled(false);
@@ -60,7 +67,7 @@ public class BattleView extends View implements Observer {
         
 		setMinimumSize(new java.awt.Dimension(1080, 680));
 		setPreferredSize(new java.awt.Dimension(1080, 680));
-
+		//setup the buttons
 		jButton1.setText("Attack");
 		jButton1.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,17 +233,17 @@ public class BattleView extends View implements Observer {
                 .addGap(21, 21, 21))
         		);
 	}// </editor-fold>
-
+	//change view
 	protected void SwaptoSwapView(ActionEvent evt) {
 		myModel.detach(this);
 		Display.globalDisplay.changeView(new SwapPokemonView());
 	}
-
+	//change view
 	protected void SwapToItemView(ActionEvent evt) {
 		myModel.detach(this);
 		Display.globalDisplay.changeView(new SelectItemView());
 	}
-
+	//change view
 	private void SwapToAttackView(java.awt.event.ActionEvent evt) {
 		myModel.detach(this);
 		Display.globalDisplay.changeView(new SelectAttackView());
