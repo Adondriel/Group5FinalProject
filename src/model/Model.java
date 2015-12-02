@@ -50,4 +50,8 @@ public class Model implements Subject {
 	public TurnChange getState() {
 		return e.getTc();
 	}
+
+	public void setTC(TurnChange turnChange) {
+		e.setTC(turnChange);
+	}
 }

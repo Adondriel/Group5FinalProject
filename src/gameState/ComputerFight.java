@@ -29,7 +29,7 @@ public class ComputerFight extends Turn{
 		}
 		//turnSwitch.setTrainer(turnSwitch.getPlayer());
 		turnSwitch.setTurn(turnSwitch.getPlayerTurn());
-		Display.updateViews();
+		Display.globalDisplay.update();
 	}
 	
 }

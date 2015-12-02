@@ -2,6 +2,7 @@ package command;
 
 import attacks.Attack;
 import exceptions.StatusEffectException;
+import gameState.PlayerTurn;
 import gameplay.Computer;
 import gameplay.Environment;
 import gameplay.Player;
@@ -36,7 +37,11 @@ public class AttackCommand implements FightCommand
 	{
 		
 		p.getSelectedPokemon().selectAttack(a);
-		
+		if (e.getTc().getCurrentTurn() instanceof PlayerTurn){
+			PlayerTurn pt = (PlayerTurn) e.getTc().getCurrentTurn();
+			pt.actuallyTakeTurn();
+
+		}
 		/*try
 		{
 			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());

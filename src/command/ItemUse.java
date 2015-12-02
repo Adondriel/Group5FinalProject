@@ -1,5 +1,7 @@
 package command;
 
+import gameState.PlayerTurn;
+import gameplay.Environment;
 import gameplay.Player;
 import items.ItemBehavior;
 
@@ -12,6 +14,7 @@ public class ItemUse implements ItemCommand
 {
 
 	private Player p;
+	private Environment e = Environment.getEnvironment();
 
 	/**
 	 * @param t ai player
@@ -30,7 +33,10 @@ public class ItemUse implements ItemCommand
 			i.UseItem(p.getSelectedPokemon().getCurrentHealth(), p.getSelectedPokemon().getMaxHealth());
 			p.removeItem(i);
 		}
-		p.removeItem(i);
-	}
+		if (e.getTc().getCurrentTurn() instanceof PlayerTurn){
+			PlayerTurn pt = (PlayerTurn) e.getTc().getCurrentTurn();
+			pt.actuallyTakeTurn();
+		}
+}
 
 }

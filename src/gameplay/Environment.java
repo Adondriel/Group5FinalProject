@@ -222,7 +222,7 @@ public class Environment
 		//playerCurrentPokemon = player.getSelectedPokemon();
 		computerCurrentPokemon = computer.getSelectedPokemon();
 		battleField = this;
-		tc = new TurnChange(player);
+		
 		
 	}
 	
@@ -318,5 +318,9 @@ public class Environment
 	 */
 	public TurnChange getTc() {
 		return tc;
+	}
+
+	public void setTC(TurnChange turnChange) {
+		tc = turnChange;
 	}
 }
