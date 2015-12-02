@@ -22,9 +22,6 @@ public class Squirtle extends Pokemon
 		super.experience=0;
 		super.type=new WaterType();
 		super.name="Squirtle";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(waterGun);
 		moves.add(withdraw);
 		moves.add(bubble);

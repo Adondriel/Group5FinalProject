@@ -21,9 +21,6 @@ public class Vulpix extends Pokemon
 		super.experience=0;
 		super.type=new FireType();
 		super.name="Vulpix";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(ember);
 		moves.add(fireSpin);
 		moves.add(willOWisp);

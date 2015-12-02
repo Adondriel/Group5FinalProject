@@ -18,7 +18,9 @@ public class ComputerTurn extends Turn
 		if(turnSwitch.getTrainer().getSelectedPokemon().getCurrentHealth()==0){
 			turnSwitch.setTurn(turnSwitch.getComputerPokemon());
 		}
-		turnSwitch.setTurn(turnSwitch.getComputerFight());
+		else{
+			turnSwitch.setTurn(turnSwitch.getComputerFight());
+		}
 	}
 	
 }

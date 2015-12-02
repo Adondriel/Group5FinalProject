@@ -1,6 +1,6 @@
 package gameState;
 
-import gameplay.Trainer;
+import gameplay.*;
 
 /**
  * @author Benjamin Uleau
@@ -13,6 +13,9 @@ public class TurnChange
 	Turn currentTurn;
 	Turn computerFight;
 	Turn computerPokemon;
+	Environment e;
+	Trainer player=e.getPlayer();
+	Trainer computer=e.getComputer();
 	Trainer trainer;
 	
 	/**
@@ -78,9 +81,29 @@ public class TurnChange
 	}
 	
 	/**
+	 * @param t
+	 */
+	public void setTrainer(Trainer t){
+		trainer=t;
+	}
+	/**
 	 * @return the trainer
 	 */
 	public Trainer getTrainer(){
 		return trainer;
+	}
+	
+	/**
+	 * @return computer trainer
+	 */
+	public Trainer getComputer(){
+		return computer;
+	}
+	
+	/**
+	 * @return player trainer
+	 */
+	public Trainer getPlayer(){
+		return player;
 	}
 }

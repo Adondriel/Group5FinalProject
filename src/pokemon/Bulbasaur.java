@@ -24,9 +24,6 @@ public class Bulbasaur extends Pokemon
 		super.experience=0;
 		super.type=new GrassType();
 		super.name="Bulbasaur";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(leechSeed);
 		moves.add(vineWhip);
 		moves.add(razorLeaf);

@@ -21,9 +21,6 @@ public class Ivysaur extends Pokemon
 		super.experience=0;
 		super.type=new GrassType();
 		super.name="Ivysaur";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(vineWhip);
 		moves.add(razorLeaf);
 		moves.add(solarBeam);

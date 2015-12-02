@@ -15,9 +15,6 @@ public class MockPokemon extends Pokemon
 		super.currentHealth=maxHealth;
 		super.experience=0;
 		super.name="Punching Bag";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 	}
 	
 }

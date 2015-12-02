@@ -22,9 +22,6 @@ public class Venusaur extends Pokemon
 		super.experience=0;
 		super.type=new GrassType();
 		super.name="Venusaur";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(vineWhip);
 		moves.add(solarBeam);
 		moves.add(petalBlizzard);

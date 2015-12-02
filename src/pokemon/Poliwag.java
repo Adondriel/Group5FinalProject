@@ -22,9 +22,6 @@ public class Poliwag extends Pokemon
 		super.experience=0;
 		super.type=new WaterType();
 		super.name="Poliwag";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(waterPulse);
 		moves.add(hydroPump);
 		moves.add(bubbleBeam);
