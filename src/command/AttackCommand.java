@@ -34,15 +34,17 @@ public class AttackCommand implements FightCommand
 	@Override
 	public void execute(Attack a)
 	{
+		
 		p.getSelectedPokemon().selectAttack(a);
-		try
+		
+		/*try
 		{
 			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
 		} catch (StatusEffectException e)
 		{
 			
 			e.printStackTrace();
-		}
+		} */
 
 	}
 

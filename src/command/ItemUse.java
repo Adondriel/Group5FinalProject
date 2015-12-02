@@ -25,7 +25,6 @@ public class ItemUse implements ItemCommand
 	@Override
 	public void executeItem(ItemBehavior i)
 	{
-		
 		boolean hasItem=p.getItem(i);
 		// gets the selected item and uses it
 		if(hasItem){
@@ -33,8 +32,6 @@ public class ItemUse implements ItemCommand
 			p.removeItem(i);
 		}
 		p.removeItem(i);
-		
-		
 	}
 
 }
