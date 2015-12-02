@@ -29,6 +29,6 @@ public class GrassGem extends HeldItem
 	@Override
 	public int calculateAmplifiedExperience()
 	{
-		return p.getExperience();
+		return 0;
 	}	
 }
