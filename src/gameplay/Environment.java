@@ -9,6 +9,10 @@ import pokemon.*;
  */
 import pokemon.Pokemon;
 
+/**
+ * @author Jason LoBianco
+ *
+ */
 public class Environment 
 {
 	private Player player;
