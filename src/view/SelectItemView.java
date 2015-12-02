@@ -231,12 +231,14 @@ public class SelectItemView extends View implements Observer{
 	protected void item2Press() {
 		myModel.detach(this);
 		myController = new UseItemController(myModel, myModel.getPlayer().getItemAtIndex(1));
+		myController.execute();
 		System.out.println("Item 2 pressed");
 	}
 
 	protected void item1Press() {
 		myModel.detach(this);
 		myController = new UseItemController(myModel, myModel.getPlayer().getItemAtIndex(0));
+		myController.execute();
 		System.out.println("Item 1 pressed");
 	}
 
