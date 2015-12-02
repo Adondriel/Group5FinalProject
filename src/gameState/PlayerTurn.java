@@ -17,6 +17,11 @@ public class PlayerTurn extends Turn
 
 	public void takeTurn(){
 		System.out.println("Player turn");
+		if(turnSwitch.getPlayer().getSelectedPokemon().getCurrentHealth()==0){
+			turnSwitch.getPlayer().getPokedex().remove(turnSwitch.getPlayer().getSelectedPokemon());
+			turnSwitch.getPlayer().setSelectedPokemon(turnSwitch.getPlayer().getPokedex().get(0));
+			turnSwitch.setTurn(turnSwitch.getComputerTurn());
+		}
 		//turnSwitch.setTurn(turnSwitch.getComputerTurn());
 		//turnSwitch.setTrainer(turnSwitch.getComputer());
 		Display.globalDisplay.update();
