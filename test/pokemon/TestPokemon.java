@@ -51,6 +51,9 @@ public class TestPokemon {
 		//assertEquals(t, p.getType());
 		assertEquals("Bulbasaur", p.getName());
 		assertTrue(p.getAttack(0) instanceof LeechSeed);
+		assertTrue(p.getAttack(1) instanceof VineWhip);
+		assertTrue(p.getAttack(2) instanceof RazorLeaf);
+		assertTrue(p.getAttack(3) instanceof Tackle);
 	}
 	
 	@Test
