@@ -6,6 +6,7 @@ import gameState.PlayerTurn;
 import gameplay.Environment;
 import gameplay.Player;
 import statusEffects.Burn;
+import view.View;
 
 /**
  * @author Bradley Solorzano Design Patterns Group 5 Final project attack that
@@ -35,6 +36,7 @@ public class Ember extends Attack {
 					// Burn burn = new Burn(e.getCurrentComputerPokemon());
 					//e.getCurrentPlayerPokemon().burnTarget();
 					e.getComputer().getSelectedPokemon().burnTarget();
+					View.myModel.update();
 				} catch (StatusEffectException e1) {
 					e1.printStackTrace();
 				}
@@ -46,6 +48,7 @@ public class Ember extends Attack {
 					// Burn burn = new Burn(e.getCurrentPlayerPokemon());
 					//e.getCurrentComputerPokemon().burnTarget();
 					e.getPlayer().getSelectedPokemon().burnTarget();
+					View.myModel.update();
 				} catch (StatusEffectException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
