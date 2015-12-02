@@ -8,11 +8,11 @@ import gameplay.*;
  */
 public class TurnChange
 {
-	Turn playerTurn;
-	Turn computerTurn;
+	Turn playerTurn=new PlayerTurn(this);
+	Turn computerTurn=new ComputerTurn(this);
 	Turn currentTurn;
-	Turn computerFight;
-	Turn computerPokemon;
+	Turn computerFight=new ComputerFight(this);
+	Turn computerPokemon=new ComputerChangePokemon(this);
 	Environment e = Environment.getEnvironment();
 	Trainer player=e.getPlayer();
 	Trainer computer=e.getComputer();
