@@ -27,8 +27,9 @@ public class SelectItemView extends View implements Observer{
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("SelectItemView Updated");
+		this.removeAll();
+		initComponents();		
 	};
 	
 	private void initComponents(){

@@ -35,7 +35,9 @@ public class Display implements Observer {
 	}
 	
 	public static void updateViews(){
-		View.myModel.update();
+		if (View.myModel != null){
+			View.myModel.update();
+		}
 	}
 	public void changeView(View v){
 		frame.getContentPane().removeAll();

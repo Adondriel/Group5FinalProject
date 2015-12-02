@@ -1,6 +1,7 @@
 package controller;
 
 import attacks.Attack;
+import command.PokemonFacade;
 import model.Model;
 import view.BattleView;
 import view.Display;
@@ -20,6 +21,8 @@ public class AttackController implements Controller {
 	public void execute() {
 		System.out.println("Call Attack Command");
 		//after executed, go back to battle view, battle view should check for player turn.
+		PokemonFacade pf = new PokemonFacade();
+		pf.attackCommand(myAttack);
 		Display.globalDisplay.changeView(new BattleView());
 	}
 

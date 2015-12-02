@@ -17,9 +17,7 @@ public class SelectThreePokemonController implements Controller {
 	public SelectThreePokemonController(Model m, ArrayList<Pokemon> pokemonList) {
 		myModel = m;
 		this.pokemonList = pokemonList;
-		Environment e = Environment.getEnvironment();
 		Player p = new Player(pokemonList, pokemonList.get(0));
-		e.setPlayer(p);
 		myModel.setPlayer(p);
 	}
 
@@ -31,6 +29,7 @@ public class SelectThreePokemonController implements Controller {
 		System.out.println("");
 		myModel.getPlayer().setSelectedPokemon(pokemonList.get(0));
 		myModel.getPlayer().setPokedex(pokemonList);
+		
 		Display.globalDisplay.changeView(new BattleView());
 	}
 }

@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 
 import controller.Controller;
 import exceptions.StatusEffectException;
+import gameState.PlayerTurn;
 import gameplay.Environment;
 import model.Model;
 import model.Observer;
@@ -24,9 +25,12 @@ public class BattleView extends View implements Observer {
 	@Override
 	public void update() {
 		System.out.println("BattleView Updated");
+		this.removeAll();
+		initComponents();
 	}
 
 	private void initComponents(){
+		
 
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
@@ -41,6 +45,18 @@ public class BattleView extends View implements Observer {
 		jSeparator2 = new javax.swing.JSeparator();
         PlayerStatusIcon = new javax.swing.JLabel();
         EnemyStatusIcon = new javax.swing.JLabel();
+        
+        if (!(myModel.getState().getCurrentTurn() instanceof PlayerTurn)){
+        	jButton1.setEnabled(false);
+        	jButton2.setEnabled(false);
+        	jButton3.setEnabled(false);
+        	jButton4.setEnabled(false);
+        }else{
+        	jButton1.setEnabled(true);
+        	jButton2.setEnabled(true);
+        	jButton3.setEnabled(true);
+        	jButton4.setEnabled(true);
+        }
         
 		setMinimumSize(new java.awt.Dimension(1080, 680));
 		setPreferredSize(new java.awt.Dimension(1080, 680));
@@ -62,11 +78,16 @@ public class BattleView extends View implements Observer {
 		jButton3.setText("Run");
 		jButton3.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				SwapToItemView(evt);
+				System.exit(ABORT);
 			}
 		});
 
 		jButton4.setText("Swap");
+		jButton4.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				SwaptoSwapView(evt);
+			}
+		});
 
 		/**
 		 * Player Section. Assembles player info.
@@ -205,6 +226,11 @@ public class BattleView extends View implements Observer {
                 .addGap(21, 21, 21))
         		);
 	}// </editor-fold>
+
+	protected void SwaptoSwapView(ActionEvent evt) {
+		myModel.detach(this);
+		Display.globalDisplay.changeView(new SwapPokemonView());
+	}
 
 	protected void SwapToItemView(ActionEvent evt) {
 		myModel.detach(this);

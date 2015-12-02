@@ -15,7 +15,7 @@ public class Environment
 {
 	private Player player;
 	private Computer computer;
-	private static Environment battleField;
+	private static Environment battleField = null;
 	private Pokemon playerCurrentPokemon;
 	private Pokemon computerCurrentPokemon;
 	private ArrayList<Pokemon> computerPokedex = new ArrayList<Pokemon>();
@@ -30,11 +30,11 @@ public class Environment
 	{
 		player = new Player(null, null);
 		String [] pokemon = {"Blastoise", "Bulbasaur", "Caterpie", "Charizard", "Charmander", "Charmeleon", "Ivysaur", "Poliwag", "Squirtle", "Venusaur", "Vulpix", "Wartortle"};
-		int pokemon1 = (int) (Math.random()*12);
+		int pokemon1 = (int) (Math.floor(Math.random()*12));
 		String pokemon1String = pokemon[pokemon1];
-		int pokemon2 = (int) (Math.random()*12);
+		int pokemon2 = (int) (Math.floor(Math.random()*12));
 		String pokemon2String = pokemon[pokemon2];
-		int pokemon3 = (int) (Math.random()*12);
+		int pokemon3 = (int) (Math.floor(Math.random()*12));
 		String pokemon3String = pokemon[pokemon3];
 		if (pokemon1String == "Blastoise")
 		{
@@ -218,8 +218,10 @@ public class Environment
 		}
 		computer = new Computer(computerPokedex, null);
 		computer.setSelectedPokemon(computer.getPokemon((int) (Math.random()*3)));
+		
 		//playerCurrentPokemon = player.getSelectedPokemon();
 		computerCurrentPokemon = computer.getSelectedPokemon();
+		battleField = this;
 		tc = new TurnChange(player);
 		tc.start();
 	}

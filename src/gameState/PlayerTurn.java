@@ -6,7 +6,7 @@ import view.Display;
  * @author Benjamin Uleau
  *
  */
-public abstract class PlayerTurn extends Turn
+public class PlayerTurn extends Turn
 {
 	/**
 	 * @param turnSwitch

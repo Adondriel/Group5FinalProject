@@ -242,7 +242,8 @@ public class SelectAttackView extends View implements Observer{
     // End of variables declaration 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Select Attack View Updated");
+		this.removeAll();
+		initComponents();		
 	}
 }

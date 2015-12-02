@@ -13,7 +13,7 @@ public class TurnChange
 	Turn currentTurn;
 	Turn computerFight;
 	Turn computerPokemon;
-	Environment e;
+	Environment e = Environment.getEnvironment();
 	Trainer player=e.getPlayer();
 	Trainer computer=e.getComputer();
 	Trainer trainer;
@@ -23,7 +23,7 @@ public class TurnChange
 	 */
 	public TurnChange(Trainer trainer){
 		this.trainer=trainer;
-		currentTurn=playerTurn;
+		currentTurn= new PlayerTurn(this);
 	}
 	
 	/**
