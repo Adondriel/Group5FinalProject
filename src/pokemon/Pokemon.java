@@ -217,4 +217,12 @@ public abstract class Pokemon implements Pkmn
 	public Pkmn getPkmn(){
 		return pkmn;
 	}
+	
+	public int calculateAmplifiedDamage(){
+		return 0;
+	}
+	
+	public int calculateAmplifiedExperience(){
+		return 0;
+	}
 }
