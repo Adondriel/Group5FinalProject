@@ -83,10 +83,10 @@ public class BattleView extends View implements Observer {
 			}
 		});
 
-		jButton3.setText("Run");
+		jButton3.setText("Equip");
 		jButton3.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				System.exit(ABORT);
+				SwapToEquipView(evt);
 			}
 		});
 
@@ -236,6 +236,11 @@ public class BattleView extends View implements Observer {
                 .addGap(21, 21, 21))
         		);
 	}// </editor-fold>
+	protected void SwapToEquipView(ActionEvent evt) {
+		myModel.detach(this);
+		Display.globalDisplay.changeView(new EquipItemView());
+	}
+
 	//change view
 	protected void SwaptoSwapView(ActionEvent evt) {
 		myModel.detach(this);

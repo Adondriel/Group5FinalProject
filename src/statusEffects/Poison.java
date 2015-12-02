@@ -25,8 +25,7 @@ public class Poison extends StatusEffect
 	{
 		super(p);
 		
-		if (pokemon.getNumStatusEffects() == 1) 
-		{
+		if (pokemon.getStatus() != null) 		{
 			throw new StatusEffectException("Only 1 status effect can be applied at a time.");
 		}
 		

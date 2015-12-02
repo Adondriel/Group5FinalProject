@@ -39,6 +39,6 @@ public abstract class StatusEffect extends Pokemon
 	 * @see pokemon.Pokemon#getNumStatusEffects()
 	 */
 	public int getNumStatusEffects() {
-		return pokemon.getNumStatusEffects()+1;
+		return 0;
 	}
 }
