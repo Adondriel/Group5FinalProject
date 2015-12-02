@@ -10,7 +10,7 @@ public class TurnChange
 {
 	Turn playerTurn=new PlayerTurn(this);
 	Turn computerTurn=new ComputerTurn(this);
-	Turn currentTurn;
+	Turn currentTurn=playerTurn;
 	Turn computerFight=new ComputerFight(this);
 	Turn computerPokemon=new ComputerChangePokemon(this);
 	Environment e = Environment.getEnvironment();

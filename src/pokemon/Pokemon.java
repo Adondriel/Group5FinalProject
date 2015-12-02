@@ -163,34 +163,6 @@ public abstract class Pokemon
 	}
 	
 	/**
-	 * Tick burn status effect
-	 */
-	public void burnTick(){
-		
-	}
-	
-	/**
-	 * Tick poison status effect
-	 */
-	public void poisonTick(){
-		
-	}
-	
-	/**
-	 * Tick freeaze status effect
-	 */
-	public void freezeTick(){
-		
-	}
-
-	/**
-	 * @return the number of status effects on a Pokemon.
-	 */
-	public int getNumStatusEffects() {
-		return 0;
-	}	
-	
-	/**
 	 * @param pkmn
 	 * @return true if an item was picked up, false otherwise
 	 */
