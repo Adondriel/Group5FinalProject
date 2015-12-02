@@ -213,4 +213,8 @@ public abstract class Pokemon implements Pkmn
 	public void setCurrentAttack(int i){
 		currentAttack=moves.get(i);
 	}
+
+	public Pkmn getPkmn(){
+		return pkmn;
+	}
 }
