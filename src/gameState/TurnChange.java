@@ -28,7 +28,7 @@ public class TurnChange
 	/**
 	 * Changes the current turn
 	 */
-	public void switchTurn(){
+	public void start(){
 		takeTurn();
 	}
 	
