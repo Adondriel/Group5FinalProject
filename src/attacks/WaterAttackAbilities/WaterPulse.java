@@ -15,7 +15,6 @@ import pokemon.Pokemon;
  */
 public class WaterPulse extends Attack
 {
-	Environment e = Environment.getEnvironment();
 	/**
 	 * @param water
 	 * @param damage
@@ -28,6 +27,8 @@ public class WaterPulse extends Attack
 	@Override
 	public int getDamage()
 	{
+		Environment e = Environment.getEnvironment();
+
 		if (e.getTc().getCurrentTurn() instanceof PlayerTurn) {
 			if (e.getComputer().getSelectedPokemon().getStatus() == null) {
 				try {

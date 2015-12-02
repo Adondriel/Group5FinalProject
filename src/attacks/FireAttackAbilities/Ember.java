@@ -14,7 +14,6 @@ import view.View;
  *
  */
 public class Ember extends Attack {
-	Environment e = Environment.getEnvironment();
 
 	/**
 	 * @param fire
@@ -30,6 +29,8 @@ public class Ember extends Attack {
 
 	@Override
 	public int getDamage() {
+		Environment e = Environment.getEnvironment();
+
 		if (e.getTc().getCurrentTurn() instanceof PlayerTurn) {
 			if (e.getComputer().getSelectedPokemon().getStatus() == null) {
 				try {

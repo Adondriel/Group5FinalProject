@@ -14,7 +14,6 @@ import gameplay.Environment;
  */
 public class Inferno extends Attack
 {
-	Environment e = Environment.getEnvironment();
 	/**
 	 * @param fire
 	 * @param damage
@@ -27,6 +26,8 @@ public class Inferno extends Attack
 	@Override
 	public int getDamage()
 	{
+		Environment e = Environment.getEnvironment();
+
 		if (e.getTc().getCurrentTurn() instanceof PlayerTurn) {
 			if (e.getComputer().getSelectedPokemon().getStatus() == null) {
 				try {
