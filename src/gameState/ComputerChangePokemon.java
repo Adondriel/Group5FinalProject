@@ -18,7 +18,7 @@ public class ComputerChangePokemon extends Turn{
 	@Override
 	public void takeTurn() {
 		System.out.println("Computer change pokemon");
-		turnSwitch.getTrainer().setSelectedPokemon(turnSwitch.getTrainer().getPokemon(turnSwitch.getTrainer().getNextPokemonIndex()));
+		turnSwitch.getTrainer().setSelectedPokemon(turnSwitch.getComputer().getPokemon(turnSwitch.getComputer().getNextPokemonIndex()));
 		turnSwitch.setTurn(turnSwitch.getPlayerTurn());
 		turnSwitch.setTrainer(turnSwitch.getPlayer());
 		Display.updateViews();

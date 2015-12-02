@@ -20,7 +20,7 @@ public class ComputerFight extends Turn{
 	public void takeTurn() {
 		System.out.println("ComputerFight");
 		try {
-			turnSwitch.getTrainer().getSelectedPokemon().attack(turnSwitch.getPlayer().getSelectedPokemon());
+			turnSwitch.getComputer().getSelectedPokemon().attack(turnSwitch.getPlayer().getSelectedPokemon());
 		} catch (StatusEffectException e) {
 			e.printStackTrace();
 		}
