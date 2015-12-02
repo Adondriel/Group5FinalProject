@@ -24,13 +24,9 @@ public class ItemUse implements ItemCommand
 	
 	@Override
 	public void executeItem(ItemBehavior i)
-	{
-		
+	{	
 		p.useItem(i);
-		// gets the selected item and uses it
 		p.removeItem(i);
-		
-		
 	}
 
 }
