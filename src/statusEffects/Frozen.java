@@ -25,7 +25,7 @@ public class Frozen extends StatusEffect
 	{
 		super(p);
 		
-		if (pokemon.getStatus() != null) 		{
+		if (pokemon.getStatus() != null) {
 			throw new StatusEffectException("Only 1 status effect can be applied at a time.");
 		}
 	}
