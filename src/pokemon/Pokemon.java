@@ -24,9 +24,6 @@ public abstract class Pokemon
 	public int chanceToAttack = 1;
 	TypeBehavior type;
 	String name;
-	boolean burn;
-	boolean freeze;
-	boolean poison;
 	
 	Pkmn pkmn=null;
 	ArrayList<Attack> moves=new ArrayList<Attack>();
@@ -235,5 +232,9 @@ public abstract class Pokemon
 	
 	public void setStatus(StatusEffect status){
 		this.status = status;
+	}
+	
+	public Attack getAttack(int i){
+		return moves.get(i);
 	}
 }

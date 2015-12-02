@@ -11,7 +11,6 @@ import pokemon.*;
 public class Player extends Trainer
 {
 	//ArrayList<Pokemon> pokedex=new ArrayList<Pokemon>(); 			//The list of Pokemon
-	ArrayList<ItemBehavior> items=new ArrayList<ItemBehavior>();	//The list of items (ItemBehaviors)
 	//Pokemon[] pokedex = new Pokemon[3]; //Holds the Pokemon.
 
 	//Jason had to add this method to remove an error from code.

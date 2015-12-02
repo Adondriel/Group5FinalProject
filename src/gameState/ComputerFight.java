@@ -1,5 +1,7 @@
 package gameState;
 
+import exceptions.StatusEffectException;
+
 /**
  * @author Benjamin Uleau
  *
@@ -15,7 +17,13 @@ public class ComputerFight extends Turn{
 
 	@Override
 	public void takeTurn() {
-		turnSwitch.getTrainer().getSelectedPokemon().attack(target);
+		try {
+			turnSwitch.getTrainer().getSelectedPokemon().attack(turnSwitch.getPlayer().getSelectedPokemon());
+		} catch (StatusEffectException e) {
+			e.printStackTrace();
+		}
+		turnSwitch.setTrainer(turnSwitch.getPlayer());
+		turnSwitch.setTurn(turnSwitch.getPlayerTurn());
 	}
 	
 }

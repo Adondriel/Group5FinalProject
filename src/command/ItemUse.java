@@ -4,7 +4,7 @@ import gameplay.Player;
 import items.ItemBehavior;
 
 /**
- * @author Bradley Solorzano
+ * @author Bradley Solorzano, Benjamin Uleau
  * group 5 final project
  *
  */
@@ -25,7 +25,6 @@ public class ItemUse implements ItemCommand
 	@Override
 	public void executeItem(ItemBehavior i)
 	{
-		
 		boolean hasItem=p.getItem(i);
 		// gets the selected item and uses it
 		if(hasItem){
