@@ -15,6 +15,7 @@ public class ComputerTurn extends Turn
 
 	@Override
 	public void takeTurn(){
+		System.out.println("Computer turn");
 		if(turnSwitch.getTrainer().getSelectedPokemon().getCurrentHealth()==0){
 			turnSwitch.setTurn(turnSwitch.getComputerPokemon());
 		}
