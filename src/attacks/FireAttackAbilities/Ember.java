@@ -1,6 +1,10 @@
 package attacks.FireAttackAbilities;
 
 import attacks.Attack;
+import exceptions.StatusEffectException;
+import gameplay.Environment;
+import gameplay.Player;
+import statusEffects.Burn;
 
 /**
  * @author Bradley Solorzano
@@ -11,7 +15,7 @@ import attacks.Attack;
  */
 public class Ember extends Attack
 {
-
+	Environment e = Environment.getEnvironment();
 	/**
 	 * @param fire
 	 * @param damage
@@ -22,9 +26,37 @@ public class Ember extends Attack
 	}
 	
 	
+	/**
+	 * get the damage modifier from Ember and applies the Burn
+	 * */
+	
 	@Override
 	public int getDamage()
 	{
+		if(e.getTc().getTrainer() instanceof Player)
+		{
+			try
+			{
+				//Burn burn = new Burn(e.getCurrentComputerPokemon());
+				e.getCurrentComputerPokemon().burnTarget();
+			} catch (StatusEffectException e1)
+			{
+				e1.printStackTrace();
+			}
+			//apply statis affect to computer
+		}else
+		{
+			try
+			{
+				//Burn burn = new Burn(e.getCurrentPlayerPokemon());
+				e.getCurrentPlayerPokemon().burnTarget();
+			} catch (StatusEffectException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			//apply statis affect to player
+		}
 		return (int)(damage * 0.4);
 	}
 
