@@ -19,7 +19,8 @@ public class MachoBrace extends HeldItem
 	@Override
 	public int calculateAmplifiedDamage()
 	{
-		return p.getDamage();
+		//return p.getDamage();
+		return 0;
 	}
 
 	@Override

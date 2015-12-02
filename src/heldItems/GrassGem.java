@@ -20,7 +20,7 @@ public class GrassGem extends HeldItem
 	@Override
 	public int calculateAmplifiedDamage()
 	{
-		if(this.t.equals(p.getType())){
+		if(p.getType() instanceof GrassType){
 			return (int)(p.getDamage()*1.3);
 		}
 		return 0;
