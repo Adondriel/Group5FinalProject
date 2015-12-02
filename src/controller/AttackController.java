@@ -4,7 +4,9 @@ import attacks.Attack;
 import model.Model;
 import view.BattleView;
 import view.Display;
-
+/**
+ * @author Adam Pine
+ */
 public class AttackController implements Controller {
 	Model myModel;
 	Attack myAttack;
