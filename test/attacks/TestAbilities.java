@@ -8,7 +8,9 @@ import attacks.FireAttackAbilities.*;
 import attacks.GrassAttackAbilities.*;
 import attacks.WaterAttackAbilities.*;
 import gameplay.Environment;
-import pokemon.MockPokemon;
+import pokemon.MockFirePokeman;
+import pokemon.MockGrassPokeman;
+import pokemon.MockWaterPokeman;
 import pokemon.Pokemon;
 
 
@@ -21,17 +23,24 @@ import pokemon.Pokemon;
 public class TestAbilities
 {
 	
+	/**
+	 * Test the Ember Ability
+	 */
 	@Test
 	public void testEmber()
 	{
-		Pokemon zed = new MockPokemon();
-		Ember embur = new Ember(zed.getDamage());
+		Pokemon fire = new MockFirePokeman();
+		Pokemon fire2 = new MockFirePokeman();
+		Ember embur = new Ember(fire.getDamage());
+		ted.
+		
+		
 	}
 	
 	@Test
 	public void testFireFang()
 	{
-		Pokemon zed = new MockPokemon();
+		//Pokemon zed = new MockPokemon();
 	}
 	
 	@Test
