@@ -28,7 +28,6 @@ public class Environment
 	 */
 	private Environment()
 	{
-		tc = new TurnChange(player);
 		player = new Player(null, null);
 		String [] pokemon = {"Blastoise", "Bulbasaur", "Caterpie", "Charizard", "Charmander", "Charmeleon", "Ivysaur", "Poliwag", "Squirtle", "Venusaur", "Vulpix", "Wartortle"};
 		int pokemon1 = (int) (Math.random()*12);
@@ -221,6 +220,8 @@ public class Environment
 		computer.setSelectedPokemon(computer.getPokemon((int) (Math.random()*3)));
 		//playerCurrentPokemon = player.getSelectedPokemon();
 		computerCurrentPokemon = computer.getSelectedPokemon();
+		tc = new TurnChange(player);
+		tc.start();
 	}
 	
 	/**
