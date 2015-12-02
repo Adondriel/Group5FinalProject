@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
 import controller.UseItemController;
+import gameplay.Environment;
+import items.BottleWater;
+import items.HPPotion;
 import model.Model;
 import model.Observer;
 import statusEffects.Burn;
@@ -12,9 +15,14 @@ import statusEffects.Frozen;
 import statusEffects.Poison;
 
 public class SelectItemView extends View implements Observer{
-	public SelectItemView(Model m){
-		myModel = m;
-		myController = new UseItemController(m);
+	public SelectItemView(){
+		myController = null;
+		myModel.getPlayer().addItem(new HPPotion());
+		myModel.getPlayer().addItem(new BottleWater());
+		initComponents();
+		myModel.attach(this);
+
+		System.out.println(myModel.getPlayer().getCurrentNumberOfItems());
 	}
 
 	@Override
@@ -24,7 +32,6 @@ public class SelectItemView extends View implements Observer{
 	};
 	
 	private void initComponents(){
-
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
 		jButton3 = new javax.swing.JButton();
@@ -41,20 +48,47 @@ public class SelectItemView extends View implements Observer{
         
 		setMinimumSize(new java.awt.Dimension(1080, 680));
 		setPreferredSize(new java.awt.Dimension(1080, 680));
+		System.out.println(myModel.getPlayer().getCurrentNumberOfItems());
 
-		jButton1.setText("Attack");
-		jButton1.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				buttonPressed(evt);
-			}
-		});
-
-		jButton2.setText("Items");
-		jButton2.setToolTipText("");
+		if (myModel.getPlayer().getCurrentNumberOfItems() == 0){
+			jButton1.setText("back");
+			jButton1.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent evt) {
+					backButtonPress();
+				}
+			});
+			jButton2.setVisible(false);
+		}
+		if (myModel.getPlayer().getCurrentNumberOfItems() == 1){
+			jButton1.setText(myModel.getPlayer().getItemAtIndex(0).getClass().getSimpleName());
+			jButton1.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent evt) {
+					item1Press();
+				}
+			});
+			jButton2.setVisible(false);
+		}
+		if (myModel.getPlayer().getCurrentNumberOfItems() == 2){
+			jButton1.setText(myModel.getPlayer().getItemAtIndex(0).getClass().getSimpleName());
+			jButton1.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent evt) {
+					item1Press();
+				}
+			});
+			jButton2.setText(myModel.getPlayer().getItemAtIndex(1).getClass().getSimpleName());
+			jButton2.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent evt) {
+					item2Press();
+				}
+			});
+			jButton2.setVisible(true);
+		}
 
 		jButton3.setEnabled(false);
+		jButton3.setVisible(false);
 
 		jButton4.setEnabled(false);
+		jButton4.setVisible(false);
 
 		/**
 		 * Player Section. Assembles player info.
@@ -194,8 +228,24 @@ public class SelectItemView extends View implements Observer{
         		);
 	}// </editor-fold>
 	
+	protected void item2Press() {
+		myModel.detach(this);
+		myController = new UseItemController(myModel, myModel.getPlayer().getItemAtIndex(1));
+		System.out.println("Item 2 pressed");
+	}
+
+	protected void item1Press() {
+		myModel.detach(this);
+		myController = new UseItemController(myModel, myModel.getPlayer().getItemAtIndex(0));
+		System.out.println("Item 1 pressed");
+	}
+
+	protected void backButtonPress() {
+		myModel.detach(this);
+		Display.globalDisplay.changeView(new BattleView());		
+	}
+
 	private void buttonPressed(ActionEvent evt) {
-		// TODO Auto-generated method stub
 		
 	}
 	

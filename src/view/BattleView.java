@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.event.ActionEvent;
+
 import javax.swing.ImageIcon;
 
 import controller.Controller;
@@ -51,12 +53,16 @@ public class BattleView extends View implements Observer {
 		});
 
 		jButton2.setText("Items");
-		jButton2.setToolTipText("");
+		jButton2.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				SwapToItemView(evt);
+			}
+		});
 
 		jButton3.setText("Run");
 		jButton3.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton3ActionPerformed(evt);
+				SwapToItemView(evt);
 			}
 		});
 
@@ -200,8 +206,9 @@ public class BattleView extends View implements Observer {
         		);
 	}// </editor-fold>
 
-	private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-		// TODO add your handling code here:
+	protected void SwapToItemView(ActionEvent evt) {
+		myModel.detach(this);
+		Display.globalDisplay.changeView(new SelectItemView());
 	}
 
 	private void SwapToAttackView(java.awt.event.ActionEvent evt) {

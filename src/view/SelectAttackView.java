@@ -45,22 +45,10 @@ public class SelectAttackView extends View implements Observer{
         /**
          * Set up the name of the attacks section.
          */
-        if (myModel.getPlayer().getSelectedPokemon().getType() instanceof FireType){
-             atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getName().replace("attacks.FireAttackAbilities.", "");
-             atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getName().replace("attacks.FireAttackAbilities.", "");
-             atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getName().replace("attacks.FireAttackAbilities.", "");
-             atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getName().replace("attacks.FireAttackAbilities.", "");
-        }else if (myModel.getPlayer().getSelectedPokemon().getType() instanceof GrassType){
-            atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
-            atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
-            atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
-            atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getName().replace("attacks.GrassAttackAbilities.", "");
-        }else if (myModel.getPlayer().getSelectedPokemon().getType() instanceof WaterType){
-            atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
-            atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
-            atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
-            atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getName().replace("attacks.WaterAttackAbilities.", "");
-        }
+             atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getSimpleName();
+             atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getSimpleName();
+             atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getSimpleName();
+             atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getSimpleName();
         /**
          * Assemble the buttons!
          */

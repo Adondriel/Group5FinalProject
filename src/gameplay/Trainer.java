@@ -120,4 +120,8 @@ public abstract class Trainer
 	public void setPokedex(ArrayList<Pokemon> pokedex){
 		this.pokedex=pokedex;
 	}
+	
+	public ItemBehavior getItemAtIndex(int i) {
+		return items.get(i);
+	}
 }
