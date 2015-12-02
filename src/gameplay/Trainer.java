@@ -48,7 +48,9 @@ public abstract class Trainer
 	 * add an item to the list
 	 */
 	public void addItem(ItemBehavior i){
+		if (items.size()<=2){
 		items.add(i);
+		}
 	}
 	
 	/**
@@ -56,13 +58,7 @@ public abstract class Trainer
 	 * remove item at index from the list
 	 */
 	public boolean removeItem(ItemBehavior ib){
-		for(ItemBehavior i : items){
-			if(ib==i){
-				items.remove(i);
-				return true;
-			}
-		}
-		return false;
+		return items.remove(ib);
 	}
 	
 	/**
@@ -76,6 +72,10 @@ public abstract class Trainer
 			}
 		}
 		return false;
+	}
+	
+	public ArrayList<ItemBehavior> getItems(){
+		return items;
 	}
 	
 	/**

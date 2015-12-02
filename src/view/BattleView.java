@@ -39,6 +39,7 @@ public class BattleView extends View implements Observer {
 	 * The method that creates all the components.
 	 */
 	private void initComponents(){
+		System.out.println(myModel.getPlayer().getSelectedPokemon().getCurrentHealth());
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
 		jButton3 = new javax.swing.JButton();
@@ -106,10 +107,12 @@ public class BattleView extends View implements Observer {
 		playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
 		playerNameLabel.setText(myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8));
 		//player HP bar section
-		int hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
-		int max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
-		int hpPercent = (hp / max) * 100;
-		playerHPBar.setValue(hpPercent);
+		double hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
+		double max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
+		System.out.println(hp+"/"+max);
+		double hpPercent = (hp / max) * 100;
+		System.out.println(hpPercent+"%");
+		playerHPBar.setValue((int)hpPercent);
 		
 		
 		/* Test line to make sure the status icon code works.		
@@ -149,7 +152,7 @@ public class BattleView extends View implements Observer {
 		enemyPokemonIcon.setMinimumSize(new java.awt.Dimension(200, 200));
 		enemyPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
 		// Enemy HP bar
-		EnemyHPBar.setValue((myModel.getComputer().getSelectedPokemon().getCurrentHealth()/myModel.getComputer().getSelectedPokemon().getMaxHealth())*100);
+		EnemyHPBar.setValue((int)(((double)myModel.getComputer().getSelectedPokemon().getCurrentHealth()/(double)myModel.getComputer().getSelectedPokemon().getMaxHealth())*100));
 		//Enemy Status bar
 		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
 			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));

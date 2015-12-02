@@ -28,10 +28,11 @@ import statusEffects.Burn;
 public class TestAbilities
 {
 	Environment e = Environment.getEnvironment();
+	
 	/**
 	 * Test the Ember Ability
 	 */
-	@Test
+	
 	public void testEmber()
 	{
 		
@@ -85,24 +86,53 @@ public class TestAbilities
 		
 	}
 	
+	/**
+	 * test FireFang Ability
+	 */
 	@Test
 	public void testFireFang()
 	{
-		Pokemon Ferry = new MockFirePokeman();
-		Pokemon Fire2 = new MockFirePokeman();
+		Pokemon fire1 = new MockFirePokeman();
+		Pokemon fireTarget = new MockFirePokeman();
+		Pokemon waterTarget = new MockWaterPokeman();
+		Pokemon grassTarget = new MockGrassPokeman();
 		
-		FireFang firefangu = new FireFang(Ferry.getDamage());
-		Ferry.selectAttack(firefangu);
+		e.setPlayerPokemon(fire1);
+		FireFang firefang = new FireFang(e.getCurrentPlayerPokemon().getDamage());
+		e.getCurrentPlayerPokemon().selectAttack(firefang);
 		
+		//attack firetarget
+		e.setComputerPokemon(fireTarget);
 		try
 		{
-			Ferry.attack(Fire2);
-		} catch (StatusEffectException e)
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
 		{
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
+		assertEquals(642, e.getCurrentComputerPokemon().getCurrentHealth());
 		
-		assertEquals(642, Fire2.getCurrentHealth());
+		//attack water target
+		e.setComputerPokemon(waterTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(304, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack grass target
+		e.setComputerPokemon(grassTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(228, e.getCurrentComputerPokemon().getCurrentHealth());
 		
 	}
 	
@@ -112,12 +142,53 @@ public class TestAbilities
 		
 	}
 	
+	/**
+	 * test Heat Wave Ability
+	 */
 	@Test
 	public void testHeatWave()
 	{
-		Pokemon fred = new MockFirePokeman();
-		Pokemon ferry = new MockFirePokeman();
-		HeatWave heat = new HeatWave(fred.getDamage());
+		Pokemon fire1 = new MockFirePokeman();
+		Pokemon fireTarget = new MockFirePokeman();
+		Pokemon waterTarget = new MockWaterPokeman();
+		Pokemon grassTarget = new MockGrassPokeman();
+		
+		e.setPlayerPokemon(fire1);
+		HeatWave heatwave = new HeatWave(e.getCurrentPlayerPokemon().getDamage());
+		e.getCurrentPlayerPokemon().selectAttack(heatwave);
+		
+		//attack firetarget
+		e.setComputerPokemon(fireTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(617, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack water target
+		e.setComputerPokemon(waterTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(279, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack grass target
+		e.setComputerPokemon(grassTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(203, e.getCurrentComputerPokemon().getCurrentHealth());
 	}
 	
 	@Test
@@ -138,31 +209,200 @@ public class TestAbilities
 		
 	}
 	
+	/**
+	 * test Leech Seed
+	 */
 	@Test
 	public void testLeechSeed()
 	{
+		Pokemon grass1 = new MockGrassPokeman();
+		Pokemon fireTarget = new MockFirePokeman();
+		Pokemon waterTarget = new MockWaterPokeman();
+		Pokemon grassTarget = new MockGrassPokeman();
 		
+		e.setPlayerPokemon(grass1);
+		LeechSeed leechseed = new LeechSeed(e.getCurrentPlayerPokemon().getDamage());
+		e.getCurrentPlayerPokemon().selectAttack(leechseed);
+		
+		//attack firetarget
+		e.setComputerPokemon(fireTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(749, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack water target
+		e.setComputerPokemon(waterTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(295, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack grass target
+		e.setComputerPokemon(grassTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(394, e.getCurrentComputerPokemon().getCurrentHealth());
 	}
 	
 	@Test
 	public void testPetalBlizzard()
 	{
+		Pokemon grass1 = new MockGrassPokeman();
+		Pokemon fireTarget = new MockFirePokeman();
+		Pokemon waterTarget = new MockWaterPokeman();
+		Pokemon grassTarget = new MockGrassPokeman();
 		
+		e.setPlayerPokemon(grass1);
+		PetalBlizzard petablizzard = new PetalBlizzard(e.getCurrentPlayerPokemon().getDamage());
+		e.getCurrentPlayerPokemon().selectAttack(petablizzard);
+		
+		//attack firetarget
+		e.setComputerPokemon(fireTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(712, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack water target
+		e.setComputerPokemon(waterTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(258, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack grass target
+		e.setComputerPokemon(grassTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(357, e.getCurrentComputerPokemon().getCurrentHealth());
 	}
 	@Test
 	public void testRazorLeaf()
 	{
 		
 	}
+	/**
+	 * test Solar beam ability
+	 */
 	@Test
 	public void testSolarBeam()
 	{
+		Pokemon grass1 = new MockGrassPokeman();
+		Pokemon fireTarget = new MockFirePokeman();
+		Pokemon waterTarget = new MockWaterPokeman();
+		Pokemon grassTarget = new MockGrassPokeman();
 		
+		e.setPlayerPokemon(grass1);
+		SolarBeam solarbeam = new SolarBeam(e.getCurrentPlayerPokemon().getDamage());
+		e.getCurrentPlayerPokemon().selectAttack(solarbeam);
+		
+		//attack firetarget
+		e.setComputerPokemon(fireTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(698, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack water target
+		e.setComputerPokemon(waterTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(244, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack grass target
+		e.setComputerPokemon(grassTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(343, e.getCurrentComputerPokemon().getCurrentHealth());
 	}
+	/**
+	 * test String shot ability
+	 */
 	@Test
 	public void testStringShot()
 	{
+		Pokemon grass1 = new MockGrassPokeman();
+		Pokemon fireTarget = new MockFirePokeman();
+		Pokemon waterTarget = new MockWaterPokeman();
+		Pokemon grassTarget = new MockGrassPokeman();
 		
+		e.setPlayerPokemon(grass1);
+		StringShot stringshot = new StringShot(e.getCurrentPlayerPokemon().getDamage());
+		e.getCurrentPlayerPokemon().selectAttack(stringshot);
+		
+		//attack firetarget
+		e.setComputerPokemon(fireTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(710, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack water target
+		e.setComputerPokemon(waterTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(256, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack grass target
+		e.setComputerPokemon(grassTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(355, e.getCurrentComputerPokemon().getCurrentHealth());
 	}
 	@Test
 	public void testTackle()

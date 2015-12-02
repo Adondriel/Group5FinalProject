@@ -87,10 +87,10 @@ public class SelectAttackView extends View implements Observer{
         playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
 
         playerNameLabel.setText(myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8));
-        int hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
-        int max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
-        int hpPercent = (hp/max)*100;
-        playerHPBar.setValue(hpPercent);
+        double hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
+        double max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
+        double hpPercent = (hp/max)*100;
+        playerHPBar.setValue((int)hpPercent);
 
 		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
 			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/fireIC_Big.png")));
@@ -118,7 +118,7 @@ public class SelectAttackView extends View implements Observer{
 		enemyPokemonIcon.setMinimumSize(new java.awt.Dimension(200, 200));
 		enemyPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
 		// Enemy HP bar
-		EnemyHPBar.setValue((myModel.getComputer().getSelectedPokemon().getCurrentHealth()/myModel.getComputer().getSelectedPokemon().getMaxHealth())*100);
+		EnemyHPBar.setValue((int)(((double)myModel.getComputer().getSelectedPokemon().getCurrentHealth()/(double)myModel.getComputer().getSelectedPokemon().getMaxHealth())*100));
 		//Enemy Status bar
 		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
 			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));

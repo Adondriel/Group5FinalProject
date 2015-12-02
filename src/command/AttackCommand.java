@@ -34,13 +34,17 @@ public class AttackCommand implements FightCommand
 	
 	@Override
 	public void execute(Attack a)
-	{
-		
+	{		
 		p.getSelectedPokemon().selectAttack(a);
+		try {
+			p.getSelectedPokemon().attack(e.getComputer().getSelectedPokemon());
+		} catch (StatusEffectException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		if (e.getTc().getCurrentTurn() instanceof PlayerTurn){
 			PlayerTurn pt = (PlayerTurn) e.getTc().getCurrentTurn();
 			pt.actuallyTakeTurn();
-
 		}
 		/*try
 		{

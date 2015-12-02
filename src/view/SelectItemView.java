@@ -17,8 +17,8 @@ import statusEffects.Poison;
 public class SelectItemView extends View implements Observer{
 	public SelectItemView(){
 		myController = null;
-		myModel.getPlayer().addItem(new HPPotion());
-		myModel.getPlayer().addItem(new BottleWater());
+		//myModel.getPlayer().addItem(new HPPotion());
+		//myModel.getPlayer().addItem(new BottleWater());
 		initComponents();
 		myModel.attach(this);
 
@@ -51,7 +51,7 @@ public class SelectItemView extends View implements Observer{
 		setPreferredSize(new java.awt.Dimension(1080, 680));
 		System.out.println(myModel.getPlayer().getCurrentNumberOfItems());
 
-		if (myModel.getPlayer().getCurrentNumberOfItems() == 0){
+		if (myModel.getPlayer().getItems().size() == 0){
 			jButton1.setText("back");
 			jButton1.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +60,7 @@ public class SelectItemView extends View implements Observer{
 			});
 			jButton2.setVisible(false);
 		}
-		if (myModel.getPlayer().getCurrentNumberOfItems() == 1){
+		if (myModel.getPlayer().getItems().size() == 1){
 			jButton1.setText(myModel.getPlayer().getItemAtIndex(0).getClass().getSimpleName());
 			jButton1.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +69,7 @@ public class SelectItemView extends View implements Observer{
 			});
 			jButton2.setVisible(false);
 		}
-		if (myModel.getPlayer().getCurrentNumberOfItems() == 2){
+		if (myModel.getPlayer().getItems().size() >= 2){
 			jButton1.setText(myModel.getPlayer().getItemAtIndex(0).getClass().getSimpleName());
 			jButton1.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,10 +101,10 @@ public class SelectItemView extends View implements Observer{
 		playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
 		playerNameLabel.setText(myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8));
 		//player HP bar section
-		int hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
-		int max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
-		int hpPercent = (hp / max) * 100;
-		playerHPBar.setValue(hpPercent);
+		double hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
+		double max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
+		double hpPercent = (hp / max) * 100;
+		playerHPBar.setValue((int)hpPercent);
 		
 		
 		/* Test line to make sure the status icon code works.		
@@ -144,7 +144,7 @@ public class SelectItemView extends View implements Observer{
 		enemyPokemonIcon.setMinimumSize(new java.awt.Dimension(200, 200));
 		enemyPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
 		// Enemy HP bar
-		EnemyHPBar.setValue((myModel.getComputer().getSelectedPokemon().getCurrentHealth()/myModel.getComputer().getSelectedPokemon().getMaxHealth())*100);
+		EnemyHPBar.setValue((int)(((double)myModel.getComputer().getSelectedPokemon().getCurrentHealth()/(double)myModel.getComputer().getSelectedPokemon().getMaxHealth())*100));
 		//Enemy Status bar
 		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
 			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));
