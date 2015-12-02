@@ -38,6 +38,7 @@ public class PokemonFacade
 	 */
 	public void itemCommand(ItemBehavior i)
 	{
+		ic = new ItemUse((Player)(e.getPlayer()));
 		ic.executeItem(i);
 	}
 	
@@ -46,6 +47,7 @@ public class PokemonFacade
 	 */
 	public void swapCommand(Pokemon selectedPokemon)
 	{
+		sc = new Swap((Player)e.getPlayer());
 		sc.executeSwap(selectedPokemon);
 	}
 
