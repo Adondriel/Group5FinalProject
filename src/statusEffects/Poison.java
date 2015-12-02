@@ -6,6 +6,10 @@ import exceptions.StatusEffectException;
  */
 import pokemon.Pokemon;
 
+/**
+ * @author Jason LoBianco
+ *
+ */
 public class Poison extends StatusEffect
 {
 	

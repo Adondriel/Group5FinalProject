@@ -6,6 +6,9 @@ package attacks;
 public class GrassType implements TypeBehavior
 {
 
+	/**
+	 * @see TypeBehavior#calcDamage(int, TypeBehavior)
+	 */
 	@Override
 	public int calcDamage(int damage, TypeBehavior typeBehavior) 
 	{
