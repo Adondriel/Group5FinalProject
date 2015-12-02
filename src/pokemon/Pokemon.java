@@ -12,7 +12,7 @@ import attacks.*;
  * @author Benjamin Uleau
  *
  */
-public abstract class Pokemon 
+public abstract class Pokemon implements Pkmn
 {
 	int damage;
 	int maxHealth;

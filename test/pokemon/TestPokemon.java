@@ -21,11 +21,11 @@ public class TestPokemon {
 	public void testMockGrassPokeman(){
 		Pokemon p=new MockGrassPokeman();
 		TypeBehavior t=new GrassType();
-		assertEquals(49, p.getDamage());
-		assertEquals(450, p.getMaxHealth());
-		assertEquals(450, p.getMaxHealth());
+		assertEquals(100, p.getDamage());
+		assertEquals(1000, p.getMaxHealth());
+		assertEquals(1000, p.getCurrentHealth());
 		p.takeHit(50);
-		assertEquals(400, p.getCurrentHealth());
+		assertEquals(950, p.getCurrentHealth());
 		assertEquals(0, p.getExperience());
 		assertTrue(p.getType() instanceof GrassType);
 		//assertEquals(t, p.getType());
@@ -47,11 +47,11 @@ public class TestPokemon {
 	public void testMockFirePokeman(){
 		Pokemon p=new MockFirePokeman();
 		TypeBehavior t=new FireType();
-		assertEquals(84, p.getDamage());
-		assertEquals(780, p.getMaxHealth());
-		assertEquals(780, p.getMaxHealth());
+		assertEquals(100, p.getDamage());
+		assertEquals(1000, p.getMaxHealth());
+		assertEquals(1000, p.getCurrentHealth());
 		p.takeHit(50);
-		assertEquals(730, p.getCurrentHealth());
+		assertEquals(950, p.getCurrentHealth());
 		assertEquals(0, p.getExperience());
 		assertTrue(p.getType() instanceof FireType);
 		assertEquals("FIRE", p.getName());
@@ -70,11 +70,11 @@ public class TestPokemon {
 	public void testMockWaterPokeman(){
 		Pokemon p=new MockWaterPokeman();
 		TypeBehavior t=new WaterType();
-		assertEquals(50, p.getDamage());
-		assertEquals(400, p.getMaxHealth());
-		assertEquals(400, p.getMaxHealth());
+		assertEquals(100, p.getDamage());
+		assertEquals(1000, p.getMaxHealth());
+		assertEquals(1000, p.getCurrentHealth());
 		p.takeHit(50);
-		assertEquals(350, p.getCurrentHealth());
+		assertEquals(950, p.getCurrentHealth());
 		assertEquals(0, p.getExperience());
 		assertTrue(p.getType() instanceof WaterType);
 		assertEquals("WATER", p.getName());
@@ -95,7 +95,7 @@ public class TestPokemon {
 		TypeBehavior t=new GrassType();
 		assertEquals(49, p.getDamage());
 		assertEquals(450, p.getMaxHealth());
-		assertEquals(450, p.getMaxHealth());
+		assertEquals(450, p.getCurrentHealth());
 		p.takeHit(50);
 		assertEquals(400, p.getCurrentHealth());
 		assertEquals(0, p.getExperience());
@@ -116,7 +116,7 @@ public class TestPokemon {
 		TypeBehavior t=new FireType();
 		assertEquals(52, p.getDamage());
 		assertEquals(390, p.getMaxHealth());
-		assertEquals(390, p.getMaxHealth());
+		assertEquals(390, p.getCurrentHealth());
 		p.takeHit(50);
 		assertEquals(340, p.getCurrentHealth());
 		assertEquals(0, p.getExperience());
@@ -137,7 +137,7 @@ public class TestPokemon {
 		TypeBehavior t=new WaterType();
 		assertEquals(48, p.getDamage());
 		assertEquals(440, p.getMaxHealth());
-		assertEquals(440, p.getMaxHealth());
+		assertEquals(440, p.getCurrentHealth());
 		p.takeHit(50);
 		assertEquals(390, p.getCurrentHealth());
 		assertEquals(0, p.getExperience());
