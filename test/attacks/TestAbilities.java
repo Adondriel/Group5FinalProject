@@ -31,7 +31,7 @@ public class TestAbilities
 	/**
 	 * Test the Ember Ability
 	 */
-	@Test
+	
 	public void testEmber()
 	{
 		
@@ -88,21 +88,49 @@ public class TestAbilities
 	@Test
 	public void testFireFang()
 	{
-		Pokemon Ferry = new MockFirePokeman();
-		Pokemon Fire2 = new MockFirePokeman();
+		Pokemon fire1 = new MockFirePokeman();
+		Pokemon fireTarget = new MockFirePokeman();
+		Pokemon waterTarget = new MockWaterPokeman();
+		Pokemon grassTarget = new MockGrassPokeman();
 		
-		FireFang firefangu = new FireFang(Ferry.getDamage());
-		Ferry.selectAttack(firefangu);
+		e.setPlayerPokemon(fire1);
+		FireFang firefang = new FireFang(e.getCurrentPlayerPokemon().getDamage());
+		e.getCurrentPlayerPokemon().selectAttack(firefang);
 		
+		//attack firetarget
+		e.setComputerPokemon(fireTarget);
 		try
 		{
-			Ferry.attack(Fire2);
-		} catch (StatusEffectException e)
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
 		{
-			e.printStackTrace();
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
+		assertEquals(642, e.getCurrentComputerPokemon().getCurrentHealth());
 		
-		assertEquals(642, Fire2.getCurrentHealth());
+		//attack water target
+		e.setComputerPokemon(waterTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			e1.printStackTrace();
+		}
+		assertEquals(304, e.getCurrentComputerPokemon().getCurrentHealth());
+		
+		//attack grass target
+		e.setComputerPokemon(grassTarget);
+		try
+		{
+			e.getCurrentPlayerPokemon().attack(e.getCurrentComputerPokemon());
+		} catch (StatusEffectException e1)
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		assertEquals(228, e.getCurrentComputerPokemon().getCurrentHealth());
 		
 	}
 	
