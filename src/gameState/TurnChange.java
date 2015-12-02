@@ -64,6 +64,7 @@ public class TurnChange
 	 * @param t the turn
 	 */
 	public void setTurn(Turn t){
+		System.out.println("setting turn...");
 		currentTurn=t;
 	}
 	

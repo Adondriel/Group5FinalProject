@@ -18,6 +18,7 @@ public class ComputerFight extends Turn{
 
 	@Override
 	public void takeTurn() {
+		System.out.println("ComputerFight");
 		try {
 			turnSwitch.getTrainer().getSelectedPokemon().attack(turnSwitch.getPlayer().getSelectedPokemon());
 		} catch (StatusEffectException e) {

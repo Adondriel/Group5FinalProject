@@ -16,6 +16,7 @@ public class PlayerTurn extends Turn
 	}
 
 	public void takeTurn(){
+		System.out.println("Player turn");
 		turnSwitch.setTurn(turnSwitch.getComputerTurn());
 		turnSwitch.setTrainer(turnSwitch.getComputer());
 		Display.updateViews();
