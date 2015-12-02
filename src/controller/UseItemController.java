@@ -1,15 +1,17 @@
 package controller;
 
+import items.ItemBehavior;
 import model.Model;
 
 public class UseItemController implements Controller {
 	Model myModel;
-	public UseItemController(Model m){
+	ItemBehavior item;
+	public UseItemController(Model m, ItemBehavior item){
 		myModel = m;
+		this.item = item;
 	}
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
 		
 	}
 }

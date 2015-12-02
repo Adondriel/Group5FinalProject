@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 
+import exceptions.StatusEffectException;
 import gameplay.Environment;
 import gameplay.Player;
 import model.Model;
@@ -12,7 +13,8 @@ import view.Display;
 public class SelectThreePokemonController implements Controller {
 	Model myModel;
 	ArrayList<Pokemon> pokemonList;
-	public SelectThreePokemonController(Model m, ArrayList<Pokemon> pokemonList){
+
+	public SelectThreePokemonController(Model m, ArrayList<Pokemon> pokemonList) {
 		myModel = m;
 		this.pokemonList = pokemonList;
 		Environment e = Environment.getEnvironment();
@@ -20,15 +22,15 @@ public class SelectThreePokemonController implements Controller {
 		e.setPlayer(p);
 		myModel.setPlayer(p);
 	}
-	
+
 	@Override
 	public void execute() {
-		for (Pokemon p : pokemonList){
+		for (Pokemon p : pokemonList) {
 			System.out.println(p.getClass());
-		}		
+		}
 		System.out.println("");
 		myModel.getPlayer().setSelectedPokemon(pokemonList.get(0));
-		//myModel.getPlayer().setPokedex());
-		Display.globalDisplay.changeView(new BattleView(myModel));
+		myModel.getPlayer().setPokedex(pokemonList);
+		Display.globalDisplay.changeView(new BattleView());
 	}
 }

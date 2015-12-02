@@ -11,12 +11,11 @@ import pokemon.*;
 public class Player extends Trainer
 {
 	//ArrayList<Pokemon> pokedex=new ArrayList<Pokemon>(); 			//The list of Pokemon
-	ArrayList<ItemBehavior> items=new ArrayList<ItemBehavior>();	//The list of items (ItemBehaviors)
 	//Pokemon[] pokedex = new Pokemon[3]; //Holds the Pokemon.
 
 	//Jason had to add this method to remove an error from code.
 	/**
-	 * @param pokeList 
+	 * @param pokedex  
 	 * @param selectedPokemon 
 	 * @param i the position in the pokedex.
 	 */
@@ -25,8 +24,8 @@ public class Player extends Trainer
 		this.selectedPokemon = selectedPokemon;
 	}*/
 	
-	public Player(ArrayList<Pokemon> pokeList, Pokemon selectedPokemon){
-		pokedex=pokeList;
+	public Player(ArrayList<Pokemon> pokedex, Pokemon selectedPokemon){
+		this.pokedex=pokedex;
 		this.selectedPokemon=selectedPokemon;
 	}
 	
@@ -38,8 +37,8 @@ public class Player extends Trainer
 	 * @param index
 	 * Use an item at index
 	 */
-	public void useItem(int index){
+	/*public void useItem(int index){
 		super.getItem(index);
-	}
+	}*/
 
 }

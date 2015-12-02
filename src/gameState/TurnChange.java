@@ -11,6 +11,8 @@ public class TurnChange
 	Turn playerTurn;
 	Turn computerTurn;
 	Turn currentTurn;
+	Turn computerFight;
+	Turn computerPokemon;
 	Trainer trainer;
 	
 	/**
@@ -41,6 +43,19 @@ public class TurnChange
 		return computerTurn;
 	}
 	
+	/**
+	 * @return computerFight
+	 */
+	public Turn getComputerFight(){
+		return computerFight;
+	}
+	
+	/**
+	 * @return computerPokemon
+	 */
+	public Turn getComputerPokemon(){
+		return computerPokemon;
+	}
 	/**
 	 * @param t the turn
 	 */

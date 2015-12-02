@@ -13,7 +13,7 @@ public abstract class PlayerTurn extends Turn
 		super(turnSwitch);
 	}
 
-	TurnChange tc;
-
-	public abstract void takeTurn();
+	public void takeTurn(){
+		turnSwitch.setTurn(turnSwitch.getComputerTurn());
+	}
 }

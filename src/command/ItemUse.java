@@ -24,8 +24,19 @@ public class ItemUse implements ItemCommand
 	
 	@Override
 	public void executeItem(ItemBehavior i)
+<<<<<<< HEAD
 	{	
 		p.useItem(i);
+=======
+	{
+		
+		boolean hasItem=p.getItem(i);
+		// gets the selected item and uses it
+		if(hasItem){
+			i.UseItem(p.getSelectedPokemon().getCurrentHealth(), p.getSelectedPokemon().getMaxHealth());
+			p.removeItem(i);
+		}
+>>>>>>> 5d5b6a861711ad229feafeb0d68cd6d52374a327
 		p.removeItem(i);
 	}
 

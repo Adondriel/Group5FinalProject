@@ -1,28 +1,32 @@
 package view;
 
+import java.awt.event.ActionEvent;
+
 import javax.swing.ImageIcon;
 
 import controller.Controller;
+import exceptions.StatusEffectException;
+import gameplay.Environment;
 import model.Model;
 import model.Observer;
 import pokemon.Bulbasaur;
+import statusEffects.Burn;
+import statusEffects.Frozen;
+import statusEffects.Poison;
 
 public class BattleView extends View implements Observer {
-	private Model myModel;
-	private Controller myController;
-
-	public BattleView(Model m) {
-		myModel = m;
+	public BattleView(){
 		myController = null;
 		initComponents();
+		myModel.attach(this);
 	}
 
 	@Override
 	public void update() {
-		// Update all the variable values within the View!
+		System.out.println("BattleView Updated");
 	}
 
-	private void initComponents() {
+	private void initComponents(){
 
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
@@ -49,45 +53,92 @@ public class BattleView extends View implements Observer {
 		});
 
 		jButton2.setText("Items");
-		jButton2.setToolTipText("");
+		jButton2.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				SwapToItemView(evt);
+			}
+		});
 
 		jButton3.setText("Run");
 		jButton3.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton3ActionPerformed(evt);
+				SwapToItemView(evt);
 			}
 		});
 
 		jButton4.setText("Swap");
 
-		String str = "resources/" + myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8)
-				+ "200.png";
-		// System.out.println(str);
+		/**
+		 * Player Section. Assembles player info.
+		 */
+		//Determines the icon that needs to be used.
+		String str = "resources/" + myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8)+ "200.png";		
 		ImageIcon img = new ImageIcon(getClass().getResource(str));
 		playerPokemonIcon.setIcon(img);
-		playerPokemonIcon.setText("Pokemon");
 		playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
-
 		playerNameLabel.setText(myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8));
+		//player HP bar section
 		int hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
 		int max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
 		int hpPercent = (hp / max) * 100;
 		playerHPBar.setValue(hpPercent);
-
-		enemyNameLabel.setText(myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8));
-
-		enemyPokemonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/bulbasaur200.png")));
-		enemyPokemonIcon.setText("Pokemon");
+		
+		
+		/* Test line to make sure the status icon code works.		
+		 * try {
+			Environment.getEnvironment().getPlayer().getSelectedPokemon().setStatus(new Poison(Environment.getEnvironment().getPlayer().getSelectedPokemon()));
+		} catch (StatusEffectException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		/**
+		 * Player Status icon section.
+		 */
+		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
+			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));
+			PlayerStatusIcon.setVisible(true);
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Poison){
+			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/PoisonIC_Big.png")));
+			PlayerStatusIcon.setVisible(true);			
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Frozen){
+			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/IceIC_Big.png")));
+			PlayerStatusIcon.setVisible(true);
+		}else{
+			PlayerStatusIcon.setVisible(false);
+		}
+		
+		
+		/**
+		 * Enemy Section
+		 * Does the calculations for enemy health and icons.
+		 */
+		enemyNameLabel.setText(myModel.getComputer().getSelectedPokemon().getClass().getName().substring(8));
+		str = "resources/" + myModel.getComputer().getSelectedPokemon().getClass().getName().substring(8)
+				+ "200.png";		
+		img = new ImageIcon(getClass().getResource(str));
+		enemyPokemonIcon.setIcon(img);
 		enemyPokemonIcon.setMaximumSize(new java.awt.Dimension(200, 200));
 		enemyPokemonIcon.setMinimumSize(new java.awt.Dimension(200, 200));
 		enemyPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
+		// Enemy HP bar
+		EnemyHPBar.setValue((myModel.getComputer().getSelectedPokemon().getCurrentHealth()/myModel.getComputer().getSelectedPokemon().getMaxHealth())*100);
+		//Enemy Status bar
+		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
+			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));
+			EnemyStatusIcon.setVisible(true);
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Poison){
+			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/PoisonIC_Big.png")));
+			EnemyStatusIcon.setVisible(true);			
+		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Frozen){
+			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/IceIC_Big.png")));
+			EnemyStatusIcon.setVisible(true);
+		}else{
+			EnemyStatusIcon.setVisible(false);
+		}
 
-		EnemyHPBar.setValue(25);
-
-		PlayerStatusIcon.setText("StatusIcon");
-
-        EnemyStatusIcon.setText("StatusIcon");
-
+		/**
+		 * Netbeans generated layout code.
+		 */
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,12 +206,14 @@ public class BattleView extends View implements Observer {
         		);
 	}// </editor-fold>
 
-	private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-		// TODO add your handling code here:
+	protected void SwapToItemView(ActionEvent evt) {
+		myModel.detach(this);
+		Display.globalDisplay.changeView(new SelectItemView());
 	}
 
 	private void SwapToAttackView(java.awt.event.ActionEvent evt) {
-		Display.globalDisplay.changeView(new SelectAttackView(myModel));
+		myModel.detach(this);
+		Display.globalDisplay.changeView(new SelectAttackView());
 	}
 
 	// Variables declaration - do not modify

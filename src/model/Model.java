@@ -9,11 +9,9 @@ import gameplay.Player;
 public class Model implements Subject{
 	
 
-	Environment e;
-	Player player;
-	Computer computer;
+	Environment e = Environment.getEnvironment();
 	ArrayList<Observer> observers = new ArrayList<Observer>();
-
+	
 	@Override
 	public void attach(Observer o) {
 		observers.add(o);
@@ -30,12 +28,18 @@ public class Model implements Subject{
 	}
 	
 	public Player getPlayer() {
-		return player;
+		return (Player) e.getPlayer();
+	}	
+	public void setPlayer(Player p){
+		e.setPlayer(p);
+	}
+	public Computer getComputer() {
+		return (Computer) e.getComputer();
+	}
+	public void setComputer(Computer computer) {
+		e.setComputer(computer);
 	}
 	
-	public void setPlayer(Player p){
-		player = p;
-	}
 }
 	
 	

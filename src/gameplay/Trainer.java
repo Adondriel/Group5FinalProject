@@ -55,16 +55,27 @@ public abstract class Trainer
 	 * @param index
 	 * remove item at index from the list
 	 */
-	public void removeItem(int index){
-		items.remove(index);
+	public boolean removeItem(ItemBehavior ib){
+		for(ItemBehavior i : items){
+			if(ib==i){
+				items.remove(i);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**
 	 * @param index
 	 * the item at index
 	 */
-	public void getItem(int index){
-		items.get(index);
+	public boolean getItem(ItemBehavior ib){
+		for(ItemBehavior i : items){
+			if(ib==i){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**
@@ -89,4 +100,28 @@ public abstract class Trainer
 		return selectedPokemon;
 	}
 	
+	/**
+	 * @return the index of the current pokemon
+	 */
+	public int getSelectedPokemonIndex(){
+		return pokedex.indexOf(getSelectedPokemon());
+	}
+	
+	/**
+	 * @return the index of the next pokemon
+	 */
+	public int getNextPokemonIndex(){
+		return pokedex.indexOf(getSelectedPokemon())+1;
+	}
+	
+	/**
+	 * @param pokedex
+	 */
+	public void setPokedex(ArrayList<Pokemon> pokedex){
+		this.pokedex=pokedex;
+	}
+	
+	public ItemBehavior getItemAtIndex(int i) {
+		return items.get(i);
+	}
 }
