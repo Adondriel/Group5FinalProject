@@ -19,6 +19,12 @@ public class ComputerFight extends Turn {
 
 	@Override
 	public void takeTurn() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		int attack = (int) Math.floor(Math.random() * 4);
 		turnSwitch.getComputer().getSelectedPokemon().setCurrentAttack(attack);
 		System.out.println("ComputerFight");

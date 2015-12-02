@@ -109,7 +109,7 @@ public class BattleView extends View implements Observer {
 		//player HP bar section
 		double hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
 		double max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
-		System.out.println(hp+"/"+max);
+		System.out.println("player hp:" + hp+"/"+max);
 		double hpPercent = (hp / max) * 100;
 		System.out.println(hpPercent+"%");
 		playerHPBar.setValue((int)hpPercent);
