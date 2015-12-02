@@ -1,13 +1,11 @@
 package gameplay;
+import gameState.TurnChange;
+
 import java.util.ArrayList;
 
 
+
 import pokemon.*;
-/**
- * Provides a battleField for a Player and Computer's Pokemon to do battle in.
- * Author: Jason LoBianco
- */
-import pokemon.Pokemon;
 
 /**
  * @author Jason LoBianco
@@ -21,6 +19,7 @@ public class Environment
 	private Pokemon playerCurrentPokemon;
 	private Pokemon computerCurrentPokemon;
 	private ArrayList<Pokemon> computerPokedex = new ArrayList<Pokemon>();
+	private TurnChange tc;
 	
 	/**
 	 * Creates a battleField for the Player's and Computer's Pokemon to do battle.
@@ -29,6 +28,7 @@ public class Environment
 	 */
 	private Environment()
 	{
+		tc = new TurnChange(player);
 		player = new Player(null, null);
 		String [] pokemon = {"Blastoise", "Bulbasaur", "Caterpie", "Charizard", "Charmander", "Charmeleon", "Ivysaur", "Poliwag", "Squirtle", "Venusaur", "Vulpix", "Wartortle"};
 		int pokemon1 = (int) (Math.random()*12);
@@ -309,6 +309,11 @@ public class Environment
 	{
 		return computer;
 	}
-	
-	
+
+	/**
+	 * @return turn changed
+	 */
+	public TurnChange getTc() {
+		return tc;
+	}
 }
