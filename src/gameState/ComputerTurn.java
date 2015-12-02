@@ -20,8 +20,8 @@ public class ComputerTurn extends Turn
 	public void takeTurn(){
 		System.out.println("Computer turn");
 		TurnChange ts = turnSwitch;
-		Trainer t = turnSwitch.getTrainer();
-		Pokemon p = turnSwitch.getTrainer().getSelectedPokemon();
+		//Trainer t = turnSwitch.getTrainer();
+		//Pokemon p = turnSwitch.getTrainer().getSelectedPokemon();
 		int i = turnSwitch.getComputer().getSelectedPokemon().getCurrentHealth();
 		if(turnSwitch.getComputer().getSelectedPokemon().getCurrentHealth()==0){
 			turnSwitch.setTurn(turnSwitch.getComputerPokemon());

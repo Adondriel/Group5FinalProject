@@ -16,13 +16,13 @@ public class TurnChange
 	Environment e = Environment.getEnvironment();
 	Trainer player=e.getPlayer();
 	Trainer computer=e.getComputer();
-	Trainer trainer;
+	//Trainer trainer;
 	
 	/**
 	 * @param trainer
 	 */
 	public TurnChange(Trainer trainer){
-		this.trainer=trainer;
+		//this.trainer=trainer;
 		currentTurn= new PlayerTurn(this);
 	}
 	
@@ -86,15 +86,15 @@ public class TurnChange
 	/**
 	 * @param t
 	 */
-	public void setTrainer(Trainer t){
+	/*public void setTrainer(Trainer t){
 		trainer=t;
-	}
+	}*/
 	/**
 	 * @return the trainer
 	 */
-	public Trainer getTrainer(){
+	/*public Trainer getTrainer(){
 		return trainer;
-	}
+	}*/
 	
 	/**
 	 * @return computer trainer

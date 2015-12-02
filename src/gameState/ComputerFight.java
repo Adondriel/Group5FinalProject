@@ -1,5 +1,6 @@
 package gameState;
 
+import attacks.Attack;
 import view.Display;
 import exceptions.StatusEffectException;
 
@@ -18,13 +19,15 @@ public class ComputerFight extends Turn{
 
 	@Override
 	public void takeTurn() {
+		int attack=(int) Math.floor(Math.random()*4);
+		turnSwitch.getComputer().getSelectedPokemon().setCurrentAttack(attack);
 		System.out.println("ComputerFight");
 		try {
 			turnSwitch.getComputer().getSelectedPokemon().attack(turnSwitch.getPlayer().getSelectedPokemon());
 		} catch (StatusEffectException e) {
 			e.printStackTrace();
 		}
-		turnSwitch.setTrainer(turnSwitch.getPlayer());
+		//turnSwitch.setTrainer(turnSwitch.getPlayer());
 		turnSwitch.setTurn(turnSwitch.getPlayerTurn());
 		Display.updateViews();
 	}

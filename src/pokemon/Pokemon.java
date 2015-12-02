@@ -209,4 +209,8 @@ public abstract class Pokemon
 	public Attack getAttack(int i){
 		return moves.get(i);
 	}
+	
+	public void setCurrentAttack(int i){
+		currentAttack=moves.get(i);
+	}
 }
