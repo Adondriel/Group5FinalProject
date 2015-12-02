@@ -3,6 +3,7 @@ package controller;
 import command.PokemonFacade;
 import model.Model;
 import pokemon.Pokemon;
+import view.BattleView;
 import view.Display;
 import view.SelectItemView;
 
@@ -18,7 +19,7 @@ public class SwapPokemonController implements Controller {
 		System.out.println("Call Swap Pokemon");
 		PokemonFacade pf = new PokemonFacade();
 		pf.swapCommand(myPokemon);
-		Display.globalDisplay.changeView(new SelectItemView());
+		Display.globalDisplay.changeView(new BattleView());
 
 	}
 

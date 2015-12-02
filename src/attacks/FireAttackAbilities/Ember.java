@@ -2,6 +2,7 @@ package attacks.FireAttackAbilities;
 
 import attacks.Attack;
 import exceptions.StatusEffectException;
+import gameState.PlayerTurn;
 import gameplay.Environment;
 import gameplay.Player;
 import statusEffects.Burn;
@@ -33,7 +34,7 @@ public class Ember extends Attack
 	@Override
 	public int getDamage()
 	{
-		if(e.getTc().getTrainer() instanceof Player)
+		if(e.getTc().getCurrentTurn() instanceof PlayerTurn)
 		{
 			try
 			{

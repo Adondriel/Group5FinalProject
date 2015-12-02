@@ -26,7 +26,6 @@ public class Swap implements SwapCommand
 		this.p = p;
 	}
 	
-	//creates buttons 
 	@Override
 	public void executeSwap(Pokemon selectedPokemon)
 	{
@@ -34,7 +33,6 @@ public class Swap implements SwapCommand
 		if (e.getTc().getCurrentTurn() instanceof PlayerTurn){
 			PlayerTurn pt = (PlayerTurn) e.getTc().getCurrentTurn();
 			pt.actuallyTakeTurn();
-
 		}
 	}
 
