@@ -23,6 +23,7 @@ public class TurnChange
 	 */
 	public TurnChange(Trainer trainer){
 		this.trainer=trainer;
+		currentTurn=playerTurn;
 	}
 	
 	/**
