@@ -6,5 +6,11 @@ package attacks;
 
 public interface TypeBehavior 
 {
+	/**
+	 * Calculates the type damage
+	 * @param damage
+	 * @param typeBehavior
+	 * @return type damage
+	 */
 	public int calcDamage(int damage, TypeBehavior typeBehavior);
 }
