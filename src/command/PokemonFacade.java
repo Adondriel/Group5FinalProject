@@ -1,6 +1,9 @@
 package command;
 
 import attacks.Attack;
+import gameplay.Computer;
+import gameplay.Environment;
+import gameplay.Player;
 import items.ItemBehavior;
 import pokemon.Pokemon;
 
@@ -16,24 +19,17 @@ public class PokemonFacade
 	RunCommand rc;
 	SwapCommand sc;
 	
-	/**
-	 * @param fc
-	 * @param ic
-	 * @param rc
-	 * @param sc
-	 */
-	public PokemonFacade(FightCommand fc, ItemCommand ic, RunCommand rc, SwapCommand sc)
-	{
-		this.fc = fc;
-		this.ic = ic;
-		this.rc = rc;
-		this.sc = sc;
-	}
+	private Computer c;
+	private Player p;
+	Environment e = Environment.getEnvironment();
+	
+	
 	/**
 	 * @param a
 	 */
 	public void attackCommand(Attack a)
 	{
+		fc = new AttackCommand((Computer)(e.getComputer()), (Player)(e.getPlayer()));
 		fc.execute(a);
 	}
 	

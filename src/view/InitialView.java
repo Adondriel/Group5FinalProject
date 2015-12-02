@@ -9,6 +9,8 @@ import javax.swing.JToggleButton;
 
 import controller.Controller;
 import controller.SelectThreePokemonController;
+import gameplay.Computer;
+import gameplay.Environment;
 import gameplay.Player;
 import model.Model;
 import model.Observer;
@@ -19,11 +21,9 @@ import pokemon.Pokemon;
 public class InitialView extends View implements Observer {
 	private ArrayList<JToggleButton> selectedButtonList = new ArrayList<JToggleButton>(0);
 	private ArrayList<Pokemon> pokemonList = new ArrayList<Pokemon>();
-	private Model myModel;
-	private Controller myController;
 
-	public InitialView(Model m) {
-		myModel = m;
+	public InitialView() {
+		myModel = new Model();
 		initComponents();
 	}
 

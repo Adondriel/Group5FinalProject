@@ -18,12 +18,10 @@ public class Display implements Observer {
 	public static void main(String args[]){
 		Model m = new Model();
 		globalDisplay = new Display(m);
-		//globalDisplay.changeView(new BattleView(m));
 	}
 	
 	public Display(Model m){
-		 iv = new InitialView(m);
-		 myModel=m;
+		 iv = new InitialView();
 		 
 		 frame.add(iv);
 		 frame.pack();
@@ -36,6 +34,9 @@ public class Display implements Observer {
 		//do nothing at this time.
 	}
 	
+	public static void updateViews(){
+		View.myModel.update();
+	}
 	public void changeView(View v){
 		frame.getContentPane().removeAll();
 		frame.add(v);
