@@ -33,7 +33,8 @@ public class Ember extends Attack {
 			if (e.getComputer().getSelectedPokemon().getStatus() == null) {
 				try {
 					// Burn burn = new Burn(e.getCurrentComputerPokemon());
-					e.getCurrentComputerPokemon().burnTarget();
+					//e.getCurrentPlayerPokemon().burnTarget();
+					e.getComputer().getSelectedPokemon().burnTarget();
 				} catch (StatusEffectException e1) {
 					e1.printStackTrace();
 				}
@@ -43,7 +44,8 @@ public class Ember extends Attack {
 			if (e.getPlayer().getSelectedPokemon().getStatus() == null) {
 				try {
 					// Burn burn = new Burn(e.getCurrentPlayerPokemon());
-					e.getCurrentPlayerPokemon().burnTarget();
+					//e.getCurrentComputerPokemon().burnTarget();
+					e.getPlayer().getSelectedPokemon().burnTarget();
 				} catch (StatusEffectException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

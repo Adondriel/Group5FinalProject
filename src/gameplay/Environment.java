@@ -16,8 +16,6 @@ public class Environment
 	private Player player;
 	private Computer computer;
 	private static Environment battleField = null;
-	private Pokemon playerCurrentPokemon;
-	private Pokemon computerCurrentPokemon;
 	private ArrayList<Pokemon> computerPokedex = new ArrayList<Pokemon>();
 	private TurnChange tc;
 	
@@ -220,7 +218,7 @@ public class Environment
 		computer.setSelectedPokemon(computer.getPokemon((int) (Math.random()*3)));
 		
 		//playerCurrentPokemon = player.getSelectedPokemon();
-		computerCurrentPokemon = computer.getSelectedPokemon();
+		//computerCurrentPokemon = computer.getSelectedPokemon();
 		battleField = this;
 		
 		
@@ -243,28 +241,7 @@ public class Environment
 			}
 		}
 		return battleField;	
-	}
-	
-	/**
-	 * Adds the Player's Pokemon into the battlefield.
-	 * @param p The Player's Pokemon to be added.
-	 * @param i The position of the Pokemon in the Player's Pokedex.
-	 */
-	public void setPlayerPokemon(Pokemon p)
-	{
-		playerCurrentPokemon = p;
-	}
-	
-	/**
-	 * Adds the Computer's Pokemon into the battlefield.
-	 * @param p The Computer's Pokemon to be added.
-	 * @param i The position of the Pokemon in the Computer's Pokedex.
-	 */
-	public void setComputerPokemon(Pokemon p)
-	{
-		computerCurrentPokemon = p;
-	}
-	
+	}	
 	/**
 	 * @param p The player
 	 */
@@ -279,24 +256,7 @@ public class Environment
 	public void setComputer(Computer c)
 	{
 		computer = c;
-	}
-	
-	/**
-	 * @return The Player's current Pokemon.
-	 */
-	public Pokemon getCurrentPlayerPokemon()
-	{
-		return playerCurrentPokemon;
-	}
-	
-	/**
-	 * @return The Computer's current Pokemon.
-	 */
-	public Pokemon getCurrentComputerPokemon()
-	{
-		return computerCurrentPokemon;
-	}
-	
+	}	
 	/**
 	 * @return The Player
 	 */
