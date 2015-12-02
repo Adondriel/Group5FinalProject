@@ -29,7 +29,7 @@ public class Swap implements SwapCommand
 	@Override
 	public void executeSwap(Pokemon selectedPokemon)
 	{
-		e.setPlayerPokemon(selectedPokemon);
+		e.getPlayer().setSelectedPokemon(selectedPokemon);
 		if (e.getTc().getCurrentTurn() instanceof PlayerTurn){
 			PlayerTurn pt = (PlayerTurn) e.getTc().getCurrentTurn();
 			pt.actuallyTakeTurn();
