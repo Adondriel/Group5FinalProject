@@ -23,7 +23,7 @@ public class ComputerTurn extends Turn
 		//Trainer t = turnSwitch.getTrainer();
 		//Pokemon p = turnSwitch.getTrainer().getSelectedPokemon();
 		int i = turnSwitch.getComputer().getSelectedPokemon().getCurrentHealth();
-		if(turnSwitch.getComputer().getSelectedPokemon().getCurrentHealth()==0){
+		if(turnSwitch.getComputer().getSelectedPokemon().getCurrentHealth()<=0){
 			turnSwitch.setTurn(turnSwitch.getComputerPokemon());
 		}
 		else{
