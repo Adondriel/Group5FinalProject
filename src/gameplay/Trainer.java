@@ -121,6 +121,13 @@ public abstract class Trainer
 		this.pokedex=pokedex;
 	}
 	
+	/**
+	 * @return the pokedex
+	 */
+	public ArrayList<Pokemon> getPokedex(){
+		return pokedex;
+	}
+	
 	public ItemBehavior getItemAtIndex(int i) {
 		return items.get(i);
 	}

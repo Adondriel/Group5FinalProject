@@ -1,5 +1,6 @@
 package gameState;
 
+import view.Display;
 import exceptions.StatusEffectException;
 
 /**
@@ -24,6 +25,7 @@ public class ComputerFight extends Turn{
 		}
 		turnSwitch.setTrainer(turnSwitch.getPlayer());
 		turnSwitch.setTurn(turnSwitch.getPlayerTurn());
+		Display.updateViews();
 	}
 	
 }
