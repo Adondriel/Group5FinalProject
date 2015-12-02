@@ -21,9 +21,6 @@ public class Caterpie extends Pokemon
 		super.experience=0;
 		super.type=new GrassType();
 		super.name="Caterpie";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(stringShot);
 		moves.add(tackle);
 		moves.add(bugBite);

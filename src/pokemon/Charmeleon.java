@@ -22,9 +22,6 @@ public class Charmeleon extends Pokemon
 		super.experience=0;
 		super.type=new FireType();
 		super.name="Charmeleon";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(ember);
 		moves.add(heatWave);
 		moves.add(fireFang);

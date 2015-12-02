@@ -22,9 +22,6 @@ public class Charmander extends Pokemon
 		super.experience=0;
 		super.type=new FireType();
 		super.name="Charmander";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(ember);
 		moves.add(fireFang);
 		moves.add(inferno);

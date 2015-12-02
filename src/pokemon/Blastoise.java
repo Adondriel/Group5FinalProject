@@ -22,9 +22,6 @@ public class Blastoise extends Pokemon
 		super.experience=0;
 		super.type=new WaterType();
 		super.name="Blastoise";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(bubble);
 		moves.add(waterPulse);
 		moves.add(hydroPump);

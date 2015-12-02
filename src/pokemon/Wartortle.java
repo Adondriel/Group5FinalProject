@@ -22,9 +22,6 @@ public class Wartortle extends Pokemon
 		super.experience=0;
 		super.type=new WaterType();
 		super.name="Wartortle";
-		super.burn=false;
-		super.freeze=false;
-		super.poison=false;
 		moves.add(waterGun);
 		moves.add(bubble);
 		moves.add(waterPulse);
