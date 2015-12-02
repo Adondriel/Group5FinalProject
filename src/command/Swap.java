@@ -1,5 +1,6 @@
 package command;
 
+import gameState.PlayerTurn;
 import gameplay.Environment;
 import gameplay.Trainer;
 import pokemon.Pokemon;
@@ -30,7 +31,11 @@ public class Swap implements SwapCommand
 	public void executeSwap(Pokemon selectedPokemon)
 	{
 		e.setPlayerPokemon(selectedPokemon);
+		if (e.getTc().getCurrentTurn() instanceof PlayerTurn){
+			PlayerTurn pt = (PlayerTurn) e.getTc().getCurrentTurn();
+			pt.actuallyTakeTurn();
 
+		}
 	}
 
 }
