@@ -39,7 +39,10 @@ public class BattleView extends View implements Observer {
 	 * The method that creates all the components.
 	 */
 	private void initComponents(){
-		System.out.println(myModel.getPlayer().getSelectedPokemon().getCurrentHealth());
+		if (myModel.getPlayer().getPokedex().size()==0){
+			System.out.println("Computer has defeated the player! Computer wins!");
+			System.exit(0);
+		}
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
 		jButton3 = new javax.swing.JButton();

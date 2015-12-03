@@ -19,6 +19,10 @@ public class ComputerFight extends Turn{
 
 	@Override
 	public void takeTurn() {
+		if (turnSwitch.getComputer().getPokedex().size()==0){
+			System.out.println("Player has defeated the computer! Player wins!");
+			System.exit(0);
+		}
 		int attack=(int) Math.floor(Math.random()*4);
 		turnSwitch.getComputer().getSelectedPokemon().setCurrentAttack(attack);
 		System.out.println("ComputerFight");

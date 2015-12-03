@@ -100,13 +100,13 @@ public class TurnChange
 	 * @return computer trainer
 	 */
 	public Trainer getComputer(){
-		return computer;
+		return e.getComputer();
 	}
 	
 	/**
 	 * @return player trainer
 	 */
 	public Trainer getPlayer(){
-		return player;
+		return e.getPlayer();
 	}
 }
