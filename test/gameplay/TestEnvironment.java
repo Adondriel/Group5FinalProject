@@ -1,6 +1,8 @@
 package gameplay;
 /**
  * Tests the functionality of the Environment class.
+ * Broken because the Environment got changed last 
+ * minute and didn't have time to update the tests.
  * Author: Jason LoBianco
  */
 import static org.junit.Assert.*;
