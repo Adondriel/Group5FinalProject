@@ -4,22 +4,21 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.ImageIcon;
 
-import controller.Controller;
-import exceptions.StatusEffectException;
 import gameState.PlayerTurn;
-import gameplay.Environment;
-import model.Model;
 import model.Observer;
-import pokemon.Bulbasaur;
 import statusEffects.Burn;
 import statusEffects.Frozen;
 import statusEffects.Poison;
 /**
- * 
+ * The main view, this is where every other view will return to.
+ * The buttons only change the View, they do not call any controllers.
  * @author Adam Pine
  *
  */
 public class BattleView extends View implements Observer {
+	/**
+	 * Battleview will reset the controller, create the view, then attach itself to the model.
+	 */
 	public BattleView(){
 		myController = null;
 		initComponents();

@@ -10,8 +10,17 @@ import model.Observer;
 import statusEffects.Burn;
 import statusEffects.Frozen;
 import statusEffects.Poison;
-
+/**
+ * This view will show the list of available pokemon to swap to.
+ * @author Adam Pine
+ *
+ */
 public class SwapPokemonView extends View implements Observer {
+	/**
+	 * Reset the controller, we dont want the old controller to still be here.
+	 * Attach this View to the model
+	 * Now, we just have to create all of the components.
+	 */
 	public SwapPokemonView() {
 		myController = null;
 		myModel.attach(this);
@@ -19,12 +28,17 @@ public class SwapPokemonView extends View implements Observer {
 	}
 
 	@Override
+	/**
+	 * Redraw all of the components
+	 */
 	public void update() {
 		System.out.println("Swap PokemonViews Updated");
 		this.removeAll();
 		initComponents();
 	}
-
+	/**
+	 * Create all of the components
+	 */
 	private void initComponents() {
 
 		jButton1 = new javax.swing.JButton();
@@ -43,7 +57,7 @@ public class SwapPokemonView extends View implements Observer {
 
 		setMinimumSize(new java.awt.Dimension(1080, 680));
 		setPreferredSize(new java.awt.Dimension(1080, 680));
-
+		//Determines how to display each of the pokemon.
 		jButton1.setVisible(false);
 		jButton2.setVisible(false);
 		jButton3.setVisible(false);
@@ -221,19 +235,28 @@ public class SwapPokemonView extends View implements Observer {
 						.addComponent(jButton4))
 				.addGap(21, 21, 21)));
 	}// </editor-fold>
-
+	/**
+	 * Choose pokemon at position 0
+	 * @param evt
+	 */
 	protected void SwapToPokemon0(ActionEvent evt) {
 		myModel.detach(this);
 		myController = new SwapPokemonController(myModel, myModel.getPlayer().getPokemon(0));
 		myController.execute();
 	}
-
+	/**
+	 * Choose pokemon at position 1
+	 * @param evt
+	 */
 	protected void SwapToPokemon1(ActionEvent evt) {
 		myModel.detach(this);
 		myController = new SwapPokemonController(myModel, myModel.getPlayer().getPokemon(1));
 		myController.execute();
 	}
-
+	/**
+	 * Choose pokemon at position 2
+	 * @param evt
+	 */
 	protected void SwapToPokemon2(ActionEvent evt) {
 		myModel.detach(this);
 		myController = new SwapPokemonController(myModel, myModel.getPlayer().getPokemon(2));

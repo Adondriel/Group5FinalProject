@@ -7,25 +7,36 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JToggleButton;
 
-import controller.Controller;
 import controller.SelectThreePokemonController;
-import gameplay.Computer;
-import gameplay.Environment;
-import gameplay.Player;
 import model.Model;
 import model.Observer;
+import pokemon.Blastoise;
 import pokemon.Bulbasaur;
-import pokemon.*;
+import pokemon.Caterpie;
+import pokemon.Charizard;
+import pokemon.Charmander;
+import pokemon.Charmeleon;
+import pokemon.Ivysaur;
 import pokemon.Pokemon;
+import pokemon.Poliwag;
+import pokemon.Squirtle;
+import pokemon.Venusaur;
+import pokemon.Vulpix;
+import pokemon.Wartortle;
 /**
- * 
+ * The initial View where you select your three pokemon
  * @author Adam Pine
  *
  */
 public class InitialView extends View implements Observer {
+	//selectedButtonList is used to determin which and how many buttons have been selected.
 	private ArrayList<JToggleButton> selectedButtonList = new ArrayList<JToggleButton>(0);
+	//pokemonList is used so that we have a list of pokemon that have been selected, determined by a method further down.
 	private ArrayList<Pokemon> pokemonList = new ArrayList<Pokemon>();
-
+	/**
+	 * Init view will create the new model for the entire program to use.
+	 * It will tthen create the buttons.
+	 */
 	public InitialView() {
 		myModel = new Model();
 		initComponents();
@@ -36,9 +47,11 @@ public class InitialView extends View implements Observer {
 		//Update the info in the view. 
 		//Init view does not need this.
 	}
-
+	/**
+	 * Create all of the buttons and other components.
+	 */
 	private void initComponents() {
-
+		//Setup all 12 of the pokemon buttons
 		jToggleButton1 = new JToggleButton();
 		jToggleButton2 = new JToggleButton();
 		jToggleButton3 = new JToggleButton();
@@ -236,7 +249,10 @@ public class InitialView extends View implements Observer {
 				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
 				.addComponent(CompleteButton).addContainerGap()));
 	}
-
+	/**
+	 * Determine which pokemon they have selected based on which button they have selected.
+	 * @param evt
+	 */
 	private void CompleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
 		// call the controller function.
 		for (int i = 0; i < 3; i++) {
@@ -280,7 +296,11 @@ public class InitialView extends View implements Observer {
 		myController = new SelectThreePokemonController(myModel, pokemonList);
 		myController.execute();
 	}
-
+	/**
+	 * Toggle logic, don't allow them to select more than one, and if they unselect a button, disable the button.
+	 * @param evt
+	 * @param jtb
+	 */
 	private void jToggleButtonActionPerformed(ActionEvent evt, JToggleButton jtb) {
 		if (jtb.isSelected()){
 			if (selectedButtonList.size() >=3){

@@ -1,37 +1,43 @@
 package view;
 
-import java.awt.event.ActionEvent;
-
 import javax.swing.ImageIcon;
 
 import controller.UseItemController;
-import gameplay.Environment;
-import items.BottleWater;
-import items.HPPotion;
-import model.Model;
 import model.Observer;
 import statusEffects.Burn;
 import statusEffects.Frozen;
 import statusEffects.Poison;
-
+/**
+ * This view will display a list of items that the player can use.
+ * @author Adam Pine
+ *
+ */
 public class SelectItemView extends View implements Observer{
+	/**
+	 * Reset the controller, init the View, attach to the model and optionally create bug/print debug info.
+	 */
 	public SelectItemView(){
 		myController = null;
+		//uncomment to release bug! copy to the init view, and it should work fine.
 		//myModel.getPlayer().addItem(new HPPotion());
 		//myModel.getPlayer().addItem(new BottleWater());
 		initComponents();
 		myModel.attach(this);
-
-		System.out.println(myModel.getPlayer().getCurrentNumberOfItems());
+		//System.out.println(myModel.getPlayer().getCurrentNumberOfItems());
 	}
 
 	@Override
+	/**
+	 * Recreate/Redraw all of the components.
+	 */
 	public void update() {
 		System.out.println("SelectItemView Updated");
 		this.removeAll();
 		initComponents();		
 	};
-	
+	/**
+	 * Create all of the components
+	 */
 	private void initComponents(){
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
@@ -49,8 +55,9 @@ public class SelectItemView extends View implements Observer{
         
 		setMinimumSize(new java.awt.Dimension(1080, 680));
 		setPreferredSize(new java.awt.Dimension(1080, 680));
-		System.out.println(myModel.getPlayer().getCurrentNumberOfItems());
-
+		//uncomment below for debug message
+		//System.out.println(myModel.getPlayer().getCurrentNumberOfItems());
+		//determine which items to display and how many buttons should be visible.
 		if (myModel.getPlayer().getItems().size() == 0){
 			jButton1.setText("back");
 			jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +67,7 @@ public class SelectItemView extends View implements Observer{
 			});
 			jButton2.setVisible(false);
 		}
-		if (myModel.getPlayer().getItems().size() == 1){
+		if (myModel.getPlayer().getItems().size() >= 1){
 			jButton1.setText(myModel.getPlayer().getItemAtIndex(0).getClass().getSimpleName());
 			jButton1.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,12 +253,7 @@ public class SelectItemView extends View implements Observer{
 	protected void backButtonPress() {
 		myModel.detach(this);
 		Display.globalDisplay.changeView(new BattleView());		
-	}
-
-	private void buttonPressed(ActionEvent evt) {
-		
-	}
-	
+	}	
 	// Variables declaration - do not modify
 	private javax.swing.JProgressBar EnemyHPBar;
     private javax.swing.JLabel EnemyStatusIcon;

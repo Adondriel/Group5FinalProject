@@ -3,24 +3,30 @@ package view;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import attacks.FireType;
-import attacks.GrassType;
-import attacks.WaterType;
 import controller.AttackController;
 import model.Observer;
 import statusEffects.Burn;
 import statusEffects.Frozen;
 import statusEffects.Poison;
-
+/**
+ * This view will display a list of the attacks that the selected pokemon can use.
+ * @author Adam Pine
+ *
+ */
 public class SelectAttackView extends View implements Observer{
+	/**
+	 * Constructor, attaches itself to the model, when it creates and executes it's controller, it will detach itself as well.
+	 */
 	public SelectAttackView(){
 		myController = null;
 		initComponents();
 		myModel.attach(this);
 	}
-	
+	/**
+	 * Create all of the Components
+	 */
 	private void initComponents() {
-
+		//declarations
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -203,7 +209,11 @@ public class SelectAttackView extends View implements Observer{
         		);
     }// </editor-fold>                    
 
-
+	/**
+	 * Depending on this button was pressed, determine which attack to use.
+	 * @param evt
+	 * @param jb
+	 */
     private void jButtonActionPerformed(java.awt.event.ActionEvent evt, JButton jb) {    
     	myModel.detach(this);
         if (jb == jButton1){

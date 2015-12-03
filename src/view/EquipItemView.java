@@ -4,18 +4,12 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.ImageIcon;
 
-import controller.Controller;
 import controller.EquipItemController;
-import exceptions.StatusEffectException;
-import gameState.PlayerTurn;
-import gameplay.Environment;
 import heldItems.FireGem;
 import heldItems.GrassGem;
 import heldItems.MachoBrace;
 import heldItems.WaterGem;
-import model.Model;
 import model.Observer;
-import pokemon.Bulbasaur;
 import statusEffects.Burn;
 import statusEffects.Frozen;
 import statusEffects.Poison;
@@ -25,6 +19,9 @@ import statusEffects.Poison;
  * Allows the pokemon to equip an item, only one held item can be equiped.
  */
 public class EquipItemView extends View implements Observer {
+	/**
+	 * Equip Item View will reset the controller, init the buttons, then attach itself to the Model.
+	 */
 	public EquipItemView(){
 		myController = null;
 		initComponents();

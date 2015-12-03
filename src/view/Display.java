@@ -3,12 +3,10 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import gameplay.Player;
 import model.Model;
 import model.Observer;
-import pokemon.Bulbasaur;
 /**
- * 
+ * This is the main part of the game, it is what displays the different views directly.
  * @author Adam Pine
  *
  */
@@ -16,15 +14,19 @@ public class Display implements Observer {
 	JFrame frame = new JFrame();
 	JPanel iv;
 	Model myModel;
-	
+	//Global display is static and public so that views and other classes are able to change the current view.
 	public static Display globalDisplay;
-	
+	//This main method is just used to run this file, use it for testing without time limits.
 	public static void main(String args[]){
 		Model m = new Model();
 		globalDisplay = new Display(m);
 	}
-	
+	/**
+	 * Constructor Pass in a model, that it no longer uses, since the initial view is what sets up the model for all of the views.
+	 * @param m
+	 */
 	public Display(Model m){
+		globalDisplay = this;
 		 iv = new InitialView();
 		 
 		 frame.add(iv);
