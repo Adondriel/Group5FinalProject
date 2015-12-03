@@ -1,99 +1,125 @@
 package view;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
 
-import attacks.FireType;
-import attacks.GrassType;
-import attacks.WaterType;
-import controller.AttackController;
+import javax.swing.ImageIcon;
+
+import controller.Controller;
+import controller.EquipItemController;
+import exceptions.StatusEffectException;
+import gameState.PlayerTurn;
+import gameplay.Environment;
+import heldItems.FireGem;
+import heldItems.GrassGem;
+import heldItems.MachoBrace;
+import heldItems.WaterGem;
+import model.Model;
 import model.Observer;
+import pokemon.Bulbasaur;
 import statusEffects.Burn;
 import statusEffects.Frozen;
 import statusEffects.Poison;
-
-public class SelectAttackView extends View implements Observer{
-	public SelectAttackView(){
+/**
+ * 
+ * @author Adam Pine
+ * Allows the pokemon to equip an item, only one held item can be equiped.
+ */
+public class EquipItemView extends View implements Observer {
+	public EquipItemView(){
 		myController = null;
 		initComponents();
 		myModel.attach(this);
 	}
-	
-	private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        playerPokemonIcon = new javax.swing.JLabel();
-        playerNameLabel = new javax.swing.JLabel();
-        playerHPBar = new javax.swing.JProgressBar();
-        enemyNameLabel = new javax.swing.JLabel();
-        enemyPokemonIcon = new javax.swing.JLabel();
-        EnemyHPBar = new javax.swing.JProgressBar();
-        jSeparator2 = new javax.swing.JSeparator();
+	@Override
+	/**
+	 * This will cause the entire window to be redrawn anytime the update method gets called.
+	 */
+	public void update() {
+		System.out.println("BattleView Updated");
+		this.removeAll();
+		initComponents();
+	}
+	/**
+	 * The method that creates all the components.
+	 */
+	private void initComponents(){
+		System.out.println(myModel.getPlayer().getSelectedPokemon().getCurrentHealth());
+		jButton1 = new javax.swing.JButton();
+		jButton2 = new javax.swing.JButton();
+		jButton3 = new javax.swing.JButton();
+		jButton4 = new javax.swing.JButton();
+		playerPokemonIcon = new javax.swing.JLabel();
+		playerNameLabel = new javax.swing.JLabel();
+		playerHPBar = new javax.swing.JProgressBar();
+		enemyNameLabel = new javax.swing.JLabel();
+		enemyPokemonIcon = new javax.swing.JLabel();
+		EnemyHPBar = new javax.swing.JProgressBar();
+		jSeparator2 = new javax.swing.JSeparator();
         PlayerStatusIcon = new javax.swing.JLabel();
         EnemyStatusIcon = new javax.swing.JLabel();
         
-        String atkStr1 = "Error";
-        String atkStr2 = "Error";
-        String atkStr3 = "Error";
-        String atkStr4 = "Error";
-        
-        setMinimumSize(new java.awt.Dimension(1080, 680));
-        setPreferredSize(new java.awt.Dimension(1080, 680));
-        /**
-         * Set up the name of the attacks section.
-         */
-             atkStr1 = myModel.getPlayer().getSelectedPokemon().getMoves().get(0).getClass().getSimpleName();
-             atkStr2 = myModel.getPlayer().getSelectedPokemon().getMoves().get(1).getClass().getSimpleName();
-             atkStr3 = myModel.getPlayer().getSelectedPokemon().getMoves().get(2).getClass().getSimpleName();
-             atkStr4 = myModel.getPlayer().getSelectedPokemon().getMoves().get(3).getClass().getSimpleName();
-        /**
-         * Assemble the buttons!
-         */
-        jButton1.setText(atkStr1);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActionPerformed(evt, jButton1);
-            }
-        });
+		setMinimumSize(new java.awt.Dimension(1080, 680));
+		setPreferredSize(new java.awt.Dimension(1080, 680));
+		//setup the buttons
+		jButton1.setText("Water Gem");
+		jButton1.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				waterGemPressed(evt);
+			}
+		});
 
-        jButton2.setText(atkStr2);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActionPerformed(evt, jButton2);
-            }
-        });
+		jButton2.setText("Grass Gem");
+		jButton2.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				grassGemPressed(evt);
+			}
+		});
 
-        jButton3.setText(atkStr3);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActionPerformed(evt, jButton3);
-            }
-        });
+		jButton3.setText("Fire Gem");
+		jButton3.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				fireGemPressed(evt);
+			}
+		});
 
-        jButton4.setText(atkStr4);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActionPerformed(evt, jButton4);
-            }
-        });
-        
-        String str = "resources/"+myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8)+"200.png";
-        ImageIcon img = new ImageIcon(getClass().getResource(str));
-        playerPokemonIcon.setIcon(img);
-        playerPokemonIcon.setText("Pokemon");
-        playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
+		jButton4.setText("Macho Brace");
+		jButton4.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				machoBracePressed(evt);
+			}
+		});
 
-        playerNameLabel.setText(myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8));
-        double hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
-        double max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
-        double hpPercent = (hp/max)*100;
-        playerHPBar.setValue((int)hpPercent);
-
+		/**
+		 * Player Section. Assembles player info.
+		 */
+		//Determines the icon that needs to be used.
+		String str = "resources/" + myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8)+ "200.png";		
+		ImageIcon img = new ImageIcon(getClass().getResource(str));
+		playerPokemonIcon.setIcon(img);
+		playerPokemonIcon.setPreferredSize(new java.awt.Dimension(200, 200));
+		playerNameLabel.setText(myModel.getPlayer().getSelectedPokemon().getClass().getName().substring(8));
+		//player HP bar section
+		double hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
+		double max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
+		System.out.println(hp+"/"+max);
+		double hpPercent = (hp / max) * 100;
+		System.out.println(hpPercent+"%");
+		playerHPBar.setValue((int)hpPercent);
+		
+		
+		/* Test line to make sure the status icon code works.		
+		 * try {
+			Environment.getEnvironment().getPlayer().getSelectedPokemon().setStatus(new Poison(Environment.getEnvironment().getPlayer().getSelectedPokemon()));
+		} catch (StatusEffectException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		/**
+		 * Player Status icon section.
+		 */
 		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
-			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/fireIC_Big.png")));
+			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));
 			PlayerStatusIcon.setVisible(true);
 		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Poison){
 			PlayerStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/PoisonIC_Big.png")));
@@ -104,6 +130,7 @@ public class SelectAttackView extends View implements Observer{
 		}else{
 			PlayerStatusIcon.setVisible(false);
 		}
+		
 		
 		/**
 		 * Enemy Section
@@ -132,9 +159,9 @@ public class SelectAttackView extends View implements Observer{
 		}else{
 			EnemyStatusIcon.setVisible(false);
 		}
-		
+
 		/**
-		 * Net beans generated layout code.
+		 * Netbeans generated layout code.
 		 */
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -201,49 +228,50 @@ public class SelectAttackView extends View implements Observer{
                     .addComponent(jButton4))
                 .addGap(21, 21, 21))
         		);
-    }// </editor-fold>                    
+	}// </editor-fold>
+	protected void grassGemPressed(ActionEvent evt) {
+		myModel.detach(this);
+		myModel.getPlayer().getSelectedPokemon().unequipItem();
+		myController = new EquipItemController(myModel, new GrassGem(myModel.getPlayer().getSelectedPokemon()));
+		myController.execute();
+	}
 
+	protected void fireGemPressed(ActionEvent evt) {
+		myModel.detach(this);
+		myModel.getPlayer().getSelectedPokemon().unequipItem();
+		myController = new EquipItemController(myModel, new FireGem(myModel.getPlayer().getSelectedPokemon()));
+		myController.execute();
+	}
 
-    private void jButtonActionPerformed(java.awt.event.ActionEvent evt, JButton jb) {    
-    	myModel.detach(this);
-        if (jb == jButton1){
-        	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(0));
-        	myController.execute();
-        }
-        if (jb == jButton2){
-        	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(1));
-        	myController.execute();
-        }
-        if (jb == jButton3){
-        	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(2));
-        	myController.execute();
-        }
-        if (jb == jButton4){
-        	myController = new AttackController(myModel, myModel.getPlayer().getSelectedPokemon().getMoves().get(3));
-        	myController.execute();
-        }        
-    }                                 
+	protected void machoBracePressed(ActionEvent evt) {
+		myModel.detach(this);
+		myModel.getPlayer().getSelectedPokemon().unequipItem();
+		myController = new EquipItemController(myModel, new MachoBrace(myModel.getPlayer().getSelectedPokemon()));
+		myController.execute();
+	}
 
+	protected void waterGemPressed(ActionEvent evt) {
+		myModel.detach(this);
+		myModel.getPlayer().getSelectedPokemon().unequipItem();
+		myController = new EquipItemController(myModel, new WaterGem(myModel.getPlayer().getSelectedPokemon()));
+		myController.execute();
+	}
 
-    // Variables declaration - do not modify                     
-    private javax.swing.JProgressBar EnemyHPBar;
+	// Variables declaration - do not modify
+	private javax.swing.JProgressBar EnemyHPBar;
     private javax.swing.JLabel EnemyStatusIcon;
     private javax.swing.JLabel PlayerStatusIcon;
-    private javax.swing.JLabel enemyNameLabel;
-    private javax.swing.JLabel enemyPokemonIcon;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JProgressBar playerHPBar;
-    private javax.swing.JLabel playerNameLabel;
-    private javax.swing.JLabel playerPokemonIcon;
-    // End of variables declaration 
-	@Override
-	public void update() {
-		System.out.println("Select Attack View Updated");
-		this.removeAll();
-		initComponents();		
-	}
+	private javax.swing.JLabel background;
+	private javax.swing.JLabel enemyNameLabel;
+	private javax.swing.JLabel enemyPokemonIcon;
+	private javax.swing.JButton jButton1;
+	private javax.swing.JButton jButton2;
+	private javax.swing.JButton jButton3;
+	private javax.swing.JButton jButton4;
+	private javax.swing.JSeparator jSeparator2;
+	private javax.swing.JProgressBar playerHPBar;
+	private javax.swing.JLabel playerNameLabel;
+	private javax.swing.JLabel playerPokemonIcon;
+	// End of variables declaration
+
 }

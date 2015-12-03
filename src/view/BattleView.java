@@ -39,7 +39,10 @@ public class BattleView extends View implements Observer {
 	 * The method that creates all the components.
 	 */
 	private void initComponents(){
-		System.out.println(myModel.getPlayer().getSelectedPokemon().getCurrentHealth());
+		if (myModel.getPlayer().getPokedex().size()==0){
+			System.out.println("Computer has defeated the player! Computer wins!");
+			System.exit(0);
+		}
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
 		jButton3 = new javax.swing.JButton();
@@ -109,7 +112,7 @@ public class BattleView extends View implements Observer {
 		//player HP bar section
 		double hp = myModel.getPlayer().getSelectedPokemon().getCurrentHealth();
 		double max = myModel.getPlayer().getSelectedPokemon().getMaxHealth();
-		System.out.println(hp+"/"+max);
+		System.out.println("player hp:" + hp+"/"+max);
 		double hpPercent = (hp / max) * 100;
 		System.out.println(hpPercent+"%");
 		playerHPBar.setValue((int)hpPercent);
@@ -154,13 +157,13 @@ public class BattleView extends View implements Observer {
 		// Enemy HP bar
 		EnemyHPBar.setValue((int)(((double)myModel.getComputer().getSelectedPokemon().getCurrentHealth()/(double)myModel.getComputer().getSelectedPokemon().getMaxHealth())*100));
 		//Enemy Status bar
-		if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Burn){
+		if (myModel.getComputer().getSelectedPokemon().getStatus() instanceof Burn){
 			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/FireIC_Big.png")));
 			EnemyStatusIcon.setVisible(true);
-		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Poison){
+		}else if (myModel.getComputer().getSelectedPokemon().getStatus() instanceof Poison){
 			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/PoisonIC_Big.png")));
 			EnemyStatusIcon.setVisible(true);			
-		}else if (myModel.getPlayer().getSelectedPokemon().getStatus() instanceof Frozen){
+		}else if (myModel.getComputer().getSelectedPokemon().getStatus() instanceof Frozen){
 			EnemyStatusIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("resources/IceIC_Big.png")));
 			EnemyStatusIcon.setVisible(true);
 		}else{

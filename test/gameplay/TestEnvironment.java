@@ -52,7 +52,8 @@ public class TestEnvironment
 
 	/**
 	 * Checks to see that the player and computer Pokemon got set into the correct spots.
-	 */
+	 * No longer needed, these methods created confusion because it was storing a separate copy of the player's pokemon/computer's pokemon
+	 *//*
 	@Test
 	public void testInitialization() 
 	{
@@ -62,9 +63,9 @@ public class TestEnvironment
 		assertTrue(battlefield.getCurrentComputerPokemon() instanceof Bulbasaur);
 	}
 	
-	/**
+	*//**
 	 * Checks to see that a player can switch their current Pokemon on the battlefield.
-	 */
+	 *//*
 	@Test
 	public void testPlayerSwitchPokemon()
 	{
@@ -74,9 +75,9 @@ public class TestEnvironment
 		assertTrue(battlefield.getCurrentPlayerPokemon() instanceof Caterpie);
 	}
 	
-	/**
+	*//**
 	 * Checks to see that a computer can switch their current Pokemon on the battlefield.
-	 */
+	 *//*
 	@Test
 	public void testComputerSwitchPokemon()
 	{
@@ -84,5 +85,5 @@ public class TestEnvironment
 		assertTrue(battlefield.getCurrentComputerPokemon() instanceof Bulbasaur);
 		battlefield.setComputerPokemon(c.getPokemon(1));
 		assertTrue(battlefield.getCurrentComputerPokemon() instanceof Charmander);
-	}
+	}*/
 }

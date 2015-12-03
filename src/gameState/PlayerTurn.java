@@ -17,6 +17,8 @@ public class PlayerTurn extends Turn
 
 	public void takeTurn(){
 		System.out.println("Player turn");
+		System.out.println("Player Pokedex Size"+ turnSwitch.getPlayer().getPokedex().size());
+
 		if(turnSwitch.getPlayer().getSelectedPokemon().getCurrentHealth()==0){
 			turnSwitch.getPlayer().getPokedex().remove(turnSwitch.getPlayer().getSelectedPokemon());
 			turnSwitch.getPlayer().setSelectedPokemon(turnSwitch.getPlayer().getPokedex().get(0));

@@ -29,7 +29,7 @@ public class WaterGem extends HeldItem
 	@Override
 	public int calculateAmplifiedExperience()
 	{
-		return p.getExperience();
+		return 0;
 	}
 
 }

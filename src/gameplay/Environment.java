@@ -214,9 +214,8 @@ public class Environment
 			Pokemon wartortle = new Wartortle();
 			computerPokedex.add(wartortle);
 		}
-		computer = new Computer(computerPokedex, null);
-		computer.setSelectedPokemon(computer.getPokemon((int) (Math.random()*3)));
-		
+		computer = new Computer(computerPokedex, computerPokedex.get(0));
+	
 		//playerCurrentPokemon = player.getSelectedPokemon();
 		//computerCurrentPokemon = computer.getSelectedPokemon();
 		battleField = this;

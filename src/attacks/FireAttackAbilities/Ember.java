@@ -6,6 +6,7 @@ import gameState.PlayerTurn;
 import gameplay.Environment;
 import gameplay.Player;
 import statusEffects.Burn;
+import view.View;
 
 /**
  * @author Bradley Solorzano Design Patterns Group 5 Final project attack that
@@ -13,7 +14,6 @@ import statusEffects.Burn;
  *
  */
 public class Ember extends Attack {
-	Environment e = Environment.getEnvironment();
 
 	/**
 	 * @param fire
@@ -29,11 +29,15 @@ public class Ember extends Attack {
 
 	@Override
 	public int getDamage() {
+		Environment e = Environment.getEnvironment();
+
 		if (e.getTc().getCurrentTurn() instanceof PlayerTurn) {
 			if (e.getComputer().getSelectedPokemon().getStatus() == null) {
 				try {
 					// Burn burn = new Burn(e.getCurrentComputerPokemon());
-					e.getComputer().getSelectedPokemon().setStatus(new Burn(Environment.getEnvironment().getComputer().getSelectedPokemon()));
+					//e.getCurrentPlayerPokemon().burnTarget();
+					e.getComputer().getSelectedPokemon().burnTarget();
+					View.myModel.update();
 				} catch (StatusEffectException e1) {
 					e1.printStackTrace();
 				}
@@ -43,7 +47,9 @@ public class Ember extends Attack {
 			if (e.getPlayer().getSelectedPokemon().getStatus() == null) {
 				try {
 					// Burn burn = new Burn(e.getCurrentPlayerPokemon());
-					e.getPlayer().getSelectedPokemon().setStatus(new Burn(Environment.getEnvironment().getPlayer().getSelectedPokemon()));
+					//e.getCurrentComputerPokemon().burnTarget();
+					e.getPlayer().getSelectedPokemon().burnTarget();
+					View.myModel.update();
 				} catch (StatusEffectException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
