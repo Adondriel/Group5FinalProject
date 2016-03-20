@@ -14,22 +14,22 @@ import attacks.*;
  */
 public abstract class Pokemon implements Pkmn
 {
-	int damage;
-	int maxHealth;
-	int currentHealth;
-	int experience;
+	private int damage;
+	private int maxHealth;
+	private int currentHealth;
+	private int experience;
 	/**
 	 * The pokemon's chance to attack
 	 */
-	public int chanceToAttack = 1;
-	TypeBehavior type;
-	String name;
+	private int chanceToAttack = 1;
+	private TypeBehavior type;
+	private String name;
 	
-	Pkmn pkmn=null;
-	ArrayList<Attack> moves=new ArrayList<Attack>();
-	Attack currentAttack=null;
+	private Pkmn pkmn=null;
+	private ArrayList<Attack> moves=new ArrayList<Attack>();
+	private Attack currentAttack=null;
 	
-	StatusEffect status=null;
+	private StatusEffect status=null;
 	
 	/**
 	 * @param target
@@ -67,48 +67,7 @@ public abstract class Pokemon implements Pkmn
 		return 0;
 	}
 	
-	/**
-	 * @return Pokemon's damage
-	 */
-	public int getDamage(){
-		return damage;
-	}
-	
-	/**
-	 * @return Pokemon's max health
-	 */
-	public int getMaxHealth(){
-		return maxHealth;
-	}
-	
-	/**
-	 * @return Pokemon's current health
-	 */
-	public int getCurrentHealth(){
-		return currentHealth;
-	}
-	
-	/**
-	 * @return Pokemon's experience
-	 */
-	public int getExperience(){
-		return experience;
-	}
-	
-	/**
-	 * @return Pokemon's name
-	 */
-	public String getName(){
-		return name;
-	}
-	
-	/**
-	 * @return Pokemon's type
-	 */
-	public TypeBehavior getType(){
-		return type;
-	}
-	
+
 	/**
 	 * @param damageTaken
 	 * Damage a Pokemon
@@ -225,4 +184,97 @@ public abstract class Pokemon implements Pkmn
 	public int calculateAmplifiedExperience(){
 		return 0;
 	}
+	
+	/**
+	 * @return Pokemon's damage
+	 */
+	public int getDamage(){
+		return damage;
+	}
+	
+	/**
+	 * @return Pokemon's max health
+	 */
+	public int getMaxHealth(){
+		return maxHealth;
+	}
+	
+	/**
+	 * @return Pokemon's current health
+	 */
+	public int getCurrentHealth(){
+		return currentHealth;
+	}
+	
+	/**
+	 * @return Pokemon's experience
+	 */
+	public int getExperience(){
+		return experience;
+	}
+	
+	/**
+	 * @return Pokemon's name
+	 */
+	public String getName(){
+		return name;
+	}
+	
+	/**
+	 * @return Pokemon's type
+	 */
+	public TypeBehavior getType(){
+		return type;
+	}
+
+	public int getChanceToAttack() {
+		return chanceToAttack;
+	}
+
+	public void setChanceToAttack(int chanceToAttack) {
+		this.chanceToAttack = chanceToAttack;
+	}
+
+	public Attack getCurrentAttack() {
+		return currentAttack;
+	}
+
+	public void setCurrentAttack(Attack currentAttack) {
+		this.currentAttack = currentAttack;
+	}
+
+	public void setDamage(int damage) {
+		this.damage = damage;
+	}
+
+	public void setMaxHealth(int maxHealth) {
+		this.maxHealth = maxHealth;
+	}
+
+	public void setCurrentHealth(int currentHealth) {
+		this.currentHealth = currentHealth;
+	}
+
+	public void setExperience(int experience) {
+		this.experience = experience;
+	}
+
+	public void setType(TypeBehavior type) {
+		this.type = type;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPkmn(Pkmn pkmn) {
+		this.pkmn = pkmn;
+	}
+
+	public void setMoves(ArrayList<Attack> moves) {
+		this.moves = moves;
+	}
+	
+	
+	
 }
