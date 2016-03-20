@@ -1,5 +1,7 @@
 package pokemon;
 
+import java.util.ArrayList;
+
 import attacks.*;
 import attacks.GrassAttackAbilities.*;
 
@@ -9,24 +11,28 @@ import attacks.GrassAttackAbilities.*;
  */
 public class Bulbasaur extends Pokemon
 {
-	Attack leechSeed=new LeechSeed(damage);
-	Attack vineWhip=new VineWhip(damage);
-	Attack razorLeaf=new RazorLeaf(damage);
-	Attack tackle=new Tackle(damage);
+	Attack leechSeed=new LeechSeed(getDamage());
+	Attack vineWhip=new VineWhip(getDamage());
+	Attack razorLeaf=new RazorLeaf(getDamage());
+	Attack tackle=new Tackle(getDamage());
 	
 	/**
 	 * constructor
 	 */
 	public Bulbasaur(){
-		super.damage=49;
-		super.maxHealth=450;
-		super.currentHealth=maxHealth;
-		super.experience=0;
-		super.type=new GrassType();
-		super.name="Bulbasaur";
-		moves.add(leechSeed);
-		moves.add(vineWhip);
-		moves.add(razorLeaf);
-		moves.add(tackle);
+		super.setDamage(49);
+		super.setMaxHealth(450);
+		super.setCurrentHealth(getMaxHealth());
+		super.setExperience(0);
+		super.setType(new GrassType());
+		super.setName("Bulbasaur");
+
+		ArrayList<Attack> myMoves=new ArrayList<Attack>();
+		myMoves=super.getMoves();
+		myMoves.add(leechSeed);
+		myMoves.add(vineWhip);
+		myMoves.add(razorLeaf);
+		myMoves.add(tackle);
+		super.setMoves(myMoves);
 	}
 }

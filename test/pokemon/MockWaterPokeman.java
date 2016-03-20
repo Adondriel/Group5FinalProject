@@ -1,7 +1,8 @@
 package pokemon;
 
+import java.util.ArrayList;
+
 import attacks.*;
-import attacks.WaterType;
 import attacks.WaterAttackAbilities.*;
 /**
  * @author Bradley Solorzano
@@ -10,26 +11,33 @@ import attacks.WaterAttackAbilities.*;
  */
 public class MockWaterPokeman extends Pokemon
 {
-	Attack bubble = new Bubble(damage);
-	Attack bubbleBeam = new BubbleBeam(damage);
-	Attack hydropump = new HydroPump(damage);
-	Attack watergun = new WaterGun(damage);
-	Attack waterpulse = new WaterPulse(damage);
-	Attack withdraw = new Withdraw(damage);
+	Attack bubble = new Bubble(getDamage());
+	Attack bubbleBeam = new BubbleBeam(getDamage());
+	Attack hydroPump = new HydroPump(getDamage());
+	Attack waterGun = new WaterGun(getDamage());
+	Attack waterPulse = new WaterPulse(getDamage());
+	Attack withdraw = new Withdraw(getDamage());
 	
+	/**
+	 * constructor
+	 */
 	public MockWaterPokeman()
 	{
-		super.damage=50;
-		super.maxHealth=400;
-		super.currentHealth=maxHealth;
-		super.experience=0;
-		super.type=new WaterType();
-		super.name="WATER";
-		moves.add(bubble);
-		moves.add(bubbleBeam);
-		moves.add(hydropump);
-		moves.add(watergun);
-		moves.add(waterpulse);
-		moves.add(withdraw);
+		super.setDamage(50);
+		super.setMaxHealth(400);
+		super.setCurrentHealth(getMaxHealth());
+		super.setExperience(0);
+		super.setType(new WaterType());
+		super.setName("WATER");
+
+		ArrayList<Attack> myMoves=new ArrayList<Attack>();
+		myMoves=super.getMoves();
+		myMoves.add(bubble);
+		myMoves.add(bubbleBeam);
+		myMoves.add(hydroPump);
+		myMoves.add(waterGun);
+		myMoves.add(waterPulse);
+		myMoves.add(withdraw);
+		super.setMoves(myMoves);
 	}
 }

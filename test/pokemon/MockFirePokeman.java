@@ -1,7 +1,8 @@
 package pokemon;
 
+import java.util.ArrayList;
+
 import attacks.*;
-import attacks.FireType;
 import attacks.FireAttackAbilities.*;
 
 /**
@@ -11,28 +12,32 @@ import attacks.FireAttackAbilities.*;
 */
 public class MockFirePokeman extends Pokemon
 {
-	Attack ember = new Ember(damage);
-	Attack firefang = new FireFang(damage);
-	Attack firespin = new FireSpin(damage);
-	Attack heatWave = new HeatWave(damage);
-	Attack inferno = new Inferno(damage);
-	Attack will_O_wisp = new Will_O_Wisp(damage);
+	Attack ember = new Ember(getDamage());
+	Attack fireFang = new FireFang(getDamage());
+	Attack fireSpin = new FireSpin(getDamage());
+	Attack heatWave = new HeatWave(getDamage());
+	Attack inferno = new Inferno(getDamage());
+	Attack will_O_wisp = new Will_O_Wisp(getDamage());
 	/**
 	 * constructor
 	 */
 	public MockFirePokeman()
 	{
-		super.damage=84;
-		super.maxHealth=780;
-		super.currentHealth=maxHealth;
-		super.experience=0;
-		super.type=new FireType();
-		super.name="FIRE";
-		moves.add(ember);
-		moves.add(heatWave);
-		moves.add(firefang);
-		moves.add(inferno);
-		moves.add(will_O_wisp);
-		moves.add(firespin);
+		super.setDamage(84);
+		super.setMaxHealth(780);
+		super.setCurrentHealth(getMaxHealth());
+		super.setExperience(0);
+		super.setType(new FireType());
+		super.setName("FIRE");
+		
+		ArrayList<Attack> myMoves=new ArrayList<Attack>();
+		myMoves=super.getMoves();
+		myMoves.add(ember);
+		myMoves.add(fireFang);
+		myMoves.add(fireSpin);
+		myMoves.add(heatWave);
+		myMoves.add(inferno);
+		myMoves.add(will_O_wisp);
+		super.setMoves(myMoves);
 	}
 }

@@ -1,4 +1,6 @@
 package pokemon;
+import java.util.ArrayList;
+
 import attacks.*;
 import attacks.WaterAttackAbilities.*;
 /**
@@ -7,24 +9,28 @@ import attacks.WaterAttackAbilities.*;
  */
 public class Blastoise extends Pokemon
 {
-	Attack bubble=new Bubble(damage);
-	Attack waterPulse=new WaterPulse(damage);
-	Attack hydroPump=new HydroPump(damage);
-	Attack withdraw=new Withdraw(damage);
+	Attack bubble=new Bubble(getDamage());
+	Attack waterPulse=new WaterPulse(getDamage());
+	Attack hydroPump=new HydroPump(getDamage());
+	Attack withdraw=new Withdraw(getDamage());
 	
 	/**
 	 * constructor
 	 */
 	public Blastoise(){
-		super.damage=83;
-		super.maxHealth=790;
-		super.currentHealth=maxHealth;
-		super.experience=0;
-		super.type=new WaterType();
-		super.name="Blastoise";
-		moves.add(bubble);
-		moves.add(waterPulse);
-		moves.add(hydroPump);
-		moves.add(withdraw);
+		super.setDamage(83);
+		super.setMaxHealth(790);
+		super.setCurrentHealth(super.getMaxHealth());
+		super.setExperience(0);
+		super.setType(new WaterType());
+		super.setName("Blastoise");
+		
+		ArrayList<Attack> myMoves=new ArrayList<Attack>();
+		myMoves=super.getMoves();
+		myMoves.add(bubble);
+		myMoves.add(waterPulse);
+		myMoves.add(hydroPump);
+		myMoves.add(withdraw);
+		super.setMoves(myMoves);
 	}
 }
